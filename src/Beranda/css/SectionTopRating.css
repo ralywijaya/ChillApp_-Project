@@ -1,0 +1,30 @@
+
+.top-rating-film{
+    width:100%;
+height: auto;
+padding: 2rem 1rem;
+margin-top: 2rem;
+}
+
+.top-rating-film h2{
+   font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;   
+
+
+}
+
+.card-film-top{
+       overflow: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content:space-evenly;
+}
+
+.card-film-top img {
+    width:14rem;
+    height: auto;
+    margin-top:2rem;
+    position: relative;
+}
+

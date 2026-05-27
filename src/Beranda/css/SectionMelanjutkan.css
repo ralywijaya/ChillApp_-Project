@@ -1,0 +1,50 @@
+
+/* section melanjutkan tontonan film */
+.container-card{
+    width: 100vw;
+    height: auto;
+}
+
+.container-card img{
+  transition: all 0.7ms ease-in-out;
+  cursor: pointer;
+  
+}
+
+.container-card img:hover{
+    padding: 0.2rem;
+ 
+}
+.melanjutkan-tonton-film{
+
+  width:100%;
+height: auto;
+padding: 2rem 1rem;
+
+}
+
+.melanjutkan-tonton-film h2{
+    font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;
+}
+.card-film-tontonan{
+       overflow: auto;
+    display: flex;
+   
+ 
+   justify-content: space-evenly;
+  
+}
+.card-film-tontonan img {
+    width: 20rem;
+    height: auto;
+    margin-top:2rem;
+    position: relative;
+}
+
+
+
+
+
+

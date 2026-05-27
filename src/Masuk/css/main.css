@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     
+    
+}
+html{
+    font-size: 10px;
+}
+
+
+body{
+   /* Pastikan dasarnya hitam */
+   max-width: 100%;
+   height:100vh ;
+  background-image:url("../../assets/masuk/background-masuk.png") ; 
+    font-family: "Inter", sans-serif;
+  background-color:black;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:#FFFFFF;
+ display: flex;
+ justify-content: center;
+ align-items:center;
+
+}
+
+

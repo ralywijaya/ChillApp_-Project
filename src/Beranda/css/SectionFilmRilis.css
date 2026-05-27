@@ -1,0 +1,28 @@
+.film-rilis{
+    width:100%;
+height: auto;
+padding: 2rem 1rem;
+}
+
+.card-film-rilis h2{
+   font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;   
+
+
+}
+
+.card-film-rilis{
+       overflow: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.card-film-rilis img {
+    width:15rem;
+    height: auto;
+    margin-top:2rem;
+    position: relative;
+}
+

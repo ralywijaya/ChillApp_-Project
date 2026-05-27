@@ -1,0 +1,30 @@
+
+.film-tranding{
+    width:100%;
+height: auto;
+padding: 2rem 1rem;
+}
+
+.card-film-tranding h2{
+   font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;   
+
+
+}
+
+.card-film-tranding{
+       overflow: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+.card-film-tranding img {
+    width:15rem;
+    height: auto;
+    margin-top:2rem;
+    position: relative;
+}
+
+

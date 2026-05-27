@@ -1,0 +1,157 @@
+
+
+
+/* 
+  .anak_panah{
+   width: 100vw;
+    padding:0;
+  margin-top: 5%;
+    position:absolute;
+    display: flex;
+    justify-content: space-between;
+
+}
+.anak_panah img{
+    width:3rem ;
+    height: auto;
+}
+.anak_panah,.anak_panah_groub img{
+  
+    height: auto;
+    display: none;
+} */
+
+@media screen and (min-width:400px){
+  html{
+    font-size:11px;
+  }
+}
+
+@media screen and (min-width:640px){
+  html{
+    font-size:13px;
+  }
+}
+
+@media screen and (min-width:786px){
+  html{
+    font-size:14px;
+  }
+
+  nav ul{
+    gap:3rem;
+    margin-left: 3rem;
+  }
+
+  .hero-description{
+    width:50rem;
+    margin-top:-14rem;
+    margin-left:7rem;
+  }
+
+  .hero-paraf p{
+    width:36rem !important;
+    height:7rem;
+    overflow:auto;
+   
+  }
+
+  .card-film-tontonan img{
+    width:20rem;
+  }
+
+  .card-film-top img{
+    width:15rem;
+  }
+
+  .card-film-tranding img{
+    width:15rem;
+  }
+
+  .card-film-rilis img{
+    width:15rem;
+  }
+
+.anak_panah_melanjutkan img{
+    display:block !important;
+    width: 4rem !important;
+   
+ 
+  }
+ 
+
+  .anak_panah_melanjutkan{
+    width:100vw;
+    margin-top:5%;
+    position:absolute;
+    display:flex;
+    justify-content:space-between;
+  }
+
+
+  .anak_panah_groub img{
+    display:block !important;
+    width: 4rem !important;
+   
+ 
+  }
+ 
+
+  .anak_panah_groub{
+    width:100vw;
+    margin-top:10%;
+    position:absolute;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  footer{
+    display:flex;
+    flex-direction:row !important;
+padding: 20rem;
+gap: 7rem;
+    align-items:center;
+  }
+
+  .hak-cipta{
+    width:30vw;
+  }
+
+  .genre{
+    display: flex ;
+    flex-direction:column !important;
+    justify-content:start;
+    width:auto;
+  }
+
+  .genre-list{
+    display:flex !important;
+    width:fit-content;
+    gap: 5rem;
+    color:#C1C2C4;
+    font-size:1rem;
+  }
+
+  .bantuan{
+    flex-direction:column !important;
+    justify-content:start;
+    width:20vw;
+    margin-left:3rem !important;
+  }
+
+  .bantuan-list{
+    display: block !important;
+    flex-direction:column !important;
+    color:#C1C2C4;
+    font-size:1rem;
+  }
+
+  .bantuan img{
+    display:none;
+  }
+
+  .genre img{
+    display:none;
+  }
+}
+

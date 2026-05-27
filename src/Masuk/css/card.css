@@ -1,0 +1,42 @@
+
+/* main */
+main{
+   background-color: rgba(24, 26, 28, 0.84);
+   width: 52.9rem;
+   height: 77.8rem;
+   padding: 4rem 4rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   box-sizing:border-box;
+   border-radius:1.6rem;
+   gap: 3.7rem;
+
+   
+}
+
+/* header */
+header{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+   gap: 3.7rem;
+  
+   
+}
+header>img{
+    width: 16.3rem;
+    height: 4.4rem;
+    background-size: cover;
+}
+
+h1{
+  
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom:0.8rem;
+}
+header p{
+    font-size: 1.6rem;
+}

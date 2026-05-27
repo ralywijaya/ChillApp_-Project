@@ -1,0 +1,58 @@
+
+/* header */
+header{
+  display:flex;
+  width:100vw;
+  height:5.6rem;
+  padding:0.6rem 2rem;
+  align-items:center;
+}
+
+.logo-chill{
+  width:7rem;
+  height:auto;
+}
+
+nav{
+  width:90vw;
+  height:4.4rem;
+  display:flex;
+  gap:1.2rem;
+  align-items:center;
+  box-sizing:border-box;
+}
+
+.box-list{
+  margin-top:0.5rem;
+}
+
+nav ul{
+  list-style-type:none;
+  display:flex;
+  gap:3rem;
+  font-style:bold;
+  line-height:120%;
+  font-size:1rem;
+  
+}
+
+li{
+  cursor:pointer;
+  transition: all 0.2ms ease-in-out;
+  
+}
+
+/* hover */
+li:hover{
+  font-size:0.9rem;
+  color: #ffffff;
+}
+
+.box-profil img{
+  width:4rem;
+  height:auto;
+
+}
+.box-profil img:hover{
+  padding: 0.3rem;
+}
