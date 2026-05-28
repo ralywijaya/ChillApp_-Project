@@ -1,3 +1,5 @@
+import"./css/SectionHero.css"
+
 import ImgHero from".././assets/beranda/section_hero.png"
 import ImgUmur from".././assets/beranda/category_age.png"
 import ImgSpeaker from".././assets/beranda/volume-off.png"

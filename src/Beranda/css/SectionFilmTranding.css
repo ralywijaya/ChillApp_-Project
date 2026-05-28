@@ -27,4 +27,16 @@ padding: 2rem 1rem;
     position: relative;
 }
 
+.boxfilmtranding img{
+    transition: all 0.2 ease;
+    -webkit-transition: all 0.2 ease;
+    -moz-transition: all 0.2 ease;
+    -ms-transition: all 0.2 ease;
+    -o-transition: all 0.2 ease;
+}
+.boxfilmtranding img:hover{
+    transform:scale(1.1) ;
+    border-radius:2rem ;
+  
+}
 

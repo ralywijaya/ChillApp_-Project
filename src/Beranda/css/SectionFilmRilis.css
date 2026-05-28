@@ -26,3 +26,15 @@ padding: 2rem 1rem;
     position: relative;
 }
 
+.boxfilmrilisimg{
+    transition: all 0.2 ease;
+    -webkit-transition: all 0.2 ease;
+    -moz-transition: all 0.2 ease;
+    -ms-transition: all 0.2 ease;
+    -o-transition: all 0.2 ease;
+}
+.boxfilmrilis img:hover{
+    transform:scale(1.1) ;
+    border-radius:2rem ;
+  
+}

@@ -1,5 +1,5 @@
 
-
+import"./css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
 
 import { DataFilm } from "./asset/AssetTopRating"
@@ -17,7 +17,7 @@ function CardFilmTop(){
     return(
 <div className="card-film-top">
     {DataFilm.map((film)=>(
-             <div key={film.id}><img src={film.gambar} alt="" /></div>
+             <div className="boxtoprating" key={film.id}><img src={film.gambar} alt="" /></div>
            ))}
 
   <AnakPanah/>

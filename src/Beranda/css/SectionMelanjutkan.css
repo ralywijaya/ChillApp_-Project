@@ -1,20 +1,8 @@
 
 /* section melanjutkan tontonan film */
-.container-card{
-    width: 100vw;
-    height: auto;
-}
 
-.container-card img{
-  transition: all 0.7ms ease-in-out;
-  cursor: pointer;
-  
-}
 
-.container-card img:hover{
-    padding: 0.2rem;
- 
-}
+
 .melanjutkan-tonton-film{
 
   width:100%;
@@ -45,6 +33,17 @@ padding: 2rem 1rem;
 
 
 
-
+.boxmelanjutkan img{
+    transition: all 0.2 ease;
+    -webkit-transition: all 0.2 ease;
+    -moz-transition: all 0.2 ease;
+    -ms-transition: all 0.2 ease;
+    -o-transition: all 0.2 ease;
+}
+.boxmelanjutkan img:hover{
+    transform:scale(1.1) ;
+    border-radius:2rem ;
+  
+}
 
 

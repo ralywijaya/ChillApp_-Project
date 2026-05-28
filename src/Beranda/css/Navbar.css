@@ -44,8 +44,7 @@ li{
 
 /* hover */
 li:hover{
-  font-size:0.9rem;
-  color: #ffffff;
+ transform: scale(1.2);
 }
 
 .box-profil img{

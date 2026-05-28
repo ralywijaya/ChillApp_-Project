@@ -1,5 +1,5 @@
 
-
+import"./css/Navbar.css"
 import logo from"../assets/beranda/Logo.png"
 import LogoProfil from"../assets/beranda/Avatar (1).png"
 export default function Header(){

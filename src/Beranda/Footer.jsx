@@ -1,3 +1,5 @@
+import"./css/Footer.css"
+
 import { DataGenre } from "./asset/AssetDataGenre.jsx"
 
 import"./css/Footer.css"

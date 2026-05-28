@@ -2,14 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import"../src/Beranda/css/global.css"
 import"../src/Beranda/css/Responsiv.css"
-import"../src/Beranda/css/anakpanah.css"
-import"../src/Beranda/css/Main.css"
-import"../src/Beranda/css/Navbar.css"
-import"../src/Beranda/css/SectionFilmRilis.css"
-import"../src/Beranda/css/sectionfilmtranding.css"
-import"../src/Beranda/css/SectionHero.css"
-import"../src/Beranda/css/SectionMelanjutkan.css"
-import"../src/Beranda/css/SectionTopRating.css"
+
 
 
 import Header from './Beranda/Navbar'

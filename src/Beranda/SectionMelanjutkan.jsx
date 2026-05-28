@@ -1,5 +1,5 @@
 
-
+import"./css/SectionMelanjutkan.css"
 import ArrowLeft from"../assets/beranda/anak_panah_kiri.png"
 import ArrowRight from"../assets/beranda/anak_panah_kanan.png"
 // import { AnakPanahMelanjutkan } from "./AnakPanah.jsx"
@@ -26,7 +26,7 @@ function CardFilmTontonan(){
     return(
         <div className="card-film-tontonan">
           {DataFilm.map((film)=>(
-            <div key={film.id}><img src={film.gambar} alt="" /></div>
+            <div className="boxmelanjutkan" key={film.id}><img src={film.gambar} alt="" /></div>
           ))}
   
 <AnakPanahMelanjutkan/>

@@ -1,4 +1,4 @@
-
+import"./css/SectionFilmRilis.css"
 import { DataFilm } from "./asset/AssetFilmRilis.jsx"
 
 
@@ -17,7 +17,7 @@ function CardFilmRilis(){
     return(
 <div className="card-film-rilis">
     {DataFilm.map((film)=>(
-             <div key={film.id}><img src={film.gambar} alt="" /></div>
+             <div className="boxfilmrilis" key={film.id}><img src={film.gambar} alt="" /></div>
            ))}
  
 

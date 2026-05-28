@@ -1,5 +1,5 @@
 
-
+import"./css/SectionFilmTranding.css"
 import { DataFilm } from "./asset/AssetFilmTrading"
 
 import AnakPanah from "./AnakPanah"
@@ -17,7 +17,7 @@ function CardFilmTranding(){
     return(
 <div className="card-film-tranding">
     {DataFilm.map((film)=>(
-             <div key={film.id}><img src={film.gambar} alt="" /></div>
+             <div className="boxfilmtranding" key={film.id}><img src={film.gambar} alt="" /></div>
            ))}
  
 
