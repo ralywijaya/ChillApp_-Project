@@ -11,7 +11,7 @@ import film5 from"../../assets/beranda/film5_tranding.png"
 
 
     
-  export const DataFilm = [
+  export const DataFilmTranding = [
     {
       id: 1,
       gambar: film1

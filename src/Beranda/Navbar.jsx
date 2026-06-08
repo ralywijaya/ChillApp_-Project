@@ -31,8 +31,8 @@ function Navbar(){
     <div className="box-list">
       <ul className="list">
         <li>Series</li>
-        <li>Film</li>
-        <li>Daftar Saya</li>
+        <li><a href="index.html">Film</a></li>
+        <li><a href="DaftarSaya.html">Daftar Saya</a></li>
       </ul>
     </div>
   </nav>

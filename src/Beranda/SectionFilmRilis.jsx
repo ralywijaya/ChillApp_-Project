@@ -1,31 +1,51 @@
-import"./css/SectionFilmRilis.css"
-import { DataFilm } from "./asset/AssetFilmRilis.jsx"
-
-
+import"./css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah.jsx"
-export default function SectionFilmRilis({subjudul}){
-return(
-    <section className="film-rilis">
-     <h2>{subjudul}</h2>
-<CardFilmRilis/>
-    </section>
-)
-}
+import { useContext,useState } from "react"
+import HoverFilm from "./HoverFilm.jsx"
+import { Film} from "./FilmContax.jsx"
 
-
-function CardFilmRilis(){
-    return(
-<div className="card-film-rilis">
-    {DataFilm.map((film)=>(
-             <div className="boxfilmrilis" key={film.id}><img src={film.gambar} alt="" /></div>
-           ))}
+ 
  
 
-   <AnakPanah/>
+export default function SectionFilmRilis({subjudul, setDaftar, Daftar}){
+ 
+ 
+
+
+
+
+    
+      const [isEdit,setisEdit]=useState(false)
+    const [filmAktif, setFilmAktif] = useState(null);
+    const FilmSection=useContext(Film)
+   const KategoryFilm = FilmSection.find(
+  (i) => i.id === "DataFilmRilis"
+);
+
+
+return(
+    <section className="top-rating-film">
+      <h2>{subjudul}</h2>
+<div className="card-film-top" >
+        {KategoryFilm.data.map((i)=>(
+ <div className="boxtoprating" key={i.id}>
+   
+        <img src={i.gambar} alt="" onClick={()=>{setisEdit(true )
+        setFilmAktif(i.id)
+    }}/>
+        {filmAktif==i.id&&isEdit&& <HoverFilm setDaftar={setDaftar} Daftar={Daftar} setisEdit={setisEdit} film={i.gambar} id={i.id}/>}
+  
+
+
+             </div>
+
+        ))}
+        {!isEdit&&<AnakPanah/>}
+          
 </div>
-
-    )
-
+        
+    </section>
+)
 }
 
 

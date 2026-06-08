@@ -1,30 +1,57 @@
 
 import"./css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
+import { useContext,useState } from "react"
+import HoverFilm from "./HoverFilm"
+import { Film} from "./FilmContax"
 
-import { DataFilm } from "./asset/AssetTopRating"
-export default function SectionTopRating({subjudul}){
+
+import LokalStorage from "./LokalStorage"
+
+ 
+ 
+
+export default function SectionTopRating({ setDaftar, Daftar }){
+ 
+ 
+
+
+
+
+    
+      const [isEdit,setisEdit]=useState(false)
+    const [filmAktif, setFilmAktif] = useState(null);
+    const FilmSection=useContext(Film)
+   const KategoryFilm = FilmSection.find(
+  (i) => i.id === "DataFilmTopRating"
+);
+
+
 return(
     <section className="top-rating-film">
-      <h2>{subjudul}</h2>
-<CardFilmTop />
+      <h2>Top</h2>
+<div className="card-film-top" >
+        {KategoryFilm.data.map((i)=>(
+ <div className="boxtoprating" key={i.id}>
+   
+        <img src={i.gambar} alt="" onClick={()=>{setisEdit(true )
+        setFilmAktif(i.id)
+    }}/>
+        {filmAktif==i.id&&isEdit&& <HoverFilm setDaftar={setDaftar} Daftar={Daftar} setisEdit={setisEdit} film={i.gambar} id={i.id}/>}
+  {isEdit&&<LokalStorage Daftar={Daftar} />}
+
+
+             </div>
+
+        ))}
+        {!isEdit&&<AnakPanah/>}
+          
+</div>
+        
     </section>
 )
 }
 
 
-function CardFilmTop(){
-    return(
-<div className="card-film-top">
-    {DataFilm.map((film)=>(
-             <div className="boxtoprating" key={film.id}><img src={film.gambar} alt="" /></div>
-           ))}
 
-  <AnakPanah/>
-</div>
-
-    )
-
-}
-
-
+  

@@ -1,31 +1,48 @@
 
-import"./css/SectionFilmTranding.css"
-import { DataFilm } from "./asset/AssetFilmTrading"
-
+import"./css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
-export default function SectionFilmTranding({subjudul}){
+import { useContext,useState } from "react"
+import HoverFilm from "./HoverFilm"
+import { Film} from "./FilmContax"
+
+ 
+ 
+
+export default function SectionFilmTranding({subjudul, setDaftar, Daftar}){
+ 
+      const [isEdit,setisEdit]=useState(false)
+    const [filmAktif, setFilmAktif] = useState(null);
+    const FilmSection=useContext(Film)
+   const KategoryFilm = FilmSection.find(
+  (i) => i.id === "DataFilmTranding"
+);
+
+
 return(
-    <section className="film-tranding">
+    <section className="top-rating-film">
       <h2>{subjudul}</h2>
-<CardFilmTranding />
+<div className="card-film-top" >
+        {KategoryFilm.data.map((i)=>(
+ <div className="boxtoprating" key={i.id}>
+   
+        <img src={i.gambar} alt="" onClick={()=>{setisEdit(true )
+        setFilmAktif(i.id)
+    }}/>
+        {filmAktif==i.id&&isEdit&& <HoverFilm setDaftar={setDaftar} Daftar={Daftar} setisEdit={setisEdit} film={i.gambar} id={i.id}/>}
+
+
+             </div>
+
+        ))}
+        {!isEdit&&<AnakPanah/>}
+          
+</div>
+        
     </section>
 )
 }
 
 
-function CardFilmTranding(){
-    return(
-<div className="card-film-tranding">
-    {DataFilm.map((film)=>(
-             <div className="boxfilmtranding" key={film.id}><img src={film.gambar} alt="" /></div>
-           ))}
- 
 
-  <AnakPanah/>
-</div>
-
-    )
-
-}
 
 

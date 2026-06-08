@@ -1,0 +1,115 @@
+import film1 from"../../assets/beranda/film1_melanjutkan_tontonan (3).png"
+import film2 from"../../assets/beranda/film2_melanjutkan_tontonan (2).png"
+import film3 from"../../assets/beranda/film3_melanjutkan_tontonan.png"
+import film4 from"../../assets/beranda/film4_melanjutkan_tontonan.png"
+
+export const DataFilmMelanjutkan = [
+  {
+    id: 1,
+    gambar: film1
+  },
+  {
+    id: 2,
+    gambar: film2
+  },
+  {
+    id: 3,
+    gambar: film3
+  },
+  {
+    id: 4,
+    gambar: film4
+  }
+]
+
+
+
+
+  
+    
+
+
+   import { DataFilmFilmRilis } from "./AssetFilmRilis"
+import { DataFilmMelanjutkan } from "./AssetMelanjutkanTontonan"
+import { DataFilmToprating } from "./AssetTopRating"
+import { DataFilmTranding } from "./AssetFilmTrading"
+
+ export const DataFilmSection=[
+    DataFilmMelanjutkan,
+    DataFilmToprating,
+    DataFilmTranding,
+    DataFilmFilmRilis
+
+
+]
+
+import"./css/SectionFilmRilis.css"
+import { DataFilmSection } from "./asset/AssetSectionFilm.jsx"
+import { Film } from "./FilmContax.jsx"
+
+import AnakPanah from "./AnakPanah.jsx"
+import { useContext } from "react"
+
+
+  
+export default function SectionFilmRilis({subjudul}){
+ 
+return(
+
+    <section className="film-rilis">
+     <h2>{subjudul}</h2>
+<CardFilmRilis/>
+    </section>
+)
+}
+
+
+function CardFilmRilis(){ const kategoryFilm=useContext(Film)
+    return(
+<div className="card-film-rilis">
+    {DataFilmSection.map((i)=>(
+             <div className="boxfilmrilis" key={i. DataFilmMelanjutkan}>{DataFilmMelanjutkan.map()
+
+             }</div>
+           ))}
+ 
+
+   <AnakPanah/>
+</div>
+
+    )
+
+}
+
+
+import SectionHero from '.SectionHero'
+import SectionMelanjutkan from './SectionMelanjutkan'
+import SectionTopRating from './SectionTopRating'
+import SectionFilmRilis from './SectionFilmRilis'
+import SectionFilmTranding from './SectionFilmTranding'
+import"./css/Main.css"
+import { Film } from './FilmContax'
+import { DataFilmSection } from './asset/AssetSectionFilm'
+
+export default function MainContainer(){
+  
+    return(
+        
+
+
+     <main>
+        <Film.Provider value={DataFilmSection}>
+          <SectionHero/>
+           <SectionMelanjutkan subjudul="Melanjutkan Tontonan"/>
+           <SectionTopRating subjudul="Top Rating Film dan Series Hari ini"/>
+           <SectionFilmRilis subjudul="Rilis baru"/>
+           <SectionFilmTranding subjudul="Film Tranding"/>
+</Film.Provider>
+       
+        </main>
+    )
+}
+
+  const FilmSection=useContext(Film)
+    const KategoryFilm=FilmSection.filter((i)=>i.id==="Datafilmmelanjutkan")
+

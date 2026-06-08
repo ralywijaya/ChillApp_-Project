@@ -11,7 +11,7 @@ import film5 from"../../assets/beranda/film4_top.png"
 
 
     
-  export const DataFilm = [
+  export const DataFilmFilmRilis = [
       {
         id: 1,
         gambar: film1

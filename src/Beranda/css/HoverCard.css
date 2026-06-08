@@ -1,0 +1,50 @@
+.hover-film{
+   width:15rem ;
+   height:25rem;
+   background-color:black;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid white;
+   position: absolute;
+   top: 1rem;
+   z-index: 8;
+   
+}
+
+.imghover img{
+    
+    margin-top: 0;
+    width: 15rem;
+    height:10rem ;
+    object-fit:scale-down;
+    object-position: top;
+    border-bottom: 1px solid #ffff;
+ padding: 0.5rem;
+
+
+}
+
+.list-button{
+    width: 10rem;
+    height: auto;
+    display: flex;
+    padding:1rem;
+    gap: 1rem;
+
+}
+
+.list-button img{
+    width: 2rem;
+    height: auto;
+}
+
+.keterangan{
+    color: #fff;
+   gap: 1rem;
+    display: flex;
+    padding: 1.3rem;
+}
+
+
+
+

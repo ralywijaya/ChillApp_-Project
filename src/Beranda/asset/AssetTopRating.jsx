@@ -12,7 +12,7 @@ import film5 from"../../assets/beranda/film5_top.png"
 
 
     
- export const DataFilm = [
+ export const DataFilmToprating = [
      {
        id: 1,
        gambar: film1

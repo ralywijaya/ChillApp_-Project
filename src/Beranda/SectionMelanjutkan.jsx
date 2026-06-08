@@ -2,13 +2,14 @@
 import"./css/SectionMelanjutkan.css"
 import ArrowLeft from"../assets/beranda/anak_panah_kiri.png"
 import ArrowRight from"../assets/beranda/anak_panah_kanan.png"
-// import { AnakPanahMelanjutkan } from "./AnakPanah.jsx"
-// import image anak panah
 
-import { DataFilm } from "./asset/AssetMelanjutkanTontonan.jsx"
 
+
+import { useContext } from "react"
+import { Film } from "./FilmContax.jsx"
 
 export default function SectionMelanjutkan({subjudul}){
+
 
     
   return(
@@ -23,14 +24,29 @@ export default function SectionMelanjutkan({subjudul}){
 
 
 function CardFilmTontonan(){
+      const FilmSection=useContext(Film)
+   const KategoryFilm = FilmSection.find(
+  (i) => i.id === "DataFilmRilis"
+);
     return(
-        <div className="card-film-tontonan">
-          {DataFilm.map((film)=>(
-            <div className="boxmelanjutkan" key={film.id}><img src={film.gambar} alt="" /></div>
-          ))}
-  
-<AnakPanahMelanjutkan/>
+        
+
+    <div className="card-film-tontonan" >
+        {KategoryFilm.data.map((i)=>(
+ <div className="boxmelanjutkan" key={i.id}>
+<img src={i.gambar} alt="" />
+             </div>
+
+        ))}
+              <AnakPanahMelanjutkan/>
 </div>
+        
+ 
+
+
+  
+
+ 
 
     )
 }
