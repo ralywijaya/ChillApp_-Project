@@ -15,16 +15,19 @@ margin-top: 2rem;
 }
 
 .card-film-top{
-       overflow: auto;
+   
     display: flex;
+     flex-wrap: wrap;
     gap: 1rem;
-    justify-content:space-evenly;
+  
+
 }
 
 .card-film-top img {
-    width:14rem;
+    width:9.5rem;
     height: auto;
     margin-top:2rem;
+
 
 }
 

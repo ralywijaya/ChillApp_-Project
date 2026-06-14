@@ -1,5 +1,5 @@
 
-import"../Beranda/css/SectionTopRating.css"
+import "./css/DaftarSaya.css"
 
 
 
@@ -21,13 +21,19 @@ return(
 
 function CardFilmTop(){ 
  const DaftarSimpan=JSON.parse(localStorage.getItem("Daftar")||[])
- localStorage.setItem("DaftarSaya", JSON.stringify(DaftarSimpan));
+
+
+
+ localStorage.setItem("Daftarsaya",JSON.stringify(DaftarSimpan))
+
+ const daftarsaya=JSON.parse(localStorage.getItem("Daftarsaya")||[])
+ 
  console.table(DaftarSimpan)
     return(
         
 
     <div className="card-film-top" >
-        {DaftarSimpan?.map((i)=>(
+        {daftarsaya?.map((i)=>(
  <div className="boxtoprating" key={i.id}>
    
         <img src={i.film} alt="" 

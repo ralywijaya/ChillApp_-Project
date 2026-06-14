@@ -7,9 +7,14 @@ import "./css/Main.css"
 import { Film } from './FilmContax'
 import { DataFilmSection } from './asset/AssetSectionFilm'
 import { useImmer } from 'use-immer'
+
+
 export default function MainContainer(){
-  const [Daftar,setDaftar]=useImmer([])
-  localStorage.setItem("Daftar", JSON.stringify(Daftar));
+  const [Daftar,setDaftar]=useImmer(() => {
+    const savedDaftar = localStorage.getItem("Daftar")
+    return savedDaftar ? JSON.parse(savedDaftar) : []
+  })
+
     return(
         
 

@@ -3,6 +3,7 @@ import AnakPanah from "./AnakPanah.jsx"
 import { useContext,useState } from "react"
 import HoverFilm from "./HoverFilm.jsx"
 import { Film} from "./FilmContax.jsx"
+import LokalStorage from "./LokalStorage"
 
  
  
@@ -34,7 +35,7 @@ return(
         setFilmAktif(i.id)
     }}/>
         {filmAktif==i.id&&isEdit&& <HoverFilm setDaftar={setDaftar} Daftar={Daftar} setisEdit={setisEdit} film={i.gambar} id={i.id}/>}
-  
+  {isEdit&&<LokalStorage Daftar={Daftar} />}
 
 
              </div>

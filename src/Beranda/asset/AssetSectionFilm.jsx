@@ -54,6 +54,7 @@ export const DataFilmSection = [
       { id: 11, gambar: film11 },
       { id: 12, gambar: film12 },
       { id: 13, gambar: film13 },
+       { id: 3, gambar: film3 },
     ],
   },
 
@@ -74,7 +75,8 @@ export const DataFilmSection = [
       { id: 2, gambar: film2 },
       { id: 11, gambar: film11 },
       { id: 12, gambar: film12 },
-      { id: 13, gambar: film13 }
+      { id: 13, gambar: film13 },
+      {id:14,gambar:film14}
     ]
   },
 ];
