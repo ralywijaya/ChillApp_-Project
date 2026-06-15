@@ -10,14 +10,24 @@ const DataRegister=JSON.parse(localStorage.getItem("DataRegister"))
 const [Nama,setNama]=useState(DataRegister?.nama||"")
 const [Password,setPassword]=useState(DataRegister?.password||"")
 const [Ubah,setUbah]=useState(false)
-
+const [Error,setError]=useState({})
 function Handlesimpan(){
+  const ErrorInput={
+        nama:Nama.trim()==="",
+        password:Password.trim()===""
+    }
+    setError(ErrorInput)
+  
    const DataRegister={
     nama:Nama,
     password:Password,}
- localStorage.setItem("DataRegister",JSON.stringify(DataRegister))
+     if(!ErrorInput.nama&&!ErrorInput.password){
+      localStorage.setItem("DataRegister",JSON.stringify(DataRegister))
+      alert("data telah diubah")
+     }
+ 
 
- alert("data telah diubah")
+ 
 
 }
 
@@ -64,7 +74,7 @@ Maksimal 2MB
   className="pengguna">
     <div >
         <p>Nama pengguna</p>
-    <input value={Nama} onChange={(e)=>{setNama(e.target.value)}} type="text" placeholder="Nama pengguna" readOnly={!Ubah} />
+    <input   style={Error.nama?{border:"1px solid red"}:{}} value={Nama} onChange={(e)=>{setNama(e.target.value)}} type="text" placeholder="Nama pengguna" readOnly={!Ubah} />
     </div>
   <div>
     <img src={edit}  alt="Edit" onClick={Handleclik} />
@@ -78,7 +88,7 @@ Maksimal 2MB
   <div className="katasandi">
     <div>
        <p>Kata sandi</p>
-    <input  value={Password} onChange={(e)=>{setPassword(e.target.value)}}  type="password" placeholder="Kata sandi" readOnly={!Ubah} />
+    <input   style={Error.password?{border:"1px solid red"}:{}}  value={Password} onChange={(e)=>{setPassword(e.target.value)}}  type="password" placeholder="Kata sandi" readOnly={!Ubah} />
     </div>
     <div>
     <img src={edit} alt="Edit" onClick={Handleclik} />

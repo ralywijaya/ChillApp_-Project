@@ -109,7 +109,8 @@
 .box-profildata input{
     height: 2.2rem;
    display:block;
-   
+   color: #FFFFFF;
+   font-size: 1.2rem;
    background-color:#22282A;
    border:none
 }
