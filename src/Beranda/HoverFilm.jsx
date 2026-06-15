@@ -15,11 +15,10 @@ console.table(Daftar)
 
 
   
+const sudahAda = Daftar.some((item) => item.id === id);
 
 function HandleClick() {
    
-  const sudahAda = Daftar.some((item) => item.id === id);
-
   if (sudahAda) {
     setDaftar((draft) => {
       const index = draft.findIndex((item) => item.id === id);
@@ -49,14 +48,14 @@ function HandleClick() {
   
    
  
-    <BoxButton HandleClick={HandleClick} />
+    <BoxButton HandleClick={HandleClick} sudahAda={sudahAda} />
 </div>
 
     )
 }
 
 
-function BoxButton({HandleClick}){
+function BoxButton({HandleClick,sudahAda}){
 
   
     return(
@@ -88,7 +87,9 @@ function BoxButton({HandleClick}){
     <div>
         <p>movie</p>
     </div>
-    
+    <div>
+      {sudahAda?<p>tersimpan</p>:<p>simpan</p>}
+    </div>
 
 </div>
   

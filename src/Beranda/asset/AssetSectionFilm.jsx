@@ -18,6 +18,7 @@ import film11 from "../../assets/beranda/film2_top.png"
 import film12 from "../../assets/beranda/film3_top.png"
 import film13 from "../../assets/beranda/film4_top.png"
 import film14 from "../../assets/beranda/film5_top.png"
+import { DataFilmMelanjutkan } from "./AssetMelanjutkanTontonan"
 
 
  export const DataFilm = [
@@ -39,12 +40,7 @@ import film14 from "../../assets/beranda/film5_top.png"
 export const DataFilmSection = [
   {
     id: "DataFilmMelanjutkan",
-    data: [
-      { id: 6, gambar: film6 },
-      { id: 7, gambar: film7 },
-      { id: 8, gambar: film8 },
-      { id: 9, gambar: film9 },
-    ],
+    data: DataFilmMelanjutkan,
   },
 
   {

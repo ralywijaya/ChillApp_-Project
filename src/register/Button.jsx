@@ -1,43 +1,26 @@
 import google from"../assets/masuk/logo_google.png"
 
-export default function Button(){
+export default function Button({Handleclick}){
+
+
+
+
+
 return(
     <div className="box-button">
-<ButtonMasuk button="Masuk"/>
+ <div>
+    <button onClick={Handleclick} className="button-masuk">Masuk</button>
+  </div>
 <div>
     <p className="atau">Atau</p>
   </div>
-
-  <ButtonGoogle button="Daftar Dengan Google"/>
-</div>
-)
-}
-
-
-function ButtonMasuk({button}){
-    return(
-   
-   <div>
-    <button className="button-masuk">{button}</button>
-  </div>
-    )
-}
-    
- 
-
-
-function ButtonGoogle({button}){
-    return(
-       
-              
-        
-  <div className="box-masukan_google">
+<div className="box-masukan_google">
     <button className="button-masuk_google">
       <img src={google} alt="logo google" />
-      <span>{button}</span>
+      <span>Masuk Dengan Google</span>
     </button>
   </div>
-    
-     
-    )
+  
+</div>
+)
 }

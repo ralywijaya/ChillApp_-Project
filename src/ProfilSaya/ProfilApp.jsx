@@ -4,13 +4,13 @@ import "../Beranda/css/global.css"
 import"../Beranda/css/Responsiv.css"
 import Header from '../Beranda/Navbar'
 import Footer from '../Beranda/Footer'
-import Profil from './Profil'
+import ProfilSaya from './Profil'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
  <>
  
 <Header/>
-<Profil/>
+<ProfilSaya/>
 <Footer/>
 
  </>

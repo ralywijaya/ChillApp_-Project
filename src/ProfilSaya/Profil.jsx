@@ -4,7 +4,31 @@ import"./Profil.css"
 import foto from"../assets/beranda/fotoprofil.png"
 import fotofile from"../assets/beranda/file-upload-outline.png"
 import SectionDaftar from "../DaftarSaya/SectionTopRating"
-export default function profil(){
+import { useState } from "react"
+export default function ProfilSaya(){
+const DataRegister=JSON.parse(localStorage.getItem("DataRegister"))
+const [Nama,setNama]=useState(DataRegister?.nama||"")
+const [Password,setPassword]=useState(DataRegister?.password||"")
+const [Ubah,setUbah]=useState(false)
+
+function Handlesimpan(){
+   const DataRegister={
+    nama:Nama,
+    password:Password,}
+ localStorage.setItem("DataRegister",JSON.stringify(DataRegister))
+
+ alert("data telah diubah")
+
+}
+
+function Handleclik(){
+  setUbah(!Ubah
+  )
+
+  if(!Ubah){
+    alert("Edit Data")
+  }
+}
 
     return(
 
@@ -15,11 +39,12 @@ export default function profil(){
 
 <div className="box-langganan">
     <div><img src={Warning} alt="Warning" /></div>
-    <div
+    <div className="note-warning"
     ><h2>Saat ini anda belum berlangganan</h2>
     <p>Dapatkan Akses Tak Terbatas ke Ribuan Film dan Series Kesukaan Kamu!</p></div>
 </div>
 <div className="box-profildata">
+  <div><h2>Profil Saya</h2></div>
 <div className="foto-profil">
   <div className="foto">
     <img src={foto} alt="Foto Profil" />
@@ -39,10 +64,10 @@ Maksimal 2MB
   className="pengguna">
     <div >
         <p>Nama pengguna</p>
-    <input type="text" placeholder="Nama pengguna" />
+    <input value={Nama} onChange={(e)=>{setNama(e.target.value)}} type="text" placeholder="Nama pengguna" readOnly={!Ubah} />
     </div>
   <div>
-    <img src={edit} alt="Edit" />
+    <img src={edit}  alt="Edit" onClick={Handleclik} />
   </div>
   </div>
   
@@ -53,13 +78,14 @@ Maksimal 2MB
   <div className="katasandi">
     <div>
        <p>Kata sandi</p>
-    <input type="password" placeholder="Kata sandi" />
+    <input  value={Password} onChange={(e)=>{setPassword(e.target.value)}}  type="password" placeholder="Kata sandi" readOnly={!Ubah} />
     </div>
     <div>
-    <img src={edit} alt="Edit" />
+    <img src={edit} alt="Edit" onClick={Handleclik} />
     </div>
    
   </div>
+  <button onClick={Handlesimpan} className="button-simpan-profil">Simpan</button>
  
 </div>
 </section>

@@ -1,56 +1,44 @@
- import eye from"../assets/masuk/eye-off.png"
+import eye from"../assets/masuk/eye-off.png"
  
 
- export default function Form(){
+ export default function Form({MasukNama,setMasukNama,MasukPassword,setMasukPassword,Error}){
  return(  <>
- <InputName Label="Masukan Nama"/>
-   <InputPassword Label="Masukan Sandi"/>
-  
-</>)
-
-// return(
-//     <h1>hallo</h1>
-// )
-
- }
-
- function InputName({Label}){
-    return(<div className="box-username">
-    <label htmlFor="username">{Label}</label>
+  <div className="box-username">
+    <label htmlFor="username">Masukan Nama</label>
     <input
+      style={Error.nama?{border:"1px solid red"}:{}}
+      onChange={(e)=>{setMasukNama(e.target.value)}}
+      value={MasukNama}
       id="username"
       type="text"
       name="username"
       placeholder="Masukan Username"
     />
-  </div>)
-    
- }
- function InputPassword({Label}){
-    return(<div className="box-konfrmasi_password">
+  </div>
+
+  <div className="box-konfrmasi_password">
     <div>
-      <label htmlFor="password">{Label}</label>
-      <input type="password" name="password" placeholder="Masukan Kata Sandi" />
+      <label htmlFor="password">Masukan Sandi</label>
+      <input
+        style={Error.password?{border:"1px solid red"}:{}}
+        onChange={(e)=>{setMasukPassword(e.target.value)}}
+        value={MasukPassword}
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Masukan Kata Sandi"
+      />
     </div>
     <img
       className="eye-off"
       src={eye}
       alt=""
     />
-    <Conditional/>
-   
-  </div>)
-
- }
-
-
- function Conditional(){
-    return(
-         <div className="condtional">
+    <div className="condtional">
       <div className="list-daftar">
         <p>
           Belum Punya Akun?
-           <a id="masuk" href="/Register"> 
+           <a id="masuk" href="/Register.html"> 
             Daftar
            </a> 
         </p>
@@ -59,13 +47,8 @@
         {/* <a href="">Lupa kata sandi</a> */}
       </div>
     </div>
-    )
+  </div>
+</>)
+
  }
- 
-
- 
-
-
-
-
  

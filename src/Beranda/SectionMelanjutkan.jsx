@@ -26,7 +26,7 @@ export default function SectionMelanjutkan({subjudul}){
 function CardFilmTontonan(){
       const FilmSection=useContext(Film)
    const KategoryFilm = FilmSection.find(
-  (i) => i.id === "DataFilmRilis"
+  (i) => i.id === "DataFilmMelanjutkan"
 );
     return(
         

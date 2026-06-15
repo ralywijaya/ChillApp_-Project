@@ -139,5 +139,10 @@ gap: 7rem;
   .genre img{
     display:none;
   }
+
+  .profil{
+    flex-direction: row-reverse !important;
+    
+  }
 }
 

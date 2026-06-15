@@ -1,12 +1,12 @@
 
-.top-rating-film{
+.section-film{
     width:100%;
 height: auto;
 padding: 2rem 1rem;
 margin-top: 2rem;
 }
 
-.top-rating-film h2{
+.section-film h2{
    font-size: 1.4rem;
     line-height: 120%;
     font-style: bold;   
@@ -14,30 +14,34 @@ margin-top: 2rem;
 
 }
 
-.card-film-top{
+.card-film{
        overflow: auto;
     display: flex;
     gap: 1rem;
     justify-content:space-evenly;
 }
 
-.card-film-top img {
+.card-film img {
     width:14rem;
     height: auto;
     margin-top:2rem;
+    border-radius: 0.8rem;
 
 }
 
-.boxtoprating img{
-    transition: all 0.1 ease;
+.box-film img{
+    box-shadow: 0 0.6rem 1.6rem rgba(0,0,0,0.28);
+    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
   
 }
-.boxtoprating img:hover{
-    transform:scale(1.1) ;
+.box-film img:hover{
+    transform:scale(1.08) translateY(-0.4rem);
+    filter: brightness(1.08);
+    box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,0.42);
    
     
 }
-.boxtoprating{  width:20rem;height:auto;
+.box-film{  height:auto;
     position: relative;
   
 

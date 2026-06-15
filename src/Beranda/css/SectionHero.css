@@ -11,6 +11,11 @@
   height:auto;
   object-position:top;
   object-fit:contain;
+  transition: filter 0.3s ease;
+}
+
+.hero-film img:hover{
+  filter: brightness(1.05);
 }
 
 /* description hero */
@@ -68,12 +73,12 @@
 
 .box-button button,img{
   cursor: pointer;
-  transition: all 0.3ms ease-in-out;
+  transition: all 0.25s ease-in-out;
   
 }
 
 .image-category-age:hover{
-  padding: 0.1rem;
+  transform: scale(1.08);
 }
 #button-mulai:hover{
   background-color: #C1C2C4;
@@ -140,6 +145,12 @@
   height:auto;
   border:1px solid #C1C2C4;
   border-radius:1.9rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.volume-setting img:hover{
+  transform: scale(1.1);
+  background-color: rgba(255,255,255,0.12);
 }
 
 /* footer */

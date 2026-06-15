@@ -11,6 +11,12 @@ header{
 .logo-chill{
   width:7rem;
   height:auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo-chill:hover{
+  transform: scale(1.04);
+  filter: brightness(1.1);
 }
 
 nav{
@@ -33,25 +39,118 @@ nav ul{
   font-style:bold;
   line-height:120%;
   font-size:1rem;
+  align-items:center;
   
 }
 
-li{
+nav li{
   cursor:pointer;
-  transition: all 0.2ms ease-in-out;
+  position: relative;
+  transition: transform 0.2s ease;
   
+}
+
+nav li a{
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 0.2rem;
+  opacity: 0.82;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+nav li::after{
+  content: "";
+  width: 0;
+  height: 0.2rem;
+  position: absolute;
+  left: 0.2rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
+  border-radius: 10rem;
+  background-color: #e50914;
+  transition: width 0.2s ease;
 }
 
 /* hover */
-li:hover{
- transform: scale(1.2);
+nav li:hover{
+ transform: translateY(-0.2rem);
+}
+
+nav li:hover a{
+  opacity: 1;
+  color: #ffffff;
+}
+
+nav li:hover::after{
+  width: calc(100% - 0.4rem);
 }
 
 .box-profil img{
   width:4rem;
   height:auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
 
 }
 .box-profil img:hover{
   padding: 0.3rem;
+  transform: scale(1.06);
+  box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.12);
 }
+
+
+.drowdown-profil{
+  width:max-content;
+  position: absolute;
+  top: 3rem;
+  right:0.2rem;
+  background-color: #181A1C;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+}
+
+.drowdown-profil{
+  min-width: 16rem;
+  top: 5rem;
+  right: 1rem;
+  border-radius: 0.8rem;
+  border-color: rgba(255,255,255,0.14);
+  padding: 0.8rem;
+  box-shadow: 0 1.2rem 3rem rgba(0,0,0,0.35);
+  z-index: 10;
+}
+
+.drowdown-profil div{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.drowdown-profil img{
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: contain;
+  padding: 0;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.drowdown-profil img:hover{
+  padding: 0;
+}
+
+.drowdown-profil div:hover{
+  background-color: rgba(255,255,255,0.08);
+  transform: translateX(0.3rem);
+}
+
+.drowdown-profil a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+

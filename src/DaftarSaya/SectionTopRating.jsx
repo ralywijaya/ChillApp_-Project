@@ -10,9 +10,9 @@ import "./css/DaftarSaya.css"
 export default function SectionDaftar({subjudul}){
 
 return(
-    <section className="top-rating-film">
+    <section className="daftar-saya">
       <h2>{subjudul}</h2>
-      p
+      
 <CardFilmTop />
     </section>
 )
@@ -32,9 +32,9 @@ function CardFilmTop(){
     return(
         
 
-    <div className="card-film-top" >
+    <div className="card-daftar-saya" >
         {daftarsaya?.map((i)=>(
- <div className="boxtoprating" key={i.id}>
+ <div className="box-daftar-saya" key={i.id}>
    
         <img src={i.film} alt="" 
     />

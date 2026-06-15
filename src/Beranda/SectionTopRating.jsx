@@ -28,11 +28,11 @@ export default function SectionTopRating({ setDaftar, Daftar }){
 
 
 return(
-    <section className="top-rating-film">
+    <section className="section-film">
       <h2>Top</h2>
-<div className="card-film-top" >
+<div className="card-film" >
         {KategoryFilm.data.map((i)=>(
- <div className="boxtoprating" key={i.id}>
+ <div className="box-film" key={i.id}>
    
         <img src={i.gambar} alt="" onClick={()=>{setisEdit(true )
         setFilmAktif(i.id)

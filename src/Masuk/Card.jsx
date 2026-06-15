@@ -1,6 +1,34 @@
 
+import { useState } from "react";
 import logo from "../assets/masuk/Logo.png";
-export default function Card({children}){
+import Form from "./Form";
+import Button from "./Button";
+
+export default function Card(){
+const [MasukNama,setMasukNama]=useState("")
+const [MasukPassword,setMasukPassword]=useState("")
+const [Error,setError]=useState({})
+  const Simpan=JSON.parse(localStorage.getItem("DataRegister"))
+  console.table(Simpan)
+function handleClick(e){
+    e.preventDefault()
+
+
+    
+  
+    const ErrorInput={
+        nama:MasukNama.trim()===""||MasukNama!==Simpan.nama,
+        password:MasukPassword.trim()===""||MasukPassword!==Simpan.password
+    }
+
+    setError(ErrorInput)
+
+    if(!ErrorInput.nama&&!ErrorInput.password){
+       window.location.href="/index.html"
+    }
+else{alert("data salah")}
+   
+}
 
     return(
         <main>
@@ -15,8 +43,15 @@ export default function Card({children}){
   </div>
 </header>
 
-            
-            {children}
+            <Form
+              MasukNama={MasukNama}
+              setMasukNama={setMasukNama}
+              MasukPassword={MasukPassword}
+              setMasukPassword={setMasukPassword}
+              Error={Error}
+            />
+
+            <Button Handleclick={handleClick}/>
            
         </main>
     )
