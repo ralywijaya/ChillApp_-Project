@@ -1,5 +1,5 @@
 import google from"../assets/masuk/logo_google.png"
-
+import"./css/button.css"
 export default function Button({Handleclick}){
 
 
@@ -8,16 +8,21 @@ export default function Button({Handleclick}){
 
 return(
     <div className="box-button">
- <div>
+ <div className="button-masuk">
     <button onClick={Handleclick} className="button-masuk">Masuk</button>
   </div>
-<div>
+<div className="atau">
     <p className="atau">Atau</p>
   </div>
-<div className="box-masukan_google">
+<div className="button-google">
     <button className="button-masuk_google">
-      <img src={google} alt="logo google" />
-      <span>Masuk Dengan Google</span>
+      <div className="img-google">
+         <img src={google} alt="logo google" />
+      </div>
+     <div className="nama-google">
+       <p>Daftar Dengan Google</p>
+     </div>
+     
     </button>
   </div>
   

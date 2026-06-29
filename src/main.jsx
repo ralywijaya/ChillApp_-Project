@@ -2,17 +2,26 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Card from './Masuk/Card.jsx'
-import"../src/Masuk/css/main.css"
-import"../src/Masuk/css/form.css"
-import"../src/Masuk/css/card.css"
-import"../src/Masuk/css/button.css"
-import"../src/Masuk/css/responsiv.css"
+
+
+
+import { Router } from './/utils/Router'
+// import Masuk from './Masuk/Masuk.jsx'
+import { RouterProvider } from 'react-router-dom'
+
+
+
+
 // import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
+
+const element=document.getElementById("root")
+const root=createRoot(element)
+
+
+
+root.render(
   <StrictMode>
-    <Card/>
-  
-  </StrictMode>,
+    <RouterProvider router={Router}/>
+  </StrictMode>
 )

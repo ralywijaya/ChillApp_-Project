@@ -1,9 +1,13 @@
 
+
 import "./css/DaftarSaya.css"
 
 
+import useFilmStore from "../StateManagement"
 
+import { useEffect } from "react";
 
+import api from "../services/api";
 
 
  
@@ -20,23 +24,33 @@ return(
 
 
 function CardFilmTop(){ 
- const DaftarSimpan=JSON.parse(localStorage.getItem("Daftar")||[])
+    
+   
+  // 1. Amankan state Zustand, berikan fallback array kosong jika undefined
+  const DaftarSaya = useFilmStore((state) => state.DaftarFilm) || [];
+  const setDaftarSaya = useFilmStore((state) => state.setDaftarFilm);
 
-
-
- localStorage.setItem("Daftarsaya",JSON.stringify(DaftarSimpan))
-
- const daftarsaya=JSON.parse(localStorage.getItem("Daftarsaya")||[])
- 
- console.table(DaftarSimpan)
+  // Mengamankan properti 'i' agar tidak crash jika component merender tanpa data
+ function getDaftarSaya() {
+    api.get("/DaftarGenre")
+      .then((Response) => {
+        setDaftarSaya(Response.data);
+      })
+      .catch((error) => {
+        console.error("Gagal mengambil data:", error);
+      });
+  }
+  useEffect(() => {
+    getDaftarSaya();
+  }, []);
     return(
         
 
     <div className="card-daftar-saya" >
-        {daftarsaya?.map((i)=>(
+        {DaftarSaya.map((i)=>(
  <div className="box-daftar-saya" key={i.id}>
    
-        <img src={i.film} alt="" 
+        <img src={i.gambar} alt="" 
     />
        
   
@@ -60,4 +74,7 @@ function CardFilmTop(){
 
 }
 
+ 
 
+
+ 

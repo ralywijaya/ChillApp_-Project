@@ -1,0 +1,188 @@
+.section-berlangganan{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    gap: 4rem;
+    border-top: 1px solid #3D4142;
+}
+
+.box-benefit-berlangganan{
+    margin-top: 2rem;
+    height: auto;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   gap:2.4rem;
+}
+
+.daftar-benefit{
+
+    width:100%;
+   
+   display: flex;
+   gap: 2rem;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
+
+  
+
+.benefit {
+    
+width: 16rem;
+height: 9.2rem;
+display:  flex;
+flex-direction: column;
+align-items: center;
+gap: 2.4rem;
+}
+.benefit img{
+width: 2.8rem;
+height: auto;
+border: 1px solid blue;
+
+
+}
+.benefit p{
+   text-align: center;
+    width: 16rem;
+    font-size: 1.4rem;
+}
+
+
+/* box daftar langganan */
+
+.box-daftar-langganan{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+ 
+}
+
+.subpaket{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.subpaket h2{
+    font-size: 2rem;
+}
+.subpaket p{
+    font-size:1.4rem ;
+}
+
+.box-daftar-langganan{
+    display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.box-daftar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap:4rem ;
+}
+.daftar{
+    border-radius: 1.2rem;
+    background: linear-gradient(to right, #192DB7, #5370D4);
+    display:  flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 2.4rem;
+    width: 23.6rem;
+    height: auto;
+    align-items: center;
+    -webkit-border-radius: 1.2rem;
+    -moz-border-radius: 1.2rem;
+    -ms-border-radius: 1.2rem;
+    -o-border-radius: 1.2rem;
+}
+.paket-langganan{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    border-bottom: 1px solid #E7E3FC3B;
+}
+.jenis-paket{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.nama-paket{
+    width: 11.1rem;
+    height:4.2rem;
+    background-color:#3D4142 ;
+    padding: 1rem 2rem;
+    border-radius:2.4rem ;
+    -webkit-border-radius:2.4rem ;
+    -moz-border-radius:2.4rem ;
+    -ms-border-radius:2.4rem ;
+    -o-border-radius:2.4rem ;
+}
+.nama-paket>p{
+   font-size: 1.6rem;
+
+}
+
+.harga p{
+    font-size: 1.2rem;
+
+}
+
+
+.benefit-paket{
+    display:  flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: auto;
+    height: auto;
+}
+
+.list-benefit{
+    display: flex;
+    gap: 0.8rem;
+}
+
+.img-centang img{
+    width:2rem ;
+    height: auto;
+}
+
+.jenis-benefit p{
+    font-size: 1.2rem;
+
+}
+
+.button-langganan{
+    gap:0.4rem ;
+    display: flex;
+    flex-direction: column;
+    width: 18.8rem;
+    
+}
+
+.button-langganan button{
+    border: none;
+    font-size: 1.4rem;
+    padding: 1rem 2.6rem;
+    border-radius:4.8rem ;
+    -webkit-border-radius:none;
+    -moz-border-radius:none;
+    -ms-border-radius:none;
+    -o-border-radius:none;
+}
+
+.button-langganan p{
+    text-align: center;
+    font-size:1.2rem ;
+}

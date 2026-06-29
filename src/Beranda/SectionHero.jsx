@@ -42,7 +42,7 @@ function HeroDescription({paraf}){
 function HeroButton(){
     return(
         <div className="hero-button">
-  <div className="box-button">
+  <div className="box-button-hero">
     <div>
       <button id="button-mulai">mulai</button>
     </div>

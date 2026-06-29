@@ -1,0 +1,48 @@
+
+.section-film-Series{
+    width:100%;
+height: auto;
+padding: 2rem 1rem;
+margin-top: 2rem;
+}
+
+.section-film-Series h2{
+   font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;   
+
+
+}
+
+.card-film-Series{
+       overflow: auto;
+    display: flex;
+    gap: 1rem;
+    justify-content:space-evenly;
+}
+
+.card-film-Series img {
+    width:14rem;
+    height: auto;
+    margin-top:2rem;
+    border-radius: 0.8rem;
+
+}
+
+.box-film-Series img{
+    box-shadow: 0 0.6rem 1.6rem rgba(0,0,0,0.28);
+    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+  
+}
+.box-film-Series img:hover{
+    transform:scale(1.08) translateY(-0.4rem);
+    filter: brightness(1.08);
+    box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,0.42);
+   
+    
+}
+.box-film-Series{  height:auto;
+    position: relative;
+  
+
+}

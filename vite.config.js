@@ -8,15 +8,15 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-   build:{
-    rolldownOptions:{
-      input:{
-        Masuk:"masuk.html",
-        Registrasi:"Register.html",
-        index:"index.html",
-        Profil:"Profil.html"
+  //  build:{
+  //   rolldownOptions:{
+  //     input:{
+  //       Masuk:"Masuk.html",
+  //       Registrasi:"Register.html",
+       
+       
 
-      }
-    }
-   }
+  //     }
+  //   }
+  //  }
 })

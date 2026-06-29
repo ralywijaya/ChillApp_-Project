@@ -1,10 +1,11 @@
  import eye from"../assets/masuk/eye-off.png"
-
+ import "./css/form.css"
+import { Link } from "react-router-dom"
  export default function Form({Nama,setNama,Password,setPassword,ConfirmPassword,setConfirmPassword,Error}){
 return(  <>
   <div className="box-username">
-    <label htmlFor="username">Masukan Nama</label>
-    <input
+    <label className="label-daftar" htmlFor="username">Masukan Nama</label>
+    <input className="input-username"
       style={Error.nama?{border:"1px solid red"}:{}}
       value={Nama}
       onChange={(e)=>{setNama(e.target.value)}}
@@ -15,10 +16,10 @@ return(  <>
     />
   </div>
 
-  <div className="box-konfrmasi_password">
+  <div className="box-konfirmasi-password">
     <div>
-      <label htmlFor="password">Masukan Sandi</label>
-      <input
+      <label className="label-daftar" htmlFor="password">Masukan Sandi</label>
+      <input  className="input-userpassword"
         style={Error.password?{border:"1px solid red"}:{}}
         value={Password}
         onChange={(e)=>{setPassword(e.target.value)}}
@@ -28,17 +29,20 @@ return(  <>
         placeholder="Masukan Kata Sandi"
       />
     </div>
-    <img
+    <div className="img-mata-sandi">
+ <img
       className="eye-off"
       src={eye}
-      alt=""
-    />
+      alt=""/>
+    </div>
+   
+    
   </div>
 
-  <div className="box-konfrmasi_password">
+  <div className="box-konfirmasi-password">
     <div>
-      <label htmlFor="confirm-password">Konfirmasi kata sandi</label>
-      <input
+      <label  className="label-daftar" htmlFor="confirm-password">Konfirmasi kata sandi</label>
+      <input className="input-userpassword"
         style={Error.confirmPassword?{border:"1px solid red"}:{}}
         value={ConfirmPassword}
         onChange={(e)=>{setConfirmPassword(e.target.value)}}
@@ -48,15 +52,18 @@ return(  <>
         placeholder="Masukan Kata Sandi"
       />
     </div>
-    <img
+    <div className="img-mata">
+      <img
       className="eye-off"
       src={eye}
       alt=""
     />
+    </div>
+    
     <div className="list-masuk">
       <p>
         Sudah Punya Akun?
-        <a id="masuk" href="/Masuk.html">Masuk</a>
+      <Link to={"/Masuk"}>Masuk</Link>
       </p>
     </div>
   </div>

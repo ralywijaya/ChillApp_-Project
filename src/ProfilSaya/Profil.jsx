@@ -5,31 +5,121 @@ import foto from"../assets/beranda/fotoprofil.png"
 import fotofile from"../assets/beranda/file-upload-outline.png"
 import SectionDaftar from "../DaftarSaya/SectionTopRating"
 import { useState } from "react"
-export default function ProfilSaya(){
-const DataRegister=JSON.parse(localStorage.getItem("DataRegister"))
-const [Nama,setNama]=useState(DataRegister?.nama||"")
-const [Password,setPassword]=useState(DataRegister?.password||"")
+import useFilmStore from "../StateManagement"
+import api from "../services/api"
+import { useEffect } from "react"
+export default function ProfilBerlangganan(){
+
+const data = JSON.parse(localStorage.getItem("akun"));
+
+console.log(data);
+
+ const DataAkun=useFilmStore((state)=>state.DataAkun)
+ console.log("akunmauk",DataAkun)
+ const setAkun=useFilmStore((state)=>state.setAkun)
+ const DataMasuk=useFilmStore((state)=>state.DataMasuk)
+
+ 
+  const akun = DataAkun.find(
+  (item) =>
+    item.NamaUser==DataAkun.NamaUser&&item.PasswordUser==DataMasuk.PasswordUser
+);
+
+
+console.log(" qqq",akun)
+const [Nama,setNama]=useState(data?.NamaUser||"")
+const [Password,setPassword]=useState(data?.PasswordUser||"")
 const [Ubah,setUbah]=useState(false)
 const [Error,setError]=useState({})
+
+async function AmbilData(databaru){
+  await api.get("/DaftarGenre",databaru)
+   
+  .then((Response) => {
+      console.log("Berhasil disimpan ke database");
+      
+      // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
+     setAkun(Response.data)
+    })
+
+      .catch((err) => console.log("Gagal Ambil:", err));
+}
+
+useEffect(()=>{
+  AmbilData()
+},[])
+
+  async function DeletedData(data){
+  await api.delete(`/DaftarGenre/${data}`)
+   
+  .then(() => {
+      console.log("Berhasil disimpan ke database");
+      
+      // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
+    
+    })
+
+      .catch((err) => console.log("Gagal deleted data:", err));
+}
+ async function UpdateData(data,DataRegister){
+  await api.put(`/DaftarGenre/${data}`,DataRegister)
+   
+  .then((Response) => {
+     alert("data diubah",Response.data)
+      
+      // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
+    
+    })
+
+      .catch((err) => console.log("Gagal deleted data:", err));
+}
+ 
+
+function HandleHapus(){
+
+
+ 
+ 
+
+  
+     DeletedData(data.id)
+localStorage.removeItem('akun');
+setNama("")
+setPassword("")
+  }
+
+ 
+
+
 function Handlesimpan(){
-  const ErrorInput={
+ const ErrorInput={
         nama:Nama.trim()==="",
         password:Password.trim()===""
     }
+    
     setError(ErrorInput)
+ 
+ 
+    const DataRegister={
+    NamaUser:Nama,
+    PasswordUser:Password,}
   
-   const DataRegister={
-    nama:Nama,
-    password:Password,}
+ 
      if(!ErrorInput.nama&&!ErrorInput.password){
-      localStorage.setItem("DataRegister",JSON.stringify(DataRegister))
-      alert("data telah diubah")
+UpdateData(data.id,DataRegister)
+
+
+
+ alert("data telah diubah")
+}
+
+     
      }
  
 
  
 
-}
+
 
 function Handleclik(){
   setUbah(!Ubah
@@ -39,7 +129,7 @@ function Handleclik(){
     alert("Edit Data")
   }
 }
-
+ 
     return(
 
         <main>
@@ -95,7 +185,11 @@ Maksimal 2MB
     </div>
    
   </div>
-  <button onClick={Handlesimpan} className="button-simpan-profil">Simpan</button>
+  <div className="box-button-profil">
+    <button onClick={Handlesimpan} className="button-simpan-profil">Simpan</button>
+  <button onClick={HandleHapus} className="button-simpan-hapus">Hapus</button>
+  </div>
+  
  
 </div>
 </section>

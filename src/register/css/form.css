@@ -1,24 +1,14 @@
-/* form(input-username,input-password,daftar-akun,masuk-google) */
-form{
-   
-  
-display: flex;
-flex-direction: column;
-
-    align-items: center;
- gap: 3.7rem;
-}
 
 /* element label */
-label{
+/* .label-daftar{
     font-size: 1.8rem;
     display: block;
     margin-bottom: 1rem;
    
 }
 
-/* element input */
-input{
+element input
+.input-daftar{
     font-size: 1.6rem;
     width:44.9rem;
     height:5rem;
@@ -30,7 +20,7 @@ input{
    cursor: pointer;
 }
 
-input:hover{
+.input-daftar:hover{
     border: 1px solid #FFFFFF;
     padding: 1rem;
 }
@@ -53,7 +43,7 @@ input:hover{
 } 
 
 
-/* box conditional */
+
 .list-masuk{
  
     font-size: 1.4rem;
@@ -65,7 +55,7 @@ height: 2.2rem;
  color: #C1C2C4;
 }
 
-/* element a (link) */
+
 #masuk{
     font-size: 1.4rem;
     color: #FFFFFF;
@@ -74,4 +64,4 @@ height: 2.2rem;
 
 #masuk:hover{
    color: #C1C2C4;
-}
+} */

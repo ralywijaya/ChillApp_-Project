@@ -1,80 +1,47 @@
+
+
 /* box-button */
 .box-button{
-    width: 44.9rem;
-    height:13.3rem ;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    color: #C1C2C4;
+    flex-direction: column;
+    width: 26rem;
+    height: auto;
+}
+
+.button-masuk button{
+    width: 26rem;
+    height:3rem ;
+    background-color:#E7E3FC3B;
+    border: none;
+    border-radius: 1.3rem;
+   padding: 0.6rem;
+   color: #ffff;
+}
+.atau p{
+    font-size: 1rem;
+    color: #9D9EA1;
+}
+
+.button-google button{
+     width: 26rem;
+    height:3rem ;
+    background-color:#E7E3FC3B;
+    border: none;
+    border-radius: 1.3rem;
+   padding: 0.7rem;
+   display: flex;
+   gap:1rem ;
+   justify-content: center;
  
-}
-button:hover{
-    background-color:rgba(231, 227, 252, 0.23);
-    border: 1px solid #FFFFFF;
-    
-}
-button:focus{
-    background-color: #C1C2C4;
-  color: #3D4142;
-border: 1.5px solid #161919;
+  
 }
 
-/* .button masuk */
-.button-masuk{
-    font-size: 1.4rem;
-   width: 44.9rem;
-   height: 5rem;
-   border-radius: 2.4rem;
-    background-color:rgba(231, 227, 252, 0.1);
-   color:#FFFFFF;
-   font-weight: bold;
-   box-sizing: border-box;
-   border: 1px solid #3D4142;
-  cursor: pointer;
-}
-/* elemnt p(atau) */
-.atau{
-    font-size: 1.4rem;
+.img-google img{
+    width: 1.3rem;
+    height: auto;
 }
 
-
-/* button masuk google */
-.button-masuk_google{
-    border: 1px solid #3D4142;
-    color: #FFFFFF;
-  cursor: pointer;
-    background-color:rgba(231, 227, 252, 0.1);
-    padding: 1.4rem 1.4rem;
-    width: 45rem;
-    height: 5rem;
-    border-radius: 2.4rem;
-    box-sizing: border-box;
-   font-weight: bold;
-display: flex;
-justify-content: center;
-
+.nama-google p{
+   color: #ffff;
 }
-
-
-/*img button */
-.button-masuk_google >img{
-    width: 1.8rem;
-    height: 1.8rem
-
-   /* span button */
-    
-}
-.button-masuk_google >span{
-    display: block;
-    width: 15.9rem;
-    height: 2.2rem;
-    font-size: 1.4rem;
-    
-   
-}
-
-
-
-
-

@@ -65,7 +65,7 @@
 }
 
 /* box button */
-.box-button{
+.box-button-hero{
   display:flex;
   gap:0.8rem;
   align-items:center;
