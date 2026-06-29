@@ -4,7 +4,7 @@ import tontonanTv from"../assets/beranda/tablet-cellphone.png"
 import imgTidakAdaIklan from"../assets/beranda/advertisements-off.png"
 import img4k from"../assets/beranda/video-4k-box.png"
 import imgSubtitle from"../assets/beranda/message-reply-text.png"
-import imgCentang from"../assets/beranda/ListCentang.png"
+import imgCentang from"../assets/beranda/listCentang.png"
 
 
 import "./Berlangganan.css"

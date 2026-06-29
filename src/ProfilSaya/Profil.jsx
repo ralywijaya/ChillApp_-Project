@@ -1,4 +1,4 @@
-import Warning from"../assets/beranda/warning.png"
+import Warning from"../assets/beranda/Warning.png"
 import edit from"../assets/beranda/edit.png"
 import"./Profil.css"
 import foto from"../assets/beranda/fotoprofil.png"
