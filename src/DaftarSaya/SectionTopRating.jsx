@@ -43,12 +43,14 @@ function CardFilmTop(){
   useEffect(() => {
     getDaftarSaya();
   }, []);
+ const FilterFilm=DaftarSaya.filter((i)=>(i.idFilm))
+  console.log("daftarsaya",DaftarSaya)
     return(
         
 
     <div className="card-daftar-saya" >
-        {DaftarSaya.map((i)=>(
- <div className="box-daftar-saya" key={i.id}>
+        {FilterFilm.map((i)=>(
+ <div className="box-daftar-saya" key={i.idFilm}>
    
         <img src={i.gambar} alt="" 
     />

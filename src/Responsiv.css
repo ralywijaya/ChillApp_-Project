@@ -23,19 +23,19 @@
 
 @media screen and (min-width:400px){
   html{
-    font-size:13px;
+    font-size:12px;
   }
 }
 
 @media screen and (min-width:640px){
   html{
-    font-size:15px;
+    font-size:13px;
   }
 }
 
 @media screen and (min-width:786px){
   html{
-    font-size:17px;
+    font-size:14px;
   }
 
 

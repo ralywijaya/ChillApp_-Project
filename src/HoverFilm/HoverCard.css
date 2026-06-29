@@ -12,17 +12,18 @@
 }
 
 .imghover img{
-    
-    margin-top: 0;
-    width: 15rem;
-    height:10rem ;
-    object-fit:scale-down;
-    object-position: top;
-    border-bottom: 1px solid #ffff;
+ margin-top: 0;
+ width: 15rem;
+ height:10rem ;
+ object-fit:scale-down;
+ object-position: top;
+ border-bottom: 1px solid #ffff;
  padding: 0.5rem;
- transition: filter 0.25s ease, transform 0.25s ease;
-
-
+ transition: filter 0.1s ease, transform 0.1s ease;
+ -webkit-transition: filter 0.1s ease, transform 0.1s ease;
+ -moz-transition: filter 0.1s ease, transform 0.1s ease;
+ -ms-transition: filter 0.1s ease, transform 0.1s ease;
+ -o-transition: filter 0.1s ease, transform 0.1s ease;
 }
 
 .imghover img:hover{
@@ -43,7 +44,11 @@
     width: 2rem;
     height: auto;
     border-radius: 50%;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+    -webkit-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+    -moz-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+    -ms-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+    -o-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
 }
 
 .list-button img:hover{

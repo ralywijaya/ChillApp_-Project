@@ -117,7 +117,7 @@ const [klik,setklik]=useState(false)
  <div className="drowdown-profil">
   <div className="box-profil"><img src={imgProfil} alt="" /><Link to={"/ProfilSaya"}>ProfilSaya</Link></div>
   <div className="box-premium"><img src={imgLangganan} alt="" /><Link to={"Berlangganan"}>Ubah Premium</Link></div>
-  <div className="box-keluar"><img src={imgKeluar} alt="" /><Link to={"/Masuk"}>Masuk</Link></div>
+  <div className="box-keluar"><img src={imgKeluar} alt="" /><Link to={"/Masuk"}>Keluar</Link></div>
   </div>:<></>}
 
 </div>

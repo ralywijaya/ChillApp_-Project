@@ -26,7 +26,7 @@ async function AmbilData(databaru){
   .then((Response) => {
       console.log("Berhasil disimpan ke database");
       
-      // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
+      
      setAkun(Response.data)
     })
 
