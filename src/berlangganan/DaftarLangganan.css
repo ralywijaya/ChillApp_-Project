@@ -101,6 +101,13 @@ font-size: 1.2rem;
     border: none;
     background-color: #2F3334;
     color: #E0E0E0;
+    cursor: pointer;
+}
+
+.button-voucher button:hover,
+.button-membayar button:hover {
+    background-color: #3a3f41;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
 }
 
 .ringkasan-transaksi{
@@ -155,12 +162,13 @@ font-size:1.2rem;
     -webkit-border-radius: 4.8rem;
     -moz-border-radius: 4.8rem;
     -ms-border-radius: 4.8rem;
+    -ms-border-radius: 4.8rem;
     -o-border-radius: 4.8rem;
     border: none;
     background-color: #09147A;
     color: #C8CCD0;
+    cursor: pointer;
 }
-
 
 
 @media screen and (min-width:786px){

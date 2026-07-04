@@ -17,6 +17,13 @@
     border-radius: 1.3rem;
    padding: 0.6rem;
    color: #ffff;
+   cursor: pointer;
+}
+
+.button-masuk button:hover,
+.button-google button:hover {
+    background-color: rgba(231, 227, 252, 0.28);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 .atau p{
     font-size: 1rem;

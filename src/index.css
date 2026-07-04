@@ -54,6 +54,30 @@ body {
   margin: 0;
 }
 
+button,
+a {
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease,
+    filter 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+a:hover {
+  color: #ffffff;
+  opacity: 0.95;
+  text-decoration-thickness: 0.12rem;
+  text-underline-offset: 0.24rem;
+}
+
 #root {
   width: 1126px;
   max-width: 100%;
