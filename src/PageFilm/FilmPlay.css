@@ -1,0 +1,29 @@
+.section-page-film{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.film-play{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #22282A;
+    padding: 2rem;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+
+.deskripsi-film-page p{
+font-size: 1.2rem;
+}
+
+.genre-film-page{
+    display: flex;
+    gap: 2rem;
+}

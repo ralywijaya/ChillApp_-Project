@@ -3,15 +3,16 @@
 import "./css/DaftarSaya.css"
 
 
-import useFilmStore from "../StateManagement"
-
-import { useEffect } from "react";
-
-import api from "../services/api";
 
 
- 
-export default function SectionDaftar({subjudul}){
+
+import { useEffect } from "react"
+
+ import { useDispatch,useSelector } from "react-redux";
+import { AmbilDaftar } from "../SliceRedux/SliceDaftar";
+ import { GetDaftarGenre } from "../CostomHook/CostomHook";
+export default function 
+SectionDaftar({subjudul}){
 
 return(
     <section className="daftar-saya">
@@ -24,27 +25,23 @@ return(
 
 
 function CardFilmTop(){ 
-    
-   
-  // 1. Amankan state Zustand, berikan fallback array kosong jika undefined
-  const DaftarSaya = useFilmStore((state) => state.DaftarFilm) || [];
-  const setDaftarSaya = useFilmStore((state) => state.setDaftarFilm);
+  
+    const dispatch = useDispatch();
+  const Daftarsaya=useSelector((state) => state.Daftar.DaftarData) || []; 
+  
+ 
 
-  // Mengamankan properti 'i' agar tidak crash jika component merender tanpa data
- function getDaftarSaya() {
-    api.get("/DaftarGenre")
-      .then((Response) => {
-        setDaftarSaya(Response.data);
-      })
-      .catch((error) => {
-        console.error("Gagal mengambil data:", error);
-      });
-  }
   useEffect(() => {
+    async function getDaftarSaya() {
+       const dataDaftar=await GetDaftarGenre()
+      dispatch(AmbilDaftar(dataDaftar));
+      console.log("daftarsaya",dataDaftar)
+    }
     getDaftarSaya();
-  }, []);
- const FilterFilm=DaftarSaya.filter((i)=>(i.idFilm))
-  console.log("daftarsaya",DaftarSaya)
+  }, [dispatch]);
+
+ const FilterFilm=Daftarsaya.filter((i)=>(i.idFilm))
+  console.log("daftarsaya",Daftarsaya)
     return(
         
 

@@ -88,8 +88,8 @@ else{alert("data salah")}
    
     
      <div className="sub-halaman">
-       <h1>Daftar</h1>
-       <p>selamat datang !</p>
+       <h1>Masuk</h1>
+       <p>selamat datang Kembali !</p>
      </div>
    </header>
    

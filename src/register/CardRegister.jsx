@@ -1,67 +1,82 @@
 
+import { useDispatch } from "react-redux";
+import {TambahAkun} from "../SliceRedux/SliceAkun"
+import { PostDaftarGenre } from "../CostomHook/CostomHook";
 import { useState } from "react";
 import logo from "../assets/masuk/Logo.png";
-import useFilmStore from "../StateManagement";
+
 import Form from "./Form";
 import Button from "./Button";
 import "./css/card.css"
 import "./css/responsiv.css"
 import "./css/main.css"
 import { useNavigate } from "react-router-dom";
-import api from "../services/api";
+
 
 export default function CardRegister(){
   const Navigate=useNavigate()
+  const dispatch=useDispatch()
+
 const [Nama,setNama]=useState('')
 const [Password,setPassword]=useState('')
-  const setAkun=useFilmStore((state)=>state.setAkun)
-  const DataAkun=useFilmStore((state)=>state.DataAkun)
+  // const setAkun=useFilmStore((state)=>state.setAkun)
+  // const DataAkun=useFilmStore((state)=>state.DataAkun)
  const DataRegister={
+  Akun:"Free",
     NamaUser:Nama,
   PasswordUser:Password,}
 const [ConfirmPassword,setConfirmPassword]=useState('')
 const [Error,setError]=useState({})
 
 
-function simpanData(dataBaru) {
-  console.log("Data yang dikirim:", dataBaru);
-  api.post("/DaftarGenre", dataBaru)
-    .then((Response) => {
-      console.log("Berhasil disimpan ke database");
+// function simpanData(dataBaru) {
+//   console.log("Data yang dikirim:", dataBaru);
+//   api.post("/DaftarGenre", dataBaru)
+//     .then((Response) => {
+//       console.log("Berhasil disimpan ke database");
    
-      const dataTerbaru = [...DataAkun, Response.data];
-      setAkun(dataTerbaru);
-    })
-    .catch((err) => console.log("Gagal menyimpan:", err));
-}
+//       const dataTerbaru = [...DataAkun, Response.data];
+//       setAkun(dataTerbaru);
+//     })
+//     .catch((err) => console.log("Gagal menyimpan:", err));
+// }
 
 
    
-function handleClick(e){
-    e.preventDefault()
-const ErrorInput={
-  nama:Nama.trim()==="",
-  password:Password.trim()==="",
-  confirmPassword:ConfirmPassword.trim()===""||ConfirmPassword!==Password
-}
+// 1. Pastikan fungsi utamanya yang diberi kata 'async'
+const handleClick = async (e) => {
+  e.preventDefault();
 
-setError(ErrorInput)
+  const ErrorInput = {
+    nama: Nama.trim() === "",
+    password: Password.trim() === "",
+    confirmPassword: ConfirmPassword.trim() === "" || ConfirmPassword !== Password
+  };
+
+  setError(ErrorInput);
+
+  // Cek apakah tidak ada error di semua input
+  if (!ErrorInput.nama && !ErrorInput.password && !ErrorInput.confirmPassword) {
+    try {
+      // 2. Langsung gunakan await di sini tanpa perlu membungkusnya dalam async() lagi
+      const dataSimpan = await PostDaftarGenre(DataRegister);
+      
+      dispatch(TambahAkun(dataSimpan));
+      console.log("data simpan", dataSimpan);
+      
+      // 3. Pindah halaman menggunakan navigate (huruf kecil)
+      Navigate("/Masuk"); 
+      
+    } catch (error) {
+      console.error("Terjadi kesalahan saat menyimpan data:", error);
+    }
+  } else {
+    alert("Data salah! Silakan periksa kembali form Anda.");
+  }
+};
 
 
 
-if(!ErrorInput.nama&&!ErrorInput.password&&!ErrorInput.confirmPassword){
-
- simpanData(DataRegister)
- Navigate("/Masuk")
-  // window.location.href = "/Masuk.html"
-}
-
-else{
-    alert("data salah")
-}
-
-
-}
     return(
       <section className="section-daftar">
           <main className="main-daftar">

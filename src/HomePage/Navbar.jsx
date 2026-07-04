@@ -35,6 +35,7 @@ useEffect(()=>{
 },[])
 
 
+
  function HandleChange (e){
   setJudul(e.target.value)
  
@@ -45,6 +46,10 @@ const ListFilm = Film.filter((i) =>
   i.Nama?.toLowerCase().includes(Judul.toLowerCase())
 )
 console.log("listItem",ListFilm)
+
+
+  
+
     return(<>    <header>
 <Navbar/>
 <Profil/>
@@ -52,7 +57,7 @@ console.log("listItem",ListFilm)
         </header>
   <div className="box-search">
       <input type="text" value={Judul} onChange={HandleChange} />
-       {Judul!== "" && ListFilm.length > 0 &&(<div className="box-list-name">
+       {Judul!== "" && ListFilm.length > 0 ?<div className="box-list-name">
      <ul style={{display:"flex",flexDirection:"column",gap:"1rem"}} className="list-name-ul">
         {ListFilm.map((item)=>(<div  key={item.id}>
           
@@ -61,7 +66,7 @@ console.log("listItem",ListFilm)
         ))}
       </ul>
      
-       </div>)}
+       </div>:""}
 
      <div><button >Search</button></div>
     </div>

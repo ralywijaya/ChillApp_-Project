@@ -132,7 +132,7 @@ function Handleclik(){
  
     return(
 
-        <main>
+        <main className="main-profil">
 <section className="profil">
 
 
@@ -194,8 +194,11 @@ Maksimal 2MB
 </div>
 </section>
 
+<div>
+  <p style={{fontSize:"1.6rem"}}>Daftar Saya</p>
+  <SectionDaftar/>
+</div>
 
-<SectionDaftar/>
 
 
 

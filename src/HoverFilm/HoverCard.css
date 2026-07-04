@@ -1,6 +1,7 @@
 .hover-film{
-   width:15rem ;
-   height:25rem;
+    gap: 0.5rem;
+   width:20rem ;
+   height:auto;
    background-color:black;
    display: flex;
    flex-direction: column;
@@ -8,16 +9,26 @@
    position: absolute;
    top: 1rem;
    z-index: 8;
-   
+   border-radius: 1rem;
+   -webkit-border-radius: 1rem;
+   -moz-border-radius: 1rem;
+   -ms-border-radius: 1rem;
+   -o-border-radius: 1rem;
+justify-content: center;
+border: 1px solid #fff;
 }
 
+.imghover{
+    width:100%;
+}
 .imghover img{
+    
  margin-top: 0;
- width: 15rem;
+ width:100%;
  height:10rem ;
  object-fit:scale-down;
  object-position: top;
- border-bottom: 1px solid #ffff;
+ 
  padding: 0.5rem;
  transition: filter 0.1s ease, transform 0.1s ease;
  -webkit-transition: filter 0.1s ease, transform 0.1s ease;
@@ -29,6 +40,19 @@
 .imghover img:hover{
     filter: brightness(1.08);
     transform: scale(1.02);
+}
+
+.nama-film-hover{
+    width: 100%;
+}
+.nama-film-hover p{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.button-box{
+    width: 100%;
+
 }
 
 .list-button{
@@ -56,6 +80,11 @@
     box-shadow: 0 0 0 0.6rem rgba(255,255,255,0.08);
     transform: scale(1.12);
 }
+
+.deskripsi{
+    padding: 1rem;
+}
+
 
 .keterangan{
     color: #fff;

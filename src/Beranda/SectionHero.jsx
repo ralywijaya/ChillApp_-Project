@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import"./css/SectionHero.css"
 
 import ImgHero from".././assets/beranda/section_hero.png"
@@ -37,6 +38,10 @@ function HeroDescription({paraf}){
 </div>
 
     )
+}
+
+HeroDescription.propTypes = {
+  paraf: PropTypes.string
 }
 
 function HeroButton(){

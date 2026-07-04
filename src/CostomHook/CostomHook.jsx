@@ -1,58 +1,50 @@
-import { useState, useEffect } from "react";
 import api from "../services/api";
-import useFilmStore from "../StateManagement";
-// Namanya harus diawali dengan "use"
-export default function useFetch() {
-  const setFilm = useFilmStore((state) => state.setFilm)
-  const setDaftarSaya = useFilmStore((state) => state.setDaftarFilm);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-const Film = useFilmStore((state) => state.Film)
-  const DaftarSaya = useFilmStore((state) => state.DaftarFilm);
- function getDataFilm(){
-      api.get("/DaftarFilm")
-     .then((Response)=>{
-        setFilm(Response.data)
-         
-     })
-     .catch((eror)=>{
-       setError(eror.message || "Terjadi kesalahan")
-         console.log(eror)
-     })
-     .finally(()=>{
-        setLoading(false)
-         console.log("complate")
-     })
-   }
-   
 
- 
- useEffect(()=>{
-     getDataFilm()
- },[])
-   // Efek akan jalan ulang jika URL berubah
-  
-  
-   function getDataDaftarSaya(){
-       api.get("/DaftarGenre")
-      .then((Response)=>{
-         setDaftarSaya(Response.data)
-          
-      })
-      .catch((eror)=>{
-           setError(eror.message || "Terjadi kesalahan")
-      })
-      .finally(()=>{
-        setLoading(false)
-          console.log("complate")
-      })
-    }
-    
-  console.log("ini adalah a ",Film)
-  
-  useEffect(()=>{
-      getDataDaftarSaya()
-  },[])
-  // Kembalikan data/state agar bisa dipakai oleh komponen lain
-  return {  loading, error,Film,DaftarSaya };
+export async function GetDaftarFilm() {
+  const response = await api.get("/DaftarFilm");
+
+  return response.data;
 }
+
+
+export async function PostDaftarFilm(data) {
+  const response = await api.post("/DaftarFilm", data);
+
+  return response.data;
+}
+
+export async function PutDaftarFilm(id, data) {
+  const response = await api.put(`/DaftarFilm/${id}`, data);
+
+  return response.data;
+}
+
+export async function DeleteDaftarFilm(id) {
+  await api.delete(`/DaftarFilm/${id}`);
+}
+
+
+
+  export async function PostDaftarGenre(data) {
+  const response = await api.post("/DaftarGenre", data);
+
+  return response.data;
+}
+  export async function GetDaftarGenre() {
+  const response = await api.get("/DaftarGenre");
+
+  return response.data;
+}
+
+export async function PutDaftarGenre(id, data) {
+  const response = await api.put(`/DaftarGenre/${id}`, data);
+
+  return response.data;
+}
+
+export async function DeleteDaftarGenre(id) {
+  await api.delete(`/DaftarGenre/${id}`);
+}
+
+
+

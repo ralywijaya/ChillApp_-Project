@@ -8,7 +8,8 @@ import Register from "../register/Register.jsx"
 import Series from "../Series/Series.jsx"
 import PageFilmApp from "../PageFilm/PageFilmApp.jsx"
 import Genre from "../Genre/Genre.jsx"
-import  Berlangganan  from "../ProfilSaya/Berlangganan.jsx"
+import Berlangganan from "../berlangganan/Berlangganan.jsx"
+import DaftarLangganan from "../berlangganan/DaftarLangganan.jsx"
 import"../global.css"
 import"../Responsiv.css"
 export const 
@@ -23,29 +24,33 @@ Router=createBrowserRouter([
     Component:Beranda
   },
   {
-    path:"DaftarSaya",
+    path:"/DaftarSaya",
     Component:DaftarSaya
   },
   {
-    path:"ProfilSaya",
+    path:"/ProfilSaya",
     Component:ProfilApp
    },
  {
-    path:"Series",
+    path:"/Series",
     Component:Series
    },
 
   {
-    path:"menu/:name",
+    path:"/menu/:name",
     Component:Genre
    },
   {
-    path:"Page/:NamaFilm",
+    path:"/Page/:NamaFilm",
     Component:PageFilmApp
    },
   {
-    path:"Berlangganan",
+    path:"/Berlangganan",
     Component:Berlangganan
+   },
+  {
+    path:"/DaftarLangganan/:paket",
+    Component:DaftarLangganan
    },
  
 
@@ -57,7 +62,7 @@ Router=createBrowserRouter([
     Component:Masuk
    },
    {
-    path:"Register",
+    path:"/Register",
     Component:Register
    },
 

@@ -3,7 +3,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-
+import { Provider } from 'react-redux'
+import StoreRedux from './storeRedux/StoreRedux.jsx'
 
 import { Router } from './/utils/Router'
 // import Masuk from './Masuk/Masuk.jsx'
@@ -21,7 +22,9 @@ const root=createRoot(element)
 
 
 root.render(
+  <Provider store={StoreRedux}>
   <StrictMode>
     <RouterProvider router={Router}/>
   </StrictMode>
+  </Provider>
 )

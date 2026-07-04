@@ -5,38 +5,29 @@ import SectionTopRating from './SectionTopRating'
 import SectionFilmRilis from './SectionFilmRilis'
 import SectionFilmTranding from './SectionFilmTranding'
 import "./css/Main.css"
-
-import api from "../services/api"
-// import { useImmer } from 'use-immer'
+import { GetDaftarFilm } from '../CostomHook/CostomHook'
+import { AmbilFilm } from '../SliceRedux/SliceFilm'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import useFilmStore from '../StateManagement'
-
 
 
 
 
 export default function MainContainer(){
- const Film = useFilmStore((state) => state.Film)
-const setFilm = useFilmStore((state) => state.setFilm)
-  function getData(){
-     api.get("/DaftarFilm")
-    .then((Response)=>{
-       setFilm(Response.data)
-        
-    })
-    .catch((eror)=>{
-        console.log(eror)
-    })
-    .finally(()=>{
-        console.log("complate")
-    })
-  }
+  const Film=useSelector((state)=>state.DaftarFilm.Film)
+  const dispatch=useDispatch()
   
-console.log("ini adalah a ",Film)
-
-useEffect(()=>{
-    getData()
-},[])
+  useEffect(() => {
+    async function GetFilm() {
+      const data = await GetDaftarFilm();
+      dispatch(AmbilFilm(data))
+      console.log("ini film GEt",data)
+    }
+    GetFilm()
+  },[dispatch])
+  
+ 
+ 
 
     const KategoryFilmMelanjutkan = Film.filter(
   (i) => i.Category === "MelanjutkanTontonan"
@@ -53,6 +44,10 @@ const KategoryFilmTranding = Film.filter(
 const KategoryFilmRiis = Film.filter(
   (i) => i.Category ==="DataFilmRilis"
 )
+
+
+
+if(Film.length>0){
     return(
         
 
@@ -67,4 +62,10 @@ const KategoryFilmRiis = Film.filter(
        
          </main>
     )
+}
+
+else{
+  return(<h1 style={{textAlign:"center",}}>Loading...</h1>)
+}
+  
 }

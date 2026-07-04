@@ -10,25 +10,24 @@ const {
 NamaFilm
 }=useParams()
 const setFilm = useFilmStore((state) => state.setFilm)
-  function getData(){
-     api.get("/DaftarFilm")
-    .then((Response)=>{
-       setFilm(Response.data)
-        
-    })
-    .catch((eror)=>{
-        console.log(eror)
-    })
-    .finally(()=>{
-        console.log("complate")
-    })
-  }
+  useEffect(()=>{
+    function getData(){
+       api.get("/DaftarFilm")
+      .then((Response)=>{
+         setFilm(Response.data)
+          
+      })
+      .catch((error_)=>{
+          console.log(error_)
+      })
+      .finally(()=>{
+          console.log("complate")
+      })
+    }
+    getData()
+  },[setFilm])
   
 console.log("ini adalah data ",Film)
-
-useEffect(()=>{
-    getData()
-},[])
 
 if(Film.length === 0){
   
@@ -54,7 +53,7 @@ else{
    return (
   <PageFilm
     subJudul={NamaFilm}
-    NamaFilm={FilterNama.gambar}
+    NamaFilm={FilterNama}
     KategoryFilm={RecomendFilm}
   />
 
