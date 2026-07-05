@@ -1,7 +1,8 @@
 .main-profil{
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 15rem;
+  padding: 2rem;
 }
 
 .profil{ padding:0.8rem ;
@@ -69,6 +70,9 @@
     width: 21.3rem;
      
 }
+.foto-profil{
+
+}
 
 .edit-foto {
   width: max-content;
@@ -78,17 +82,31 @@
    
 }
 
+.foto img{
+  width: 12em;
+  height:12rem;
+  border-radius: 12rem;
+  object-position: center;
+  object-fit: cover;
+ border: 3px solid #FFFFFF;
+}
 
 .edit-foto button{
-  width: 9.1rem;
-  height: 3.6rem;
-  border-radius: 4.8rem;
-  border: 0.1rem solid;
-  color: #3254FF;
-  opacity: 1;
-  background-color:#22282A;
+ width: 7rem;
+ border-radius:2rem ;
+ height: 2.6rem;
+ border: 0.1rem solid;
+ color: #3254FF;
+ opacity: 1;
+ background-color:#22282A;
+ -webkit-border-radius:2rem ;
+ -moz-border-radius:2rem ;
+ -ms-border-radius:2rem ;
+ -o-border-radius:2rem ;
  
 }
+
+
 
 .max-file{
     display: flex;

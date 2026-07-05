@@ -3,13 +3,17 @@ import edit from"../assets/beranda/edit.png"
 import"./Profil.css"
 import foto from"../assets/beranda/fotoprofil.png"
 import fotofile from"../assets/beranda/file-upload-outline.png"
+
+import uploadImage from "../CloudinaryApiHandle/CloudinaryApiJHandle"
 import SectionDaftar from "../DaftarSaya/SectionTopRating"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import useFilmStore from "../StateManagement"
 import api from "../services/api"
 import { useEffect } from "react"
 export default function ProfilBerlangganan(){
 
+  const Fotoref=useRef(null)
+const [Foto,setFoto]=useState(foto)
 const data = JSON.parse(localStorage.getItem("akun"));
 
 console.log(data);
@@ -129,6 +133,19 @@ function Handleclik(){
     alert("Edit Data")
   }
 }
+
+
+    async function HandleUpload(e){
+
+        const file=e.target.files[0];
+
+        if(!file) return;
+
+        const url=await uploadImage(file);
+
+        setFoto(url);
+        
+    }
  
     return(
 
@@ -147,10 +164,17 @@ function Handleclik(){
   <div><h2>Profil Saya</h2></div>
 <div className="foto-profil">
   <div className="foto">
-    <img src={foto} alt="Foto Profil" />
+    <img src={Foto} alt="Foto Profil" />
   </div>
   <div className="edit-foto">
-<button>Ubah Foto</button>
+    <button onClick={()=>{Fotoref.current.click()}}>Ubah Profil</button>
+<input style={{display:"none"}} className="input-foto"
+  type="file"
+  accept="image/*"
+  onChange={HandleUpload}
+  ref={Fotoref}
+ 
+/>
 <div className="max-file"><img src={fotofile} alt="Upload File" />
 <div  >
 Maksimal 2MB
@@ -195,7 +219,7 @@ Maksimal 2MB
 </section>
 
 <div>
-  <p style={{fontSize:"1.6rem"}}>Daftar Saya</p>
+  <p style={{fontSize:"1.8rem"}}>Daftar Saya</p>
   <SectionDaftar/>
 </div>
 
