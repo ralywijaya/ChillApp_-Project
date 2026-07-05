@@ -1,6 +1,6 @@
 import"./css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
-import {   useState } from "react"
+import { useRef, useState } from "react"
 // import HoverFilm from "./HoverFilm"
 // import { Film} from "./FilmContax"
 import HoverFilm from "../HoverFilm/HoverFilm"
@@ -23,13 +23,12 @@ console.log("ini filter",KategoryFilm)
 
    const [isEdit,setisEdit]=useState(false)
     const [filmAktif, setFilmAktif] = useState(null);
- 
- 
+ const scrollref=useRef(null)
 
 return(
     <section className="section-film">
       <h2>{subJudul}</h2>
-<div className="card-film" >
+<div ref={scrollref} className="card-film" >
         {KategoryFilm.map((i)=>(
  <div className="box-film" key={i.id}>
    
@@ -40,7 +39,7 @@ return(
 
              </div>
         ))}
-        {!isEdit&&<AnakPanah/>}
+        {!isEdit&&<AnakPanah setref={scrollref}/>}
           
 </div>
         
