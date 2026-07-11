@@ -3,12 +3,7 @@
 // import"./css/global.css"
 // import"./css/Responsiv.css"
 
-
-
-
 import MainContainer from './MainContainer'
-
-
 
 export default function Beranda(){
   return(

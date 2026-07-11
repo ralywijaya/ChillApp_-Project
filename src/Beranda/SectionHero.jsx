@@ -6,7 +6,6 @@ import ImgUmur from".././assets/beranda/category_age.png"
 import ImgSpeaker from".././assets/beranda/volume-off.png"
 import ImgInformation from"../assets/beranda/information-outline.png"
 
-
 export default function SectionHero(){
     return(
         <section className="container-hero">
@@ -22,7 +21,6 @@ export default function SectionHero(){
     perang."/>
         <HeroButton/>
         </div>
-
 
    
         </section>

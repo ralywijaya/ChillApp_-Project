@@ -35,19 +35,16 @@ function Genre() {
         
     })
     .catch((eror)=>{
-        console.log(eror)
+
     })
     .finally(()=>{
-        console.log("complate")
+
     })
   }
-  
-console.log("ini adalah a ",Film)
 
 useEffect(()=>{
     getData()
 },[])
-
 
   const baris1=Film.filter((i)=>i.Baris==1)
   const baris2=Film.filter((i)=>i.Baris==2)

@@ -7,7 +7,6 @@ export default function MainContainer(){
     return(
         
 
-
      <main>
    
            <SectionDaftar subjudul="daftar Saya"/>

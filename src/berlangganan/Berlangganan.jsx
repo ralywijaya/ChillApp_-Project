@@ -15,7 +15,6 @@ export default function Berlangganan(){
     
     <section className="section-berlangganan">
 
-
 <div className="box-benefit-berlangganan">
     <div className="subjudul-benefit">
 <h2>Kenapa Harus Berlangganan?</h2>
@@ -54,9 +53,7 @@ export default function Berlangganan(){
 </div>
 </div>
 
-
 </div>
-
 
 <div className="box-daftar-langganan">
 <div className="subpaket">
@@ -69,9 +66,6 @@ export default function Berlangganan(){
 <CardIndividual imgCentang={imgCentang}/>
 <CardBerdua imgCentang={imgCentang}/>
 <CardKeluarga imgCentang={imgCentang}/>
-
-
-
 
 </div>
 

@@ -16,7 +16,6 @@ export default function AnakPanah(){
     )
 }
 
-
 // export  function AnakPanahMelanjutkan(){
 //     return(
 //           <div className="anak_panah_melanjutkan">

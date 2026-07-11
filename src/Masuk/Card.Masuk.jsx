@@ -24,38 +24,28 @@ async function AmbilData(databaru){
   await api.get("/DaftarGenre",databaru)
    
   .then((Response) => {
-      console.log("Berhasil disimpan ke database");
-      
-      
+
      setAkun(Response.data)
     })
 
-      .catch((err) => console.log("Gagal Ambil:", err));
+      .catch((err) => void 0);
 }
 
 useEffect(()=>{
   AmbilData()
 },[])
 
-console.log("ambil data dari daftar",DataAkun)
  const akun = DataAkun.find(
   (item) =>
     item.NamaUser === MasukNama &&
     item.PasswordUser === MasukPassword
 );
-console.log("nama dan pw",akun)
 
- 
 function handleClick(e){
-
-
-
 
     e.preventDefault()
 
-
  
-
 
   
     const ErrorInput={

@@ -6,20 +6,15 @@ import {   useState } from "react"
 import HoverFilm from "../HoverFilm/HoverFilm"
 import"./FilmPlay.css"
 
-
 export default function PageFilm({subJudul,KategoryFilm,NamaFilm}){
  
  
 
     
 
-
     
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
-  
-
-console.log("ini adalah",KategoryFilm)
 
    const [isEdit,setisEdit]=useState(false)
     const [filmAktif, setFilmAktif] = useState(null);
@@ -49,8 +44,6 @@ return(
     <p style={{fontSize:"1rem"}}>{NamaFilm.umur}</p>
  </div>
 
-
-
      
     
       </div>
@@ -78,7 +71,5 @@ else{
     )
 }
 }
-
-
 
   

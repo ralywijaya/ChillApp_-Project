@@ -4,7 +4,6 @@
 
 import ProfilSaya from './Profil'
 
-
 export default function ProfilApp(){
   return(
   

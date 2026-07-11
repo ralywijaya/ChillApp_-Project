@@ -20,16 +20,13 @@ export default function Series(){
       async function GetFilm() {
         const data = await GetDaftarFilm();
         dispatch(AmbilFilm(data))
-        console.log("ini film GEt",data)
+
       }
       GetFilm()
     },[dispatch])
   
  
  
-
-
-
 
    const KategoryFilmMelanjutkan = Film.filter(
    (i) => i.Category === "MelanjutkanTontonan"

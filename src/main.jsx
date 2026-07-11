@@ -10,16 +10,10 @@ import { Router } from './/utils/Router'
 // import Masuk from './Masuk/Masuk.jsx'
 import { RouterProvider } from 'react-router-dom'
 
-
-
-
 // import App from './App.jsx'
-
 
 const element=document.getElementById("root")
 const root=createRoot(element)
-
-
 
 root.render(
   <Provider store={StoreRedux}>

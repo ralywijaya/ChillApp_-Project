@@ -7,7 +7,7 @@ import "./DaftarLangganan.css"
 export default function DaftarLangganan() {
 
     const {paket} = useParams()
-    console.log(paket)
+
     return (
         <section className="ringkasan-pembayaran">
             <div className="box-Langganan">
@@ -71,16 +71,10 @@ export default function DaftarLangganan() {
   <button className="btn-minimalis">Gunakan</button>
 </div>
 
-
-
     </div>
 
   
 </div>
-
-
-
-
 
 <div className="ringkasan-transaksi">
 <div className="subjudul-ringkasan">
@@ -101,7 +95,6 @@ export default function DaftarLangganan() {
     <p style={{fontSize:"1.6rem",color:"#"}}> Rp000</p>
 </div>
 
-
     
 </div>
 </div>
@@ -109,7 +102,6 @@ export default function DaftarLangganan() {
 <div className="button-membayar"> <button>Bayar</button ></div>
              </div>
         </section>
-
 
       
     )

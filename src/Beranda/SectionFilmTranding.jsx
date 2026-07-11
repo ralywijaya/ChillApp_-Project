@@ -6,21 +6,15 @@ import { useRef, useState } from "react"
 // import { Film} from "./FilmContax"
 import HoverFilm from "../HoverFilm/HoverFilm"
 
-
-
 export default function SectionFilmTranding({subJudul,KategoryFilm}){
  
  
 
     
 
-
     
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
-  
-
-console.log("ini filter",KategoryFilm)
 
    const [isEdit,setisEdit]=useState(false)
     const [filmAktif, setFilmAktif] = useState(null);
@@ -48,7 +42,5 @@ return(
     </section>
 )
 }
-
-
 
   

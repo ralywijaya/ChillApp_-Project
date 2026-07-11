@@ -2,7 +2,6 @@
 import { useNavigate } from "react-router-dom"
 import imgCentang from"../assets/beranda/listCentang.png"
 
-
 export default function CardBerdua() {  const navigate = useNavigate();
    function HandleklikDaftar() {
     

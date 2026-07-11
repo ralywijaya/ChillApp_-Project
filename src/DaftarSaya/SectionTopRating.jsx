@@ -2,10 +2,6 @@
 
 import "./css/DaftarSaya.css"
 
-
-
-
-
 import { useEffect } from "react"
 
  import { useDispatch,useSelector } from "react-redux";
@@ -23,7 +19,6 @@ return(
 )
 }
 
-
 function CardFilmTop(){ 
   
     const dispatch = useDispatch();
@@ -35,13 +30,13 @@ function CardFilmTop(){
     async function getDaftarSaya() {
        const dataDaftar=await GetDaftarGenre()
       dispatch(AmbilDaftar(dataDaftar));
-      console.log("daftarsaya",dataDaftar)
+
     }
     getDaftarSaya();
   }, [dispatch]);
 
  const FilterFilm=Daftarsaya.filter((i)=>(i.idFilm))
-  console.log("daftarsaya",Daftarsaya)
+
     return(
         
 
@@ -54,7 +49,6 @@ function CardFilmTop(){
        
   
 
-
              </div>
 
         ))}
@@ -63,7 +57,6 @@ function CardFilmTop(){
 </div>
         
  
-
 
   
 
@@ -74,6 +67,5 @@ function CardFilmTop(){
 }
 
  
-
 
  

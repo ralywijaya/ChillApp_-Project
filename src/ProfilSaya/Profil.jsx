@@ -16,10 +16,8 @@ export default function ProfilBerlangganan(){
 const [Foto,setFoto]=useState(foto)
 const data = JSON.parse(localStorage.getItem("akun"));
 
-console.log(data);
-
  const DataAkun=useFilmStore((state)=>state.DataAkun)
- console.log("akunmauk",DataAkun)
+
  const setAkun=useFilmStore((state)=>state.setAkun)
  const DataMasuk=useFilmStore((state)=>state.DataMasuk)
 
@@ -29,8 +27,6 @@ console.log(data);
     item.NamaUser==DataAkun.NamaUser&&item.PasswordUser==DataMasuk.PasswordUser
 );
 
-
-console.log(" qqq",akun)
 const [Nama,setNama]=useState(data?.NamaUser||"")
 const [Password,setPassword]=useState(data?.PasswordUser||"")
 const [Ubah,setUbah]=useState(false)
@@ -40,13 +36,12 @@ async function AmbilData(databaru){
   await api.get("/DaftarGenre",databaru)
    
   .then((Response) => {
-      console.log("Berhasil disimpan ke database");
-      
+
       // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
      setAkun(Response.data)
     })
 
-      .catch((err) => console.log("Gagal Ambil:", err));
+      .catch((err) => void 0);
 }
 
 useEffect(()=>{
@@ -57,13 +52,12 @@ useEffect(()=>{
   await api.delete(`/DaftarGenre/${data}`)
    
   .then(() => {
-      console.log("Berhasil disimpan ke database");
-      
+
       // SINKRONISASI: Tambahkan data yang berhasil disimpan (berisi ID dari API) ke Zustand
     
     })
 
-      .catch((err) => console.log("Gagal deleted data:", err));
+      .catch((err) => void 0);
 }
  async function UpdateData(data,DataRegister){
   await api.put(`/DaftarGenre/${data}`,DataRegister)
@@ -75,12 +69,11 @@ useEffect(()=>{
     
     })
 
-      .catch((err) => console.log("Gagal deleted data:", err));
+      .catch((err) => void 0);
 }
  
 
 function HandleHapus(){
-
 
  
  
@@ -93,7 +86,6 @@ setPassword("")
   }
 
  
-
 
 function Handlesimpan(){
  const ErrorInput={
@@ -112,8 +104,6 @@ function Handlesimpan(){
      if(!ErrorInput.nama&&!ErrorInput.password){
 UpdateData(data.id,DataRegister)
 
-
-
  alert("data telah diubah")
 }
 
@@ -123,8 +113,6 @@ UpdateData(data.id,DataRegister)
 
  
 
-
-
 function Handleclik(){
   setUbah(!Ubah
   )
@@ -133,7 +121,6 @@ function Handleclik(){
     alert("Edit Data")
   }
 }
-
 
     async function HandleUpload(e){
 
@@ -151,8 +138,6 @@ function Handleclik(){
 
         <main className="main-profil">
 <section className="profil">
-
-
 
 <div className="box-langganan">
     <div><img src={Warning} alt="Warning" /></div>
@@ -223,13 +208,7 @@ Maksimal 2MB
   <SectionDaftar/>
 </div>
 
-
-
-
-
         </main>
     )
-
-
 
 }

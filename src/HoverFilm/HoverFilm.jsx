@@ -18,12 +18,10 @@ function HoverFilm({ setisEdit, i }) {
     async function getDaftarSaya() {
        const dataDaftar=await GetDaftarGenre()
       dispatch(AmbilDaftar(dataDaftar));
-      console.log("daftarsaya",dataDaftar)
+
     }
     getDaftarSaya();
   }, [dispatch]);
-
-  console.log("ini adalah daftar saya", DaftarSaya);
 
   const sudahAda = DaftarSaya.some((item) => item.idFilm == i.id);
   
@@ -70,7 +68,6 @@ const Handleclik = useCallback(async () => {
 function Handleplay(){
   Navigate(`/page/${i.Nama}`)
 }
-
 
   return (
     <div 

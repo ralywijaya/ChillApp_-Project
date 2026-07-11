@@ -4,10 +4,6 @@ import ArrowLeft from"../assets/beranda/anak_panah_kiri.png"
 import ArrowRight from"../assets/beranda/anak_panah_kanan.png"
 import { useRef } from "react"
 
-
-
-
-
 export default function SectionMelanjutkan({subJudul,KategoryFilm}){
 const scrollref=useRef(null)
     
@@ -28,9 +24,6 @@ const scrollref=useRef(null)
 
     
 }
-
-
-
 
   function AnakPanahMelanjutkan({setref}){
     

@@ -6,7 +6,6 @@ export async function GetDaftarFilm() {
   return response.data;
 }
 
-
 export async function PostDaftarFilm(data) {
   const response = await api.post("/DaftarFilm", data);
 
@@ -22,8 +21,6 @@ export async function PutDaftarFilm(id, data) {
 export async function DeleteDaftarFilm(id) {
   await api.delete(`/DaftarFilm/${id}`);
 }
-
-
 
   export async function PostDaftarGenre(data) {
   const response = await api.post("/DaftarGenre", data);
@@ -45,6 +42,4 @@ export async function PutDaftarGenre(id, data) {
 export async function DeleteDaftarGenre(id) {
   await api.delete(`/DaftarGenre/${id}`);
 }
-
-
 

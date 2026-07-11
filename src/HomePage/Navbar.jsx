@@ -11,7 +11,6 @@ import useFilmStore from "../StateManagement"
 export default function Header(){
    const [Judul,setJudul]=useState("")
 
-
  const Film = useFilmStore((state) => state.Film)
  const setFilm = useFilmStore((state) => state.setFilm)
   function getData(){
@@ -21,20 +20,16 @@ export default function Header(){
         
     })
     .catch((eror)=>{
-        console.log(eror)
+
     })
     .finally(()=>{
-        console.log("complate")
+
     })
   }
-  
-console.log("ini adalah a ",Film)
 
 useEffect(()=>{
     getData()
 },[])
-
-
 
  function HandleChange (e){
   setJudul(e.target.value)
@@ -45,10 +40,6 @@ useEffect(()=>{
 const ListFilm = Film.filter((i) =>
   i.Nama?.toLowerCase().includes(Judul.toLowerCase())
 )
-console.log("listItem",ListFilm)
-
-
-  
 
     return(<>    <header>
 <Navbar/>
@@ -74,13 +65,9 @@ console.log("listItem",ListFilm)
     
     )
 
-
-
 }
 
-
 function Navbar(){
-
 
     return(
          <nav>

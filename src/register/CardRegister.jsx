@@ -12,7 +12,6 @@ import "./css/responsiv.css"
 import "./css/main.css"
 import { useNavigate } from "react-router-dom";
 
-
 export default function CardRegister(){
   const Navigate=useNavigate()
   const dispatch=useDispatch()
@@ -28,19 +27,17 @@ const [Password,setPassword]=useState('')
 const [ConfirmPassword,setConfirmPassword]=useState('')
 const [Error,setError]=useState({})
 
-
 // function simpanData(dataBaru) {
-//   console.log("Data yang dikirim:", dataBaru);
+//   void 0;
 //   api.post("/DaftarGenre", dataBaru)
 //     .then((Response) => {
-//       console.log("Berhasil disimpan ke database");
+//       void 0;
    
 //       const dataTerbaru = [...DataAkun, Response.data];
 //       setAkun(dataTerbaru);
 //     })
-//     .catch((err) => console.log("Gagal menyimpan:", err));
+//     .catch((err) => void 0);
 // }
-
 
    
 // 1. Pastikan fungsi utamanya yang diberi kata 'async'
@@ -62,8 +59,7 @@ const handleClick = async (e) => {
       const dataSimpan = await PostDaftarGenre(DataRegister);
       
       dispatch(TambahAkun(dataSimpan));
-      console.log("data simpan", dataSimpan);
-      
+
       // 3. Pindah halaman menggunakan navigate (huruf kecil)
       Navigate("/Masuk"); 
       
@@ -74,8 +70,6 @@ const handleClick = async (e) => {
     alert("Data salah! Silakan periksa kembali form Anda.");
   }
 };
-
-
 
     return(
       <section className="section-daftar">

@@ -10,9 +10,6 @@ import { AmbilFilm } from '../SliceRedux/SliceFilm'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
-
-
-
 export default function MainContainer(){
   const Film=useSelector((state)=>state.DaftarFilm.Film)
   const dispatch=useDispatch()
@@ -21,7 +18,7 @@ export default function MainContainer(){
     async function GetFilm() {
       const data = await GetDaftarFilm();
       dispatch(AmbilFilm(data))
-      console.log("ini film GEt",data)
+
     }
     GetFilm()
   },[dispatch])
@@ -45,12 +42,9 @@ const KategoryFilmRiis = Film.filter(
   (i) => i.Category ==="DataFilmRilis"
 )
 
-
-
 if(Film.length>0){
     return(
         
-
 
      <main>
     

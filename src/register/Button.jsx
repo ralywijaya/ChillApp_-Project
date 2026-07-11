@@ -2,10 +2,6 @@ import google from"../assets/masuk/logo_google.png"
 import"./css/button.css"
 export default function Button({Handleclick}){
 
-
-
-
-
 return(
     <div className="box-button">
  <div className="button-masuk">

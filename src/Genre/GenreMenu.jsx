@@ -17,10 +17,10 @@ export default function Genremenu() {
         setFilm(Response.data)
       })
       .catch((eror) => {
-        console.log(eror)
+
       })
       .finally(() => {
-        console.log("complete")
+
       })
   }
 
@@ -36,8 +36,6 @@ export default function Genremenu() {
     }
     return false // Abaikan film jika tidak punya genre berformat array
   })
-
-  console.log("Hasil Filter:", FilterGenre)
 
   return (
     <section className="daftar-saya">

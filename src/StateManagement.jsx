@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-
 const useFilmStore = create((set) => ({
 Film: [],
 
@@ -27,7 +26,6 @@ DataMasuk:[
   ],
 setMasuk: (data) => set({ DataMasuk: data })
 
-
 //   addFilm: (film) =>
 //     set((state) => ({
 //       films: [...state.films, film],
@@ -38,7 +36,5 @@ setMasuk: (data) => set({ DataMasuk: data })
 //       films: state.films.filter((f) => f.id !== id),
 //     })),
 }));
-
-
 
 export default useFilmStore;

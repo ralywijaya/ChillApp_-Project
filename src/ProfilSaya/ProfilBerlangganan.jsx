@@ -45,8 +45,6 @@ function Handleclik(){
         <main>
 <section className="profil">
 
-
-
 <div className="box-langganan">
     <div><img src={Warning} alt="Warning" /></div>
     <div className="note-warning"
@@ -100,15 +98,9 @@ Maksimal 2MB
 </div>
 </section>
 
-
 <SectionDaftar/>
-
-
-
 
         </main>
     )
-
-
 
 }

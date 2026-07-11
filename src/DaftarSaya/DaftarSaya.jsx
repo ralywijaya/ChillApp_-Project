@@ -4,8 +4,6 @@
 
 import MainContainer from './MainContainer'
 
-
-
 export default function DaftarSaya(){
   return(
   

@@ -18,16 +18,14 @@ const setFilm = useFilmStore((state) => state.setFilm)
           
       })
       .catch((error_)=>{
-          console.log(error_)
+
       })
       .finally(()=>{
-          console.log("complate")
+
       })
     }
     getData()
   },[setFilm])
-  
-console.log("ini adalah data ",Film)
 
 if(Film.length === 0){
   
@@ -37,19 +35,13 @@ if(Film.length === 0){
 }
 
 else{
-  
-  
- console.log("ini adalah nama",NamaFilm)
 
   const FilterNama = Film.find((i) => i.Nama === NamaFilm)
-
 
   const RecomendFilm =Film.filter(
   (i) => i.Category === FilterNama.Category
 )
 
-  console.log("recomendFilm",RecomendFilm)
-  console.log("recomendFilm",RecomendFilm)
    return (
   <PageFilm
     subJudul={NamaFilm}
@@ -60,6 +52,5 @@ else{
 );
 
 }
-
 
 }

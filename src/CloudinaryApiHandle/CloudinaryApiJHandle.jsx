@@ -1,8 +1,5 @@
 import cloudinaryApi from "../services/cloudinaryapi";
 
-
-
-
 async function uploadImage(file) {
   const formData = new FormData();
 
