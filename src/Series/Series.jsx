@@ -6,20 +6,20 @@ import SectionTopRating from "../Beranda/SectionTopRating"
 import SectionFilmTranding from"../Beranda/SectionFilmTranding"
 import { useEffect } from "react"
 import SectionSeriesChill from "./SectionPersembahanChill"
-import { AmbilFilm } from "../SliceRedux/SliceFilm"
+import { AmbilPopulerMovie } from "../SliceRedux/SliceFilm"
 import { useDispatch,useSelector } from "react-redux"
 
 import SectionHero from "../Beranda/SectionHero"
 import { GetDaftarFilm } from "../CostomHook/CostomHook"
 // import SectionTopRating from "../Beranda/SectionTopRating"
 export default function Series(){
-    const Film=useSelector((state)=>state.DaftarFilm.Film)
+    const {FilmPopuler}=useSelector((state)=>state.DaftarFilm)
     const dispatch=useDispatch()
     
     useEffect(() => {
       async function GetFilm() {
         const data = await GetDaftarFilm();
-        dispatch(AmbilFilm(data))
+        dispatch(AmbilPopulerMovie(data))
 
       }
       GetFilm()
@@ -28,22 +28,22 @@ export default function Series(){
  
  
 
-   const KategoryFilmMelanjutkan = Film.filter(
+   const KategoryFilmMelanjutkan = FilmPopuler.filter(
    (i) => i.Category === "MelanjutkanTontonan"
  )
-   const KategoryFilmPersembahan = Film.filter(
+   const KategoryFilmPersembahan = FilmPopuler.filter(
    (i) => i.Category === "DataFilmPersembahanhill"
  )
  
- const KategoryFilmTopRating = Film.filter(
+ const KategoryFilmTopRating = FilmPopuler.filter(
    (i) => i.Category === "DataFilmTopRating"
  )
  
- const KategoryFilmTranding = Film.filter(
+ const KategoryFilmTranding = FilmPopuler.filter(
   (i) => i.Category ==="DataFilmTranding"
 )
  
- const KategoryFilmRiis = Film.filter(
+ const KategoryFilmRiis = FilmPopuler.filter(
    (i) => i.Category ==="DataFilmRilis"
  )
      return(
@@ -59,7 +59,7 @@ export default function Series(){
              
             <SectionTopRating subJudul="Top Rating Film dan Series Hari ini"  KategoryFilm={KategoryFilmTopRating}  />
            <SectionFilmRilis subJudul="Rilis Baru" KategoryFilm={KategoryFilmRiis}/>
-         <SectionFilmTranding subJudul="Film Trending" Film={Film} KategoryFilm={KategoryFilmTranding}/>
+         <SectionFilmTranding subJudul="Film Trending" Film={FilmPopuler} KategoryFilm={KategoryFilmTranding}/>
         
           </main>
      )

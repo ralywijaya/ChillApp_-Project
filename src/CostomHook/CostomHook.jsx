@@ -1,3 +1,4 @@
+
 import api from "../services/api";
 
 export async function GetDaftarFilm() {
@@ -42,4 +43,17 @@ export async function PutDaftarGenre(id, data) {
 export async function DeleteDaftarGenre(id) {
   await api.delete(`/DaftarGenre/${id}`);
 }
+
+
+
+// hook data user
+export async function PostUser(data) {
+  await api.post('/user',data);
+}
+export async function AunthLogin(data) {
+  await api.post('/aunth/login',data);
+}
+
+
+
 

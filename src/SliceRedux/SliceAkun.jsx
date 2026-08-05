@@ -7,10 +7,10 @@ const AkunSlice=createSlice({
     },
     reducers:{
         MasukanNama:(state,action)=>{
-            state.AkunData.NamaUser=action.payload
+            state.AkunData.user_nama=action.payload
         },
         MasukanPassword:(state,action)=>{
-            state.AkunData.PasswordUser=action.payload
+            state.AkunData.user_password=action.payload
         },
         AmbilAkun:(state,action)=>{
             state.AkunData=action.payload

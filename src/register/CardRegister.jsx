@@ -1,7 +1,7 @@
 
 import { useDispatch } from "react-redux";
 import {TambahAkun} from "../SliceRedux/SliceAkun"
-import { PostDaftarGenre } from "../CostomHook/CostomHook";
+import { PostUser } from "../CostomHook/CostomHook";
 import { useState } from "react";
 import logo from "../assets/masuk/Logo.png";
 
@@ -21,9 +21,9 @@ const [Password,setPassword]=useState('')
   // const setAkun=useFilmStore((state)=>state.setAkun)
   // const DataAkun=useFilmStore((state)=>state.DataAkun)
  const DataRegister={
-  Akun:"Free",
-    NamaUser:Nama,
-  PasswordUser:Password,}
+  
+    user_nama:Nama,
+  user_password:Password,}
 const [ConfirmPassword,setConfirmPassword]=useState('')
 const [Error,setError]=useState({})
 
@@ -56,7 +56,7 @@ const handleClick = async (e) => {
   if (!ErrorInput.nama && !ErrorInput.password && !ErrorInput.confirmPassword) {
     try {
       // 2. Langsung gunakan await di sini tanpa perlu membungkusnya dalam async() lagi
-      const dataSimpan = await PostDaftarGenre(DataRegister);
+      const dataSimpan = await PostUser(DataRegister);
       
       dispatch(TambahAkun(dataSimpan));
 
@@ -70,6 +70,7 @@ const handleClick = async (e) => {
     alert("Data salah! Silakan periksa kembali form Anda.");
   }
 };
+
 
     return(
       <section className="section-daftar">

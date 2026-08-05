@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AmbilDaftar,TambahDaftar,HapusDaftar } from "../SliceRedux/SliceDaftar";
 import { GetDaftarGenre,PostDaftarGenre,DeleteDaftarGenre } from "../CostomHook/CostomHook";
 import { useNavigate } from 'react-router-dom';
-function HoverFilm({ setisEdit, i }) {
+function HoverFilm({ setisEdit, i,GenreFilm, Judul }) {
   const [deskrip,setdeskrip]=useState(false)
   const dispatch = useDispatch();
   const DaftarSaya = useSelector((state) => state.Daftar.DaftarData);
@@ -66,8 +66,17 @@ const Handleclik = useCallback(async () => {
     setdeskrip(true)
   }
 function Handleplay(){
-  Navigate(`/page/${i.Nama}`)
+  Navigate(`/page/${i.id}`)
 }
+
+const getGenre =
+   i.genre_ids.map((id) => {
+    const genre = GenreFilm.find(
+      (item) => item.id === id
+    )
+
+    return genre?.name
+  })
 
   return (
     <div 
@@ -75,11 +84,12 @@ function Handleplay(){
       onMouseLeave={handleMouseLeave}
     >
       <div className="imghover">
-        <img src={i.gambar} alt={i.Nama || "Poster Film"} />
+       <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
+  alt={i.title} />
       </div>
 
       <div className='nama-film-hover'>
-<p>{i.Nama}</p>
+<p>{Judul}</p>
       </div>
 
       <div className="button-box">
@@ -99,13 +109,13 @@ function Handleplay(){
         </div>
       </div>
 
-{deskrip? <div className='deskripsi'><p style={{fontSize:"1rem"}}>{i.deskripsi}</p></div>:""}
+{deskrip? <div className='deskripsi'><p style={{fontSize:"1rem"}}>{i.overview}</p></div>:""}
      
 
       <div className="keterangan">
 
         <div>
-            <p>{i.umur}</p>
+            <p>{i.release_date}</p>
         </div>
         
 
@@ -117,11 +127,9 @@ function Handleplay(){
       </div>
 
       <div>
-        <ul style={{display:"flex",justifyContent:"space-evenly",listStyleType:"none"}}>
-          {i.Genre.map((genre)=>(
-            <li key={genre}>{genre}</li>
-          ))}
-        </ul>
+        <p style={{display:"flex",justifyContent:"space-evenly",listStyleType:"none"}}>
+         {getGenre.join(", ")}
+        </p>
       </div>
     </div>
   );

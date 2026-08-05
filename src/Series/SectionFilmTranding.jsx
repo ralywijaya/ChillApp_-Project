@@ -76,7 +76,7 @@ return(
   alt={i.title} onClick={()=>{setisEdit(true )
         setFilmAktif(i.id)
     }}/>
-        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.title} i={i} GenreFilm={GenreFilm}/>}
+        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} i={i} GenreFilm={GenreFilm}/>}
 <div className="judul_movie">
 <p>{i.title}</p>
 </div>

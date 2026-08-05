@@ -3,21 +3,47 @@ import { createSlice } from "@reduxjs/toolkit";
 const FilmSlice=createSlice({
     name:"Film",
     initialState:{
-        Film:[]
+        FilmPopuler:[],
+        FilmTopRating:[],
+        FilmTerbaru:[],
+        GenreFilm:[],
+        MovieID:[],
+        loading:false,
+        eror:null
     },
     reducers:{
-        AmbilFilm:(state,action)=>{
-            state.Film=action.payload
+        AmbilPopulerMovie:(state,action)=>{
+            state.FilmPopuler=action.payload
+        },
+        AmbilTopRatingMovie:(state,action)=>{
+            state.FilmTopRating=action.payload
+        },
+        AmbilTerbaruMovie:(state,action)=>{
+            state.FilmTerbaru=action.payload
+        },
+
+        AmbilGenreMovie:(state,action)=>{
+            state.GenreFilm=action.payload
+        },
+        AmbilMovieID:(state,action)=>{  
+            state.MovieID=action.payload
+        },
+        LoadingFilm:(state,action)=>{
+            state.loading=action.payload
+        },
+
+        errorFilm:(state,action)=>{
+            state.eror=action.payload
         },
         TambahFilm:(state,action)=>{
-            state.Film.push(action.payload)
+            state.FilmPopuler.push(action.payload)
         },
         HapusFilm:(state,action)=>{
-            state.Film=state.Film.filter((item)=>item.id!==action.payload)
+            state.FilmPopuler=state.FilmPopuler.filter((item)=>item.id!==action.payload)
         }
     }
     
     })
 
-    export const {AmbilFilm,TambahFilm,HapusFilm}=FilmSlice.actions
+    export const {AmbilPopulerMovie,AmbilTopRatingMovie,AmbilTerbaruMovie,LoadingFilm,TambahFilm,HapusFilm,errorFilm,AmbilGenreMovie,AmbilMovieID}=FilmSlice.actions
     export default FilmSlice.reducer

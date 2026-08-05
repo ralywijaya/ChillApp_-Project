@@ -24,7 +24,15 @@ setAkun: (data) => set({ DataAkun: data }),
 DataMasuk:[
     
   ],
-setMasuk: (data) => set({ DataMasuk: data })
+setMasuk: (data) => set({ DataMasuk: data }),
+
+   genres:[],
+
+    setGenres:(data)=>{
+        set({
+            genres:data
+        })
+    }
 
 //   addFilm: (film) =>
 //     set((state) => ({

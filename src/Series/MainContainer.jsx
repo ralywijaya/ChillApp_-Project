@@ -5,31 +5,31 @@ import SectionTopRating from './SectionTopRating'
 import SectionFilmRilis from './SectionFilmRilis'
 import SectionFilmTranding from './SectionFilmTranding'
 import "./css/Main.css"
- import { GetGenre } from '../CostomHook/CostomHook.user'
-import { AmbilGenreMovie,LoadingFilm,errorFilm } from '../SliceRedux/SliceFilm'
+ import { GetGenre } from '../CostomHook/CostomHook.serial'
+import { AmbilGenreSerial,LoadingSerial,errorSerial } from '../SliceRedux/sliceSerial'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
 export default function MainContainer(){
- const {GenreFilm,eror}=useSelector((state)=>state.DaftarFilm)
+ const {GenreSerial,eror}=useSelector((state)=>state.DaftarSerial)
   const dispatch=useDispatch()
 useEffect(()=>{
-      const MoviePopuler = async()=>{
+      const SerialGenre = async()=>{
 
-          dispatch(LoadingFilm(TextTrackCue));
+          dispatch(LoadingSerial(TextTrackCue));
 
           try{
               const data = await GetGenre();
-              dispatch(AmbilGenreMovie(data));
+              dispatch(AmbilGenreSerial(data));
 
           }catch(err){
-              dispatch(errorFilm(err.message));
+              dispatch(errorSerial(err.message));
 
           }
 
       };
 
-      MoviePopuler();
+      SerialGenre();
 
   },[]);
 
@@ -49,9 +49,9 @@ if(eror){
     
             <SectionHero />
             {/* <SectionMelanjutkan subJudul={"Melanjutkan Tonton Film"} /> */}
-           <SectionTopRating GenreFilm={GenreFilm} subJudul="Top Rating Film dan Series Hari ini"  />
-          <SectionFilmRilis GenreFilm={GenreFilm} subJudul="Rilis Baru" />
-        <SectionFilmTranding GenreFilm={GenreFilm} subJudul="Film Trending"/>
+           <SectionTopRating GenreFilm={GenreSerial} subJudul="Top Rating Film dan Series Hari ini"  />
+          <SectionFilmRilis GenreFilm={GenreSerial} subJudul="Rilis Baru" />
+        <SectionFilmTranding GenreFilm={GenreSerial} subJudul="Film Trending"/>
        
          </main>
     )

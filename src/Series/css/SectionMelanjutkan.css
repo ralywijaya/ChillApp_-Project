@@ -1,0 +1,57 @@
+
+/* section melanjutkan tontonan film */
+
+
+
+.melanjutkan-tonton-film{
+
+  width:100%;
+height: auto;
+padding: 2rem 1rem;
+
+}
+
+.melanjutkan-tonton-film h2{
+    font-size: 1.4rem;
+    line-height: 120%;
+    font-style: bold;
+}
+.card-film-tontonan{
+       overflow: auto;
+    display: flex;
+   
+ 
+   justify-content: space-evenly;
+  
+}
+.card-film-tontonan img {
+    width: 20rem;
+    height: auto;
+    margin-top:2rem;
+    position: relative;
+    border-radius: 0.8rem;
+}
+
+
+
+.boxmelanjutkan img{
+    box-shadow: 0 0.6rem 1.6rem rgba(0,0,0,0.28);
+    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    -webkit-transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    -moz-transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    -ms-transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    -o-transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+.boxmelanjutkan img:hover{
+    transform:scale(1.06) translateY(-0.4rem);
+    filter: brightness(1.08);
+    box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,0.42);
+  
+}
+
+
+.boxmelanjutkan{  width:20rem;height:auto;
+    position: relative;
+  
+
+}

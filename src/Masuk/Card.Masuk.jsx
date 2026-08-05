@@ -28,7 +28,9 @@ async function AmbilData(databaru){
      setAkun(Response.data)
     })
 
-      .catch((err) => void 0);
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
 }
 
 useEffect(()=>{

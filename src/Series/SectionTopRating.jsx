@@ -6,16 +6,18 @@ import { useDispatch,useSelector } from "react-redux"
 // import HoverFilm from "./HoverFilm"
 // import { Film} from "./FilmContax"
 import { useEffect } from "react"
-import { GetFilmPopuler } from "../CostomHook/CostomHook.user"
+import { GetFilmTopRating } from "../CostomHook/CostomHook.user"
 import HoverFilm from "../HoverFilm/HoverFilm"
-import { errorFilm,AmbilPopulerMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
+import { errorFilm,AmbilTopRatingMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
 
-export default function SectionFilmTranding({subJudul,GenreFilm}){
+export default function SectionTopRating({subJudul,GenreFilm
+
+}){
      const dataRedux = useSelector((state)=>state);
 
   console.log(dataRedux);
 
-      const {FilmPopuler,loading,eror}=useSelector((state)=>state.DaftarFilm)
+      const {FilmTopRating,loading,eror}=useSelector((state)=>state.DaftarFilm)
   const dispatch=useDispatch()
 useEffect(()=>{
       const MoviePopuler = async()=>{
@@ -23,8 +25,8 @@ useEffect(()=>{
           dispatch(LoadingFilm(true));
 
           try{
-              const data = await GetFilmPopuler();
-              dispatch(AmbilPopulerMovie(data));
+              const data = await GetFilmTopRating();
+              dispatch(AmbilTopRatingMovie(data));
 
           }catch(err){
               dispatch(errorFilm(err.message));
@@ -38,6 +40,9 @@ useEffect(()=>{
       MoviePopuler();
 
   },[]);
+
+
+  
 
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
@@ -65,20 +70,20 @@ return(
 
 
 
-    <section className="section-film">
+    <section className="section-serial">
       <h2>{subJudul
         }</h2>
-<div ref={scrollref} className="card-film" >
-        {FilmPopuler.map((i)=>(
- <div className="box-film" key={i.id}>
+<div ref={scrollref} className="card-serial" >
+        {FilmTopRating.map((i)=>(
+ <div className="box-serial" key={i.id}>
    
         <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
-  alt={i.title} onClick={()=>{setisEdit(true )
+  alt={i.name} onClick={()=>{setisEdit(true )
         setFilmAktif(i.id)
     }}/>
-        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.title} i={i} GenreFilm={GenreFilm}/>}
+        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.name} i={i} GenreFilm={GenreFilm}/>}
 <div className="judul_movie">
-<p>{i.title}</p>
+<p>{i.name}</p>
 </div>
              </div>
         ))}

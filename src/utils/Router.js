@@ -5,7 +5,7 @@ import DaftarSaya from '../DaftarSaya/DaftarSaya.jsx'
 import ProfilApp from "../ProfilSaya/ProfilApp.jsx"
 import Masuk from "../Masuk/Masuk.jsx"
 import Register from "../register/Register.jsx"
-import Series from "../Series/Series.jsx"
+import Series from "../Series/MainContainer.jsx"
 import PageFilmApp from "../PageFilm/PageFilmApp.jsx"
 import Genre from "../Genre/Genre.jsx"
 import Berlangganan from "../berlangganan/Berlangganan.jsx"
@@ -41,7 +41,7 @@ Router=createBrowserRouter([
     Component:Genre
    },
   {
-    path:"/Page/:NamaFilm",
+    path:"/Page/:id",
     Component:PageFilmApp
    },
   {

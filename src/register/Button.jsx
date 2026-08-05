@@ -1,4 +1,5 @@
-import google from"../assets/masuk/logo_google.png"
+import { GoogleLogin } from "@react-oauth/google"
+import api from "../services/api"
 import"./css/button.css"
 export default function Button({Handleclick}){
 
@@ -11,15 +12,27 @@ return(
     <p className="atau">Atau</p>
   </div>
 <div className="button-google">
-    <button className="button-masuk_google">
-      <div className="img-google">
-         <img src={google} alt="logo google" />
-      </div>
-     <div className="nama-google">
-       <p>Daftar Dengan Google</p>
-     </div>
-     
-    </button>
+  <GoogleLogin
+  onSuccess={async(response)=>{
+
+ const googleToken=response.credential;
+
+
+ const result=await api.post(
+ "http://localhost:3000/login/google",
+ {
+   token:googleToken
+ }
+ );
+
+
+ console.log(result.data);
+
+}}
+
+
+/>
+  
   </div>
   
 </div>
