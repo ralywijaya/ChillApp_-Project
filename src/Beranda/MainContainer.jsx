@@ -1,6 +1,6 @@
 import SectionHero from './SectionHero'
 
-// import SectionMelanjutkan from './SectionMelanjutkan'
+
 import SectionTopRating from './SectionTopRating'
 import SectionFilmRilis from './SectionFilmRilis'
 import SectionFilmTranding from './SectionFilmTranding'
@@ -16,7 +16,7 @@ export default function MainContainer(){
 useEffect(()=>{
       const MoviePopuler = async()=>{
 
-          dispatch(LoadingFilm(TextTrackCue));
+          dispatch(LoadingFilm(true));
 
           try{
               const data = await GetGenre();
@@ -25,6 +25,10 @@ useEffect(()=>{
           }catch(err){
               dispatch(errorFilm(err.message));
 
+          }
+
+          finally{
+              dispatch(LoadingFilm(false));
           }
 
       };

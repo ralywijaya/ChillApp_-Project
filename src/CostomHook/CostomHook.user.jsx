@@ -40,6 +40,11 @@ export async function GetMovieSimiliar(id) {
 
   return response.data.results; ;
 }
+export async function GetSearch(query) {
+  const response = await api.get(`/movieTMDB/search?query=${query}`);
+
+  return response.data.results; ;
+}
 
 
 

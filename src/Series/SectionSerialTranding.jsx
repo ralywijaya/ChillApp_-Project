@@ -1,48 +1,43 @@
 
-import"./css/SectionTopRating.css"
+import"../Beranda/css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
 import { useRef, useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
 // import HoverFilm from "./HoverFilm"
 // import { Film} from "./FilmContax"
 import { useEffect } from "react"
-import { GetFilmTopRating } from "../CostomHook/CostomHook.user"
+import { GetSerialPopuler } from "../CostomHook/CostomHook.serial"
 import HoverFilm from "../HoverFilm/HoverFilm"
-import { errorFilm,AmbilTopRatingMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
+import { errorSerial,AmbilPopulerSerial,LoadingSerial } from "../SliceRedux/sliceSerial"
 
-export default function SectionTopRating({subJudul,GenreFilm
-
-}){
+export default function SectionSerialTranding({subJudul,GenreFilm}){
      const dataRedux = useSelector((state)=>state);
 
   console.log(dataRedux);
 
-      const {FilmTopRating,loading,eror}=useSelector((state)=>state.DaftarFilm)
+      const {SerialPopuler,loading,eror}=useSelector((state)=>state.DaftarSerial)
   const dispatch=useDispatch()
 useEffect(()=>{
-      const MoviePopuler = async()=>{
+      const SerialPopuler = async()=>{
 
-          dispatch(LoadingFilm(true));
+          dispatch(LoadingSerial(true));
 
           try{
-              const data = await GetFilmTopRating();
-              dispatch(AmbilTopRatingMovie(data));
+              const data = await GetSerialPopuler();
+              dispatch(AmbilPopulerSerial(data));
 
           }catch(err){
-              dispatch(errorFilm(err.message));
+              dispatch(errorSerial(err.message));
 
           }finally{
-              dispatch(LoadingFilm(false));
+              dispatch(LoadingSerial(false));
           }
 
       };
 
-      MoviePopuler();
+      SerialPopuler();
 
   },[]);
-
-
-  
 
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
@@ -70,18 +65,18 @@ return(
 
 
 
-    <section className="section-serial">
+    <section className="section-film">
       <h2>{subJudul
         }</h2>
-<div ref={scrollref} className="card-serial" >
-        {FilmTopRating.map((i)=>(
- <div className="box-serial" key={i.id}>
+<div ref={scrollref} className="card-film" >
+        {SerialPopuler.map((i)=>(
+ <div className="box-film" key={i.id}>
    
         <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
-  alt={i.name} onClick={()=>{setisEdit(true )
+  alt={i.title} onClick={()=>{setisEdit(true )
         setFilmAktif(i.id)
     }}/>
-        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.name} i={i} GenreFilm={GenreFilm}/>}
+        {filmAktif==i.id&&isEdit&& <HoverFilm Judul={i.name} setisEdit={setisEdit} i={i} GenreFilm={GenreFilm}/>}
 <div className="judul_movie">
 <p>{i.name}</p>
 </div>

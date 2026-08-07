@@ -1,4 +1,5 @@
 import"../Beranda/css/SectionTopRating.css"
+import { Link } from "react-router-dom"
 import HoverFilm from "../HoverFilm/HoverFilm"
 import {   useState } from "react"
 // // import HoverFilm from "./HoverFilm"
@@ -86,7 +87,7 @@ return(
 
  <div className="genre-film-page">
    {Movie.genres?.map((i)=>(
-    <p  key={i.id} style={{fontSize:"1.2rem"}}>{i.name}</p>
+    <Link  key={i.id} to={``} style={{fontSize:"1.2rem"}}>{i.name}</Link>
    ))}
  </div>
 

@@ -65,8 +65,14 @@ const Handleclik = useCallback(async () => {
   function Handledes(){
     setdeskrip(true)
   }
-function Handleplay(){
-  Navigate(`/page/${i.id}`)
+
+function Handleplay(){ 
+  if(i.title){
+    Navigate(`/page/${i.id}`)
+  } 
+  if(i.name){
+    Navigate(`/PageSerial/${i.id}`)
+  }
 }
 
 const getGenre =

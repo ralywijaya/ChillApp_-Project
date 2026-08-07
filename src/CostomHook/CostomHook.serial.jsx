@@ -15,16 +15,16 @@ export async function GetSerialTopRating() {
 
   return response.data.results;
 }
-export async function GetGenre() {
+export async function GetGenreSerial() {
   const response = await api.get("/serialTMDB/genre");
 
   return response.data.results;
 }
-// export async function GetDetailSerial(id) {
-//   const response = await api.get(`/serialTMDB/detail/${id}`);
+export async function GetDetailSerial(id) {
+  const response = await api.get(`/serialTMDB/kategoryumur/${id}`);
 
-//   return response.data.certification;
-// }
+  return response.data.certification;
+}
 export async function GetVideoSerial(id) {
   const response = await api.get(`/serialTMDB/video/${id}`);
 

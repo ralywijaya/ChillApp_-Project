@@ -22,7 +22,7 @@ const SerialSlice=createSlice({
             state.SerialTerbaru=action.payload
         },
 
-        AmbilGenreS:(state,action)=>{
+        AmbilGenreSerial:(state,action)=>{
             state.GenreSerial=action.payload
         },
         AmbilSerialID:(state,action)=>{  

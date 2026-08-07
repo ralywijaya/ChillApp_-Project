@@ -1,11 +1,12 @@
-import SectionHero from './SectionHero'
+import SectionHeroSerial from './SectionHeroSerial'
+
 
 // import SectionMelanjutkan from './SectionMelanjutkan'
-import SectionTopRating from './SectionTopRating'
-import SectionFilmRilis from './SectionFilmRilis'
-import SectionFilmTranding from './SectionFilmTranding'
+import SectionSerialTopRating from './SectionSerialTopRating'
+import SectionSerialRilis from './SectionSerialRilis'
+import SectionSerialTranding from './SectionSerialTranding'
 import "./css/Main.css"
- import { GetGenre } from '../CostomHook/CostomHook.serial'
+ import { GetGenreSerial } from '../CostomHook/CostomHook.serial'
 import { AmbilGenreSerial,LoadingSerial,errorSerial } from '../SliceRedux/sliceSerial'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
@@ -16,15 +17,18 @@ export default function MainContainer(){
 useEffect(()=>{
       const SerialGenre = async()=>{
 
-          dispatch(LoadingSerial(TextTrackCue));
+          dispatch(LoadingSerial(true));
 
           try{
-              const data = await GetGenre();
+              const data = await GetGenreSerial();
               dispatch(AmbilGenreSerial(data));
 
           }catch(err){
               dispatch(errorSerial(err.message));
 
+          }
+          finally{
+              dispatch(LoadingSerial(false));
           }
 
       };
@@ -47,11 +51,11 @@ if(eror){
 
      <main>
     
-            <SectionHero />
+            <SectionHeroSerial />
             {/* <SectionMelanjutkan subJudul={"Melanjutkan Tonton Film"} /> */}
-           <SectionTopRating GenreFilm={GenreSerial} subJudul="Top Rating Film dan Series Hari ini"  />
-          <SectionFilmRilis GenreFilm={GenreSerial} subJudul="Rilis Baru" />
-        <SectionFilmTranding GenreFilm={GenreSerial} subJudul="Film Trending"/>
+           <SectionSerialTopRating  GenreFilm={GenreSerial} subJudul="Top Rating Film dan Series Hari ini"  />
+          <SectionSerialRilis GenreFilm={GenreSerial} subJudul="Rilis Baru" />
+        <SectionSerialTranding GenreFilm={GenreSerial} subJudul="Film Trending"/>
        
          </main>
     )

@@ -1,0 +1,76 @@
+.section-page-serial{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.serial-play{
+    justify-content: center;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #22282A;
+    padding: 2rem;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+.serial-page-video{
+    display: flex;
+    justify-content: center;
+}
+
+.serial-page-video iframe{
+    border-radius: 0.5rem;
+    height: 30rem;
+    width: 100%;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.deskripsi-serial-page p{
+font-size: 1.4rem;
+border-top: 3px solid #fff;
+
+}
+
+.rating-serial-page{
+    display: flex;
+   padding: 0.5rem;
+    gap: 1rem;
+   
+   
+  
+}
+.genre-serial-page{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 30rem; overflow-wrap: break-word;
+}
+.genre-serial-page p{
+   
+    width:auto;
+    border: 1px solid purple;
+}
+  
+
+
+.detail-serial-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    border-top: 3px solid #fff;
+    padding-top: 1rem;
+ 
+}
+

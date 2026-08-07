@@ -1,30 +1,32 @@
 
-import"./css/SectionTopRating.css"
+import"../Beranda/css/SectionTopRating.css"
 import AnakPanah from "./AnakPanah"
 import { useRef, useState } from "react"
 import { useDispatch,useSelector } from "react-redux"
 // import HoverFilm from "./HoverFilm"
 // import { Film} from "./FilmContax"
 import { useEffect } from "react"
-import { GetSerialTerbaru } from "../CostomHook/CostomHook.serial"
+import { GetSerialTopRating } from "../CostomHook/CostomHook.serial"
 import HoverFilm from "../HoverFilm/HoverFilm"
-import { errorSerial,AmbilTerbaruSerial,LoadingSerial } from "../SliceRedux/SliceSerial"
+import { errorSerial,AmbilTopRatingSerial,LoadingSerial } from "../SliceRedux/sliceSerial"
 
-export default function SectionFilmRilis({subJudul,GenreFilm}){
+export default function SectionSerialTopRating({subJudul,GenreFilm
+
+}){
      const dataRedux = useSelector((state)=>state);
 
   console.log(dataRedux);
 
-      const {SerialTerbaru,loading,eror}=useSelector((state)=>state.DaftarSerial)
+      const {SerialTopRating,loading,eror}=useSelector((state)=>state.DaftarSerial)
   const dispatch=useDispatch()
 useEffect(()=>{
-      const SerialTerbaru = async()=>{
+      const SerialTopRating = async()=>{
 
           dispatch(LoadingSerial(true));
 
           try{
-              const data = await GetSerialTerbaru();
-              dispatch(AmbilTerbaruSerial(data));
+              const data = await GetSerialTopRating();
+              dispatch(AmbilTopRatingSerial(data));
 
           }catch(err){
               dispatch(errorSerial(err.message));
@@ -35,9 +37,12 @@ useEffect(()=>{
 
       };
 
-      SerialTerbaru();
+      SerialTopRating();
 
   },[]);
+
+
+  
 
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
@@ -69,15 +74,15 @@ return(
       <h2>{subJudul
         }</h2>
 <div ref={scrollref} className="card-film" >
-        {SerialTerbaru.map((i)=>(
+        {SerialTopRating.map((i)=>(
  <div className="box-film" key={i.id}>
    
         <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
-  alt={i.title} onClick={()=>{setisEdit(true )
+  alt={i.name} onClick={()=>{setisEdit(true )
         setFilmAktif(i.id)
     }}/>
-        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.name} i={i} GenreFilm={GenreFilm}/>}
-<div className="judul_movie">
+        {filmAktif==i.id&&isEdit&& <HoverFilm Judul={i.name} setisEdit={setisEdit} i={i} GenreFilm={GenreFilm}/>}
+<div className="judul_film">
 <p>{i.name}</p>
 </div>
              </div>

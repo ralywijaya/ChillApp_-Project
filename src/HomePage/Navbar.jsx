@@ -1,65 +1,89 @@
 import imgProfil from"../assets//beranda/Vector.png"
 import imgLangganan from"../assets/beranda/star.png"
 import imgKeluar from"../assets/beranda/keluar.png"
-import api from "../services/api"
+
 import { useEffect } from "react"
 import logo from"../assets/beranda/Logo.png"
 import LogoProfil from"../assets/beranda/Avatar (1).png"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import useFilmStore from "../StateManagement"
+import { GetSearch } from "../CostomHook/CostomHook.user"
 export default function Header(){
-   const [Judul,setJudul]=useState("")
+   const [query,setquery]=useState("")
+  
+   const [eror,seteror]=useState("")
+   const [judul,setjudul]=useState([])
 
- const Film = useFilmStore((state) => state.Film)
- const setFilm = useFilmStore((state) => state.setFilm)
-  function getData(){
-     api.get("/DaftarFilm")
-    .then((Response)=>{
-       setFilm(Response.data)
-        
-    })
-    .catch((eror)=>{
 
-    })
-    .finally(()=>{
 
-    })
-  }
+useEffect(() => {
 
-useEffect(()=>{
-    getData()
-},[])
+
+  const timer = setTimeout(async () => {
+    try {
+      
+
+      const data = await GetSearch(query);
+      setjudul(data);
+
+    } catch(err) {
+      seteror(err.message);
+    } 
+
+  }, 500);
+
+
+  return () => clearTimeout(timer);
+
+}, [query]);
+console.log('ini adalah judul',judul)
+ 
+
+if(eror){
+    return(
+        <h1 style={{textAlign:"center"}}>{eror}</h1>
+    )
+}
+
 
  function HandleChange (e){
-  setJudul(e.target.value)
+  setquery(e.target.value)
  
  
  }
- 
-const ListFilm = Film.filter((i) =>
-  i.Nama?.toLowerCase().includes(Judul.toLowerCase())
-)
+function Handleplay(item){
+  if(item.media_type === "movie"){
+    return `/page/${item.id}`;
+  }
+
+  if(item.media_type === "tv"){
+    return `/PageSerial/${item.id}`;
+  }
+
+  return "/";
+}
+
 
     return(<>    <header>
 <Navbar/>
 <Profil/>
 
-        </header>
+        </header> 
   <div className="box-search">
-      <input type="text" value={Judul} onChange={HandleChange} />
-       {Judul!== "" && ListFilm.length > 0 ?<div className="box-list-name">
+      <input type="text" value={query} onChange={HandleChange} />
+       {judul!== "" && judul?.length > 0 ?<div className="box-list-name">
      <ul style={{display:"flex",flexDirection:"column",gap:"1rem"}} className="list-name-ul">
-        {ListFilm.map((item)=>(<div  key={item.id}>
+        {judul.map(item=>(<div  key={item.id}>
+
           
         
-          <li className="list-name-li" ><Link to={`Page/${item.Nama}`}>{item.Nama}</Link></li></div>
+          <li className="list-name-li" ><Link to={Handleplay(item)}>{item.name||item.title}</Link></li></div>
         ))}
       </ul>
      
        </div>:""}
 
-     <div><button >Search</button></div>
+     <div><button type="buttona" >Search</button></div>
     </div>
     </>
     

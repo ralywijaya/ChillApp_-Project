@@ -9,6 +9,7 @@ import Series from "../Series/MainContainer.jsx"
 import PageFilmApp from "../PageFilm/PageFilmApp.jsx"
 import Genre from "../Genre/Genre.jsx"
 import Berlangganan from "../berlangganan/Berlangganan.jsx"
+import PageSerialApp from "../PageSerial/PageSerialApp.jsx"
 import DaftarLangganan from "../berlangganan/DaftarLangganan.jsx"
 import"../global.css"
 import"../Responsiv.css"
@@ -43,6 +44,10 @@ Router=createBrowserRouter([
   {
     path:"/Page/:id",
     Component:PageFilmApp
+   },
+  {
+    path:"/PageSerial/:id",
+    Component:PageSerialApp
    },
   {
     path:"/Berlangganan",
