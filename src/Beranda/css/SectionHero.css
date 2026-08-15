@@ -1,34 +1,51 @@
 /* section hero */
-.container-hero{
-  width:36rem;
-  height:auto;
-  position:relative;
+.tranding-day{
+    width:100%;
+height: auto;
+padding: 1rem 1rem;
+margin-top: 3rem;
 }
+ .sub-tranding-day{
+  border-top: 0.4rem solid blue;
+ }
+.tranding-day h2{
+   border-bottom: 0.4rem solid red;
+}
+.box-hero{
+ 
+  gap: 3rem;
+  display: flex;
+  padding: 2rem 2rem;
+  width: 100%;
+  display: flex;
 
+overflow: auto;
+}
 /* image hero */
-.hero-film img{
-  width:100vw;
-  height:auto;
+.hero-film iframe{
+  width:36rem;
+  height:20rem;
   object-position:top;
   object-fit:contain;
   transition: filter 0.3s ease;
+
 }
 
 .hero-film img:hover{
   filter: brightness(1.05);
+  -webkit-filter: brightness(1.05);
 }
 
 /* description hero */
-.hero-description{
+.hero-descripti{
+
   width:25rem;
   height: auto;
   display:flex;
   flex-direction:column;
-  position:absolute;
-  margin-top:-10rem;
-  margin-left:2rem;
-  max-width:32rem;
-  max-height:11.8rem;
+  margin-left: 4rem;
+  margin-top: 1rem;
+  
   box-sizing:border-box;
   
 }

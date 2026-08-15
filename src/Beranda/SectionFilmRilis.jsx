@@ -11,9 +11,7 @@ import HoverFilm from "../HoverFilm/HoverFilm"
 import { errorFilm,AmbilTerbaruMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
 
 export default function SectionFilmRilis({subJudul,GenreFilm}){
-     const dataRedux = useSelector((state)=>state);
-
-  console.log(dataRedux);
+   
 
       const {FilmTerbaru,loading,eror}=useSelector((state)=>state.DaftarFilm)
   const dispatch=useDispatch()
@@ -66,7 +64,7 @@ return(
 
 
     <section className="section-film">
-      <h2>{subJudul
+      <h2 style={{borderBottom:"0.5rem solid blue"}} className="sub-tranding-day">{subJudul
         }</h2>
 <div ref={scrollref} className="card-film" >
         {FilmTerbaru.map((i)=>(

@@ -1,6 +1,28 @@
-import google from"../assets/masuk/logo_google.png"
-
+import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+import { PostUserEmail } from "../CostomHook/CostomHook";
 export default function Button({Handleclick}){
+   const Navigate=useNavigate()
+  const handleGoogleLogin = async (response) => {
+    try {
+      const googleToken = response.credential;
+
+      const result = await PostUserEmail({token:googleToken})
+
+      console.log(result);
+
+      // JWT dari backend
+      const token = result.token;
+
+      localStorage.setItem("token", token);
+
+      Navigate('/')
+    } catch (error) {
+      console.error(
+        error.response?.data?.message || error.message
+      );
+    }
+  };
 return(
     <div className="box-button">
     <div className="button-masuk">
@@ -10,17 +32,14 @@ return(
        <p className="atau">Atau</p>
      </div>
    <div className="button-google">
-       <button className="button-masuk_google">
-         <div className="img-google">
-            <img src={google} alt="logo google" />
-         </div>
-        <div className="nama-google">
-          <p>Masuk Dengan Google</p>
-        </div>
-        
-       </button>
-     </div>
      
+     </div>
+      <GoogleLogin
+      onSuccess={handleGoogleLogin}
+      onError={() => {
+        console.log("Google Login gagal");
+      }}
+    />
    </div>
 )
 }

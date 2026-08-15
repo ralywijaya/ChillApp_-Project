@@ -11,6 +11,7 @@ import Genre from "../Genre/Genre.jsx"
 import Berlangganan from "../berlangganan/Berlangganan.jsx"
 import PageSerialApp from "../PageSerial/PageSerialApp.jsx"
 import DaftarLangganan from "../berlangganan/DaftarLangganan.jsx"
+import GenreSerial from "../Genre/GenreSerial.jsx"
 import"../global.css"
 import"../Responsiv.css"
 export const 
@@ -38,8 +39,12 @@ Router=createBrowserRouter([
    },
 
   {
-    path:"/menu/:name",
+    path:"/menu_genre/:id/:nama",
     Component:Genre
+   },
+  {
+    path:"/menu_genre_serial/:id/:nama",
+    Component:GenreSerial
    },
   {
     path:"/Page/:id",

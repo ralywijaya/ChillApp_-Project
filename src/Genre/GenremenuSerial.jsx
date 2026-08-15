@@ -1,19 +1,19 @@
 import "./Genre.css"
 import HoverFilm from "../HoverFilm/HoverFilm"
 import { useDispatch } from "react-redux"
-import { GetIDGenre } from "../CostomHook/CostomHook.user"
+import { GetIDGenreSerial } from "../CostomHook/CostomHook.Serial"
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useEffect,useState } from "react"
-import { LoadingFilm,errorFilm } from "../SliceRedux/SliceFilm"
+import { LoadingSerial,errorSerial } from "../SliceRedux/sliceSerial"
 
-export default function Genremenu() {
+export default function GenremenuSerial() {
  const [isEdit,setisEdit]=useState(false)
     const [filmAktif, setFilmAktif] = useState(null);
   const { id,nama } = useParams() 
-  const [Movie,setMovie]=useState([])
+  const [Serial,setSerial]=useState([])
   
-   const {loading,eror,GenreFilm}=useSelector((state)=>state.DaftarFilm)
+   const {loading,eror,GenreSerial}=useSelector((state)=>state.DaftarSerial)
   const dispatch=useDispatch()
   // Ambil data Film, beri fallback array kosong [] jika state awalnya null/undefined
 
@@ -22,17 +22,17 @@ export default function Genremenu() {
   useEffect(()=>{
         const MoviePopuler = async()=>{
   
-           dispatch(LoadingFilm(true))
+           dispatch(LoadingSerial(true))
   
             try{
-                const data = await GetIDGenre(id);
-              setMovie(data)
+                const data = await GetIDGenreSerial(id);
+              setSerial(data)
   
             }catch(err){
-                dispatch(errorFilm(err.message));
+                dispatch(errorSerial(err.message));
   
             }finally{
-                dispatch(LoadingFilm(false))
+                dispatch(LoadingSerial(false))
             }
   
         };
@@ -40,7 +40,7 @@ export default function Genremenu() {
         MoviePopuler();
   
     },[id]);
-    console.log("ini genre movie",Movie)
+   
   if(loading){
     return(
         <h1 style={{textAlign:"center"}}>Loading...</h1>
@@ -61,16 +61,16 @@ if(eror){
           <h2>{nama
             }</h2>
     <div className="card-film" >
-            {Movie?.map((i)=>(
+            {Serial?.map((i)=>(
      <div className="box-film" key={i.id}>
        
             <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
-      alt={i.title} onClick={()=>{setisEdit(true )
+      alt={i.name} onClick={()=>{setisEdit(true )
             setFilmAktif(i.id)
         }}/>
-            {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.title} i={i} GenreFilm={GenreFilm}/>}
+            {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.name} i={i} GenreFilm={GenreSerial}/>}
     <div className="judul_movie">
-    <p>{i.title}</p>
+    <p>{i.name}</p>
     </div>
                  </div>
             ))}

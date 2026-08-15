@@ -1,19 +1,22 @@
 import eye from"../assets/masuk/eye-off.png"
  import { Link } from "react-router-dom"
 
- export default function Form({MasukNama,setMasukNama,MasukPassword,setMasukPassword,Error}){
+ export default function Form({Nama,setMasukNama,Password,setMasukPassword,ErrorBE,Error}){
  return(  <>
   <div className="box-username">
      <label className="label-daftar" htmlFor="username">Masukan Nama</label>
      <input className="input-username"
        style={Error.nama?{border:"1px solid red"}:{}}
-       value={MasukNama}
+       value={Nama}
        onChange={(e)=>{setMasukNama(e.target.value)}}
        id="username"
        type="text"
        name="username"
        placeholder="Masukan Username"
      />
+      {Error.nama && (
+          <span>nama wajib diisi</span>
+        )}
    </div>
  
    <div className="box-konfirmasi-password">
@@ -21,13 +24,16 @@ import eye from"../assets/masuk/eye-off.png"
        <label  className="label-daftar" htmlFor="confirm-password">Konfirmasi kata sandi</label>
        <input className="input-userpassword"
          style={Error.confirmPassword?{border:"1px solid red"}:{}}
-         value={MasukPassword}
+         value={Password}
          onChange={(e)=>{setMasukPassword(e.target.value)}}
          id="confirm-password"
          type="password"
          name="confirm-password"
          placeholder="Masukan Kata Sandi"
        />
+          {Error.password && (
+          <span>paswword wajib diisi</span>
+        )}
      </div>
      <div className="img-mata">
        <img
@@ -52,6 +58,14 @@ import eye from"../assets/masuk/eye-off.png"
       
      </div>
    </div>
+   <div>
+     {ErrorBE&& (
+          <p style={{ color: "red" }}>
+            {ErrorBE}
+          </p>
+        )}
+   </div>
+   
 </>)
 
  }

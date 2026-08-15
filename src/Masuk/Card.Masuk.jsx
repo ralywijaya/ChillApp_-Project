@@ -1,70 +1,67 @@
 
 import"./css/button.css"
 import"./css/main.css"
-
+import { AunthLogin } from "../CostomHook/CostomHook";
 import { useNavigate } from "react-router-dom";
 import useFilmStore from "../StateManagement"
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import logo from "../assets/masuk/Logo.png";
 import Form from "./Form";
 import Button from "./Button";
-import api from "../services/api";
+
 export default function CardMasuk(){
   const Navigate=useNavigate()
   const DataAkun=useFilmStore((state)=>state.DataAkun)
  
-  const setAkun=useFilmStore((state)=>state.setAkun)
-const [MasukNama,setMasukNama]=useState("")
-const [MasukPassword,setMasukPassword]=useState("")
+ 
+const [Nama,setMasukNama]=useState("")
+const [Password,setMasukPassword]=useState("")
 const [Error,setError]=useState({})
+const [ErrorBE,setErrorBE]=useState("")
  
   console.table("ini data akun",DataAkun)
 
-async function AmbilData(databaru){
-  await api.get("/DaftarGenre",databaru)
-   
-  .then((Response) => {
 
-     setAkun(Response.data)
-    })
 
-      .catch((err) => {
-        console.error("Error fetching data:", err);
-      });
-}
-
-useEffect(()=>{
-  AmbilData()
-},[])
-
- const akun = DataAkun.find(
-  (item) =>
-    item.NamaUser === MasukNama &&
-    item.PasswordUser === MasukPassword
-);
-
-function handleClick(e){
+ 
+const handleClick=async(e)=>{
 
     e.preventDefault()
 
- 
+  const ErrorInput = {
+    nama: Nama.trim() === "",
+    password: Password.trim() === "",
+   
+  };
+
 
   
-    const ErrorInput={
-        nama:MasukNama.trim()===""||MasukNama!==akun.NamaUser,
-        password:MasukPassword.trim()===""||MasukPassword!==akun.PasswordUser
-    }
-
     setError(ErrorInput)
+     if (
+    ErrorInput.nama ||
+    ErrorInput.password
+  ) {
+    return;
+  }
+ 
+     try{
+                    const data = await AunthLogin({
+                      user_nama:Nama,
+                      user_password:Password
+                    });
+                    console.log("ini adalah data:",data)
+                       Navigate('/') 
+                        localStorage.setItem("token",data.token);
 
-    if(!ErrorInput.nama&&!ErrorInput.password){
-       Navigate("/")
+                }catch(error){
+                   setErrorBE(error.response?.data?.message);}
+     
+  
+     
 
       
 
-    localStorage.setItem("akun", JSON.stringify(akun));
-    }
-else{alert("data salah")}
+
    
 }
 
@@ -84,15 +81,18 @@ else{alert("data salah")}
        <p>selamat datang Kembali !</p>
      </div>
    </header>
+
+   
    
    <form className="form-daftar">
 
             <Form
-              MasukNama={MasukNama}
+            Nama={Nama}
               setMasukNama={setMasukNama}
-              MasukPassword={MasukPassword}
+              Password={Password}
               setMasukPassword={setMasukPassword}
               Error={Error}
+              ErrorBE={ErrorBE}
             />
 
             <Button Handleclick={handleClick}/>

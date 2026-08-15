@@ -9,11 +9,15 @@ import "./css/Main.css"
 import { AmbilGenreMovie,LoadingFilm,errorFilm } from '../SliceRedux/SliceFilm'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-
+import { GetDaftarSaya } from '../CostomHook/CostomHook.daftarsaya'
+import { AmbilDaftarSaya } from '../SliceRedux/SliceAkun'
 export default function MainContainer(){
+     const token = localStorage.getItem("token");
  const {GenreFilm,eror}=useSelector((state)=>state.DaftarFilm)
+ const {DaftarVersion}=useSelector((state)=>state.Akun)
   const dispatch=useDispatch()
 useEffect(()=>{
+
       const MoviePopuler = async()=>{
 
           dispatch(LoadingFilm(true));
@@ -21,6 +25,16 @@ useEffect(()=>{
           try{
               const data = await GetGenre();
               dispatch(AmbilGenreMovie(data));
+  
+              if (token){
+                 const DataDaftarSaya = await GetDaftarSaya();
+              console.log("ini data daftar saya",DataDaftarSaya)
+                dispatch(AmbilDaftarSaya(DataDaftarSaya));
+             console.log(DataDaftarSaya)
+            }
+             
+  console.table("data daftar saya",data)
+
 
           }catch(err){
               dispatch(errorFilm(err.message));
@@ -35,11 +49,11 @@ useEffect(()=>{
 
       MoviePopuler();
 
-  },[]);
+  },[dispatch,DaftarVersion]);
 
   
 
-
+console.log("ini daftar vesrion ",DaftarVersion)
 if(eror){
     return(
         <h1 style={{textAlign:"center"}}>{eror}</h1>

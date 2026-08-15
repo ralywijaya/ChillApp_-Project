@@ -43,7 +43,7 @@ useEffect(()=>{
 
 
   
-
+console.log("data section top rating",SerialTopRating)
     //   const [isEdit,setisEdit]=useState(false)
     // const [filmAktif, setFilmAktif] = useState(null);
 
@@ -74,7 +74,7 @@ return(
       <h2>{subJudul
         }</h2>
 <div ref={scrollref} className="card-film" >
-        {SerialTopRating.map((i)=>(
+        {SerialTopRating?.map((i)=>(
  <div className="box-film" key={i.id}>
    
         <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 

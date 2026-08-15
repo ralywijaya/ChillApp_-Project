@@ -47,5 +47,17 @@ export async function GetSearch(query) {
 }
 
 
+export async function GetIDGenre(idgenre) {
+  const response = await api.get(`/movieTMDB/genre/movie/?with_genres=${idgenre}`);
+
+  return response.data.results; ;
+}
+export async function GetTrandingDay() {
+  const response = await api.get(`/movieTMDB/tranding/day`);
+
+  return response.data.results; ;
+}
+
+
 
 

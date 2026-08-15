@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const FilmSlice=createSlice({
     name:"Film",
     initialState:{
+        TrandingDay:[],
         FilmPopuler:[],
         FilmTopRating:[],
         FilmTerbaru:[],
@@ -28,6 +29,9 @@ const FilmSlice=createSlice({
         AmbilMovieID:(state,action)=>{  
             state.MovieID=action.payload
         },
+        AmbilTrandingDay:(state,action)=>{  
+            state.TrandingDay=action.payload
+        },
         LoadingFilm:(state,action)=>{
             state.loading=action.payload
         },
@@ -45,5 +49,5 @@ const FilmSlice=createSlice({
     
     })
 
-    export const {AmbilPopulerMovie,AmbilTopRatingMovie,AmbilTerbaruMovie,LoadingFilm,TambahFilm,HapusFilm,errorFilm,AmbilGenreMovie,AmbilMovieID}=FilmSlice.actions
+    export const {AmbilPopulerMovie,AmbilTopRatingMovie,AmbilTerbaruMovie,LoadingFilm,TambahFilm,HapusFilm,errorFilm,AmbilGenreMovie,AmbilMovieID,AmbilTrandingDay}=FilmSlice.actions
     export default FilmSlice.reducer

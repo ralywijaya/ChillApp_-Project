@@ -13,9 +13,7 @@ import { errorFilm,AmbilTopRatingMovie,LoadingFilm } from "../SliceRedux/SliceFi
 export default function SectionTopRating({subJudul,GenreFilm
 
 }){
-     const dataRedux = useSelector((state)=>state);
-
-  console.log(dataRedux);
+   
 
       const {FilmTopRating,loading,eror}=useSelector((state)=>state.DaftarFilm)
   const dispatch=useDispatch()

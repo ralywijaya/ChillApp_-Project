@@ -3,86 +3,173 @@ import "../HoverFilm/HoverCard.css";
 import imgListBar from "../assets/beranda/listbar.png";
 import imgCentang from "../assets/beranda/centang.png";
 import imgPlay from "../assets/beranda/play-circle.png";
+import { PostDaftarSaya,DeleteDAftarSaya,GetDaftarSaya ,GetDaftarSayaTMDB} from '../CostomHook/CostomHook.daftarsaya';
+import {  useCallback, useState } from "react";
 
-import { useEffect, useCallback, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AmbilDaftar,TambahDaftar,HapusDaftar } from "../SliceRedux/SliceDaftar";
-import { GetDaftarGenre,PostDaftarGenre,DeleteDaftarGenre } from "../CostomHook/CostomHook";
+import { AmbilDaftarSaya,AmbilDaftarVersion,AmbilDaftarSayaTMDB } from '../SliceRedux/SliceAkun';
+import { useDispatch,useSelector } from 'react-redux';
+// import { AmbilDaftar,TambahDaftar,HapusDaftar } from "../SliceRedux/SliceDaftar";
+// import { GetDaftarGenre,PostDaftarGenre,DeleteDaftarGenre,GetDaftarFilm } from "../CostomHook/CostomHook";
 import { useNavigate } from 'react-router-dom';
 function HoverFilm({ setisEdit, i,GenreFilm, Judul }) {
+  const token = localStorage.getItem("token");
+  const [LoadingDaftar,setLoadingDaftar]=useState(false)
+  const [ErorDaftar,setErrorDaftar]=useState("")
   const [deskrip,setdeskrip]=useState(false)
   const dispatch = useDispatch();
-  const DaftarSaya = useSelector((state) => state.Daftar.DaftarData);
+  const {DaftarSaya,DaftarVersion}= useSelector((state) => state.Akun);
  const Navigate=useNavigate()
-  useEffect(() => {
-    async function getDaftarSaya() {
-       const dataDaftar=await GetDaftarGenre()
-      dispatch(AmbilDaftar(dataDaftar));
+  // useEffect(()=>{
+  //       const DaftarSayaUser = async()=>{
+  
+  //           dispatch(LoadingDaftarSaya(true));
+  
+  //           try{
+  //               const data = await GetDaftarSaya();
+  //               dispatch(AmbilDaftarSaya(data.results));
+  // console.table("data daftar saya",data)
+  //           }catch(err){
+  //               dispatch(ErrorDaftarSaya(err.message));
+  
+  //           }finally{
+  //               dispatch(LoadingDaftarSaya(false));
+  //           }
+  
+  //       };
+  
+  //       DaftarSayaUser();
+  
+  //   },[dispatch]);
+  
+console.log("daftar saya hover",DaftarSaya)
+const type = i.media_type || i.type_media;
 
-    }
-    getDaftarSaya();
-  }, [dispatch]);
+const sudahAda = Array.isArray(DaftarSaya)
+  ? DaftarSaya.some((item) => {
+      if (type === "movie") {
+        return (
+          Number(item.tmdb_movie_id) === Number(i.id) &&
+          item.type_media === "movie"
+        );
+      }
 
-  const sudahAda = DaftarSaya.some((item) => item.idFilm == i.id);
+      if (type === "tv") {
+        return (
+          Number(item.tmdb_tv_id) === Number(i.id) &&
+          item.type_media === "tv"
+        );
+      }
+
+      return false;
+    })
+  : false;
+  
   
 const Handleclik = useCallback(async () => {
-    try {
-      if (sudahAda) {
-        // 1. Cari data spesifik di dalam DaftarSaya untuk mendapatkan 'id' dari database (bukan idFilm)
-        const dataYangMauDihapus = DaftarSaya.find(
-          (item) => item.idFilm === i.id
-        );
-
-        if (dataYangMauDihapus) {
-          // 2. Hapus dari API menggunakan ID database (dataYangMauDihapus.id)
-          await DeleteDaftarGenre(dataYangMauDihapus.id); 
-          
-          // 3. Hapus dari Redux menggunakan idFilm
-          dispatch(HapusDaftar(i.id)); 
-        }
-      } else {
-        const payload = {
-          idFilm: i.id,
-          gambar: i.gambar,
-          Nama: i.Nama,
-          Genre: i.Genre,
-          Category: i.Category
-        };
-        const DaftarSimpan = await PostDaftarGenre(payload);
-        
-        // Pastikan API mengembalikan data yang utuh (beserta id dari database)
-        dispatch(TambahDaftar(DaftarSimpan));
-      }
-    } catch (error) {
-      console.error("Terjadi kesalahan saat update daftar:", error);
-    }
-  }, [sudahAda, i, dispatch, DaftarSaya]); // Jangan lupa tambahkan DaftarSaya di dependency array
  
+if(!token){
+  setErrorDaftar("login dahulu")
+}
+
+else{
+ setLoadingDaftar(true);
+ try {
+    if (!sudahAda) {
+      // BELUM ADA → SIMPAN
+      const response = await PostDaftarSaya({
+        id: i.id,
+        type: i.media_type||i.type_media,
+      });
+
+      console.log("Berhasil menyimpan:", response);
+      alert(response.message || "Film berhasil disimpan");
+      dispatch(AmbilDaftarSaya(response))
+dispatch(AmbilDaftarVersion())
+
+
+  
+    } 
+    
+    
+    
+    else {
+      // SUDAH ADA → CARI DATA UNTUK DIHAPUS
+     
+   
+        const response = await DeleteDAftarSaya(
+          { id: i.id,
+  type: i.media_type||i.type_media,}
+        );
+        
+dispatch(AmbilDaftarVersion())
+        console.log("Berhasil menghapus:", response);
+        alert(response.message || "Film berhasil dihapus");
+      
+    }
+const DataDaftarSaya = await GetDaftarSaya();
+   dispatch(AmbilDaftarSaya(DataDaftarSaya));
+ const data = await GetDaftarSayaTMDB();
+
+            dispatch(AmbilDaftarSayaTMDB(data));
+
+   
+    // Ambil ulang daftar setelah perubahan
+    // const data = await GetDaftarSaya();
+
+    // dispatch(AmbilDaftarSaya(data.results));
+
+  } catch (error) {
+    console.log("ERROR:", error.response?.data || error.message);
+
+    setErrorDaftar(
+     
+      "Gagal mengubah Daftar Saya"
+    );
+
+  } finally {
+    setLoadingDaftar(false);
+  }
+
+}
+ 
+}, [sudahAda, i, DaftarSaya, dispatch,DaftarVersion]);
+
+
   const handleMouseLeave = useCallback(() => {
     if (setisEdit) setisEdit(false);
   }, [setisEdit]);
 
   function Handledes(){
-    setdeskrip(true)
+    setdeskrip(!deskrip)
   }
 
 function Handleplay(){ 
-  if(i.title){
+  if(i.media_type||i.type_media==="movie"){
     Navigate(`/page/${i.id}`)
   } 
-  if(i.name){
+  if(i.media_type||i.type_media==="tv"){
     Navigate(`/PageSerial/${i.id}`)
   }
 }
 
-const getGenre =
-   i.genre_ids.map((id) => {
-    const genre = GenreFilm.find(
-      (item) => item.id === id
-    )
 
-    return genre?.name
-  })
+ let getGenre = [];
+
+if (Array.isArray(i?.genres)) {
+  getGenre = i.genres
+    .map((genre) => genre.name)
+    .filter(Boolean);
+} else if (Array.isArray(i?.genre_ids)) {
+  getGenre = i.genre_ids
+    .map((id) => {
+      const genre = GenreFilm?.find(
+        (item) => item.id === id
+      );
+
+      return genre?.name;
+    })
+    .filter(Boolean);
+}
 
   return (
     <div 
@@ -96,6 +183,8 @@ const getGenre =
 
       <div className='nama-film-hover'>
 <p>{Judul}</p>
+{LoadingDaftar?<><p>Loading...</p></>:""}
+{ErorDaftar?<><p>{ErorDaftar}</p></>:""}
       </div>
 
       <div className="button-box">
@@ -127,14 +216,14 @@ const getGenre =
 
           
               <div>
-            <p>{sudahAda ? "tersimpan" : "simpan"}</p>
+          <p>{sudahAda ? "✓" : ""}</p>
           </div>
         
       </div>
 
       <div>
         <p style={{display:"flex",justifyContent:"space-evenly",listStyleType:"none"}}>
-         {getGenre.join(", ")}
+         {getGenre?.join(", ")}
         </p>
       </div>
     </div>

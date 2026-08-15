@@ -3,7 +3,9 @@
 import axios from "axios";
 
 const cloudinaryApi = axios.create({
-  baseURL: "https://api.cloudinary.com/v1_1/vtblmp5z",
+  baseURL: import.meta.env.VITE_API_CLOUDINARY,
 });
 
 export default cloudinaryApi;
+
+

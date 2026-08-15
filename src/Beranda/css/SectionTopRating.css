@@ -10,8 +10,8 @@ margin-top: 2rem;
    font-size: 1.4rem;
     line-height: 120%;
     font-style: bold;   
-
-
+border-bottom: 0.4rem solid blue;
+width: max-content;
 }
 
 .card-film{

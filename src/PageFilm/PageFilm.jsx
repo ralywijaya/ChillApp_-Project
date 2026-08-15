@@ -87,7 +87,7 @@ return(
 
  <div className="genre-film-page">
    {Movie.genres?.map((i)=>(
-    <Link  key={i.id} to={``} style={{fontSize:"1.2rem"}}>{i.name}</Link>
+    <Link  key={i.id} to={`/menu_genre/${i.id}/${i.name}`} style={{fontSize:"1.2rem"}}>{i.name}</Link>
    ))}
  </div>
 

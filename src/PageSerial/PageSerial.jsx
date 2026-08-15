@@ -30,17 +30,7 @@ if(!Serial){
 
 const rating = Math.round(Serial.vote_average / 2);
 
-function Handleplay(i){
-  if(i.title){
-    return `/genre/${i.title}`;
-  }
 
-  if(i.name){
-    return `/genre/${i.name}`;
-  }
-
-  return "/";
-}
 return(
     <section className="section-page-serial">
         <div className="serial-play">
@@ -108,7 +98,7 @@ return(
 
  <div className="genre-serial-page">
    {Genre?.map((i)=>(
-    <Link to={Handleplay(i)}  key={i.id} style={{fontSize:"1.2rem"}}>{i.name}</Link>
+    <Link to={`/menu_genre_serial/${i.id}/${i.name}`}  key={i.id} style={{fontSize:"1.2rem"}}>{i.name}</Link>
    ))}
  </div>
 

@@ -1,4 +1,4 @@
-import SectionHeroSerial from './SectionHeroSerial'
+import SectionHero from '../Beranda/SectionHero'
 
 
 // import SectionMelanjutkan from './SectionMelanjutkan'
@@ -10,9 +10,12 @@ import "./css/Main.css"
 import { AmbilGenreSerial,LoadingSerial,errorSerial } from '../SliceRedux/sliceSerial'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-
+import { GetDaftarSaya } from '../CostomHook/CostomHook.daftarsaya'
+import { AmbilDaftarSaya } from '../SliceRedux/SliceAkun'
 export default function MainContainer(){
+     const token = localStorage.getItem("token");
  const {GenreSerial,eror}=useSelector((state)=>state.DaftarSerial)
+  const { DaftarVersion}=useSelector((state)=>state.Akun)
   const dispatch=useDispatch()
 useEffect(()=>{
       const SerialGenre = async()=>{
@@ -22,7 +25,12 @@ useEffect(()=>{
           try{
               const data = await GetGenreSerial();
               dispatch(AmbilGenreSerial(data));
-
+  if (token){
+                 const DataDaftarSaya = await GetDaftarSaya();
+              console.log("ini data daftar saya",DataDaftarSaya)
+                dispatch(AmbilDaftarSaya(DataDaftarSaya));
+             console.log(DataDaftarSaya)
+            }
           }catch(err){
               dispatch(errorSerial(err.message));
 
@@ -35,7 +43,7 @@ useEffect(()=>{
 
       SerialGenre();
 
-  },[]);
+  },[dispatch,DaftarVersion]);
 
   
 
@@ -51,7 +59,7 @@ if(eror){
 
      <main>
     
-            <SectionHeroSerial />
+            <SectionHero />
             {/* <SectionMelanjutkan subJudul={"Melanjutkan Tonton Film"} /> */}
            <SectionSerialTopRating  GenreFilm={GenreSerial} subJudul="Top Rating Film dan Series Hari ini"  />
           <SectionSerialRilis GenreFilm={GenreSerial} subJudul="Rilis Baru" />

@@ -1,40 +1,47 @@
-import { GoogleLogin } from "@react-oauth/google"
-import api from "../services/api"
-import"./css/button.css"
-export default function Button({Handleclick}){
+import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+import "./css/button.css";
+import { PostUserEmail } from "../CostomHook/CostomHook";
+export default function Button({Handleclick}) {
+   const Navigate=useNavigate()
+  const handleGoogleLogin = async (response) => {
+    try {
+      const googleToken = response.credential;
 
-return(
-    <div className="box-button">
- <div className="button-masuk">
-    <button onClick={Handleclick} className="button-masuk">Masuk</button>
-  </div>
-<div className="atau">
-    <p className="atau">Atau</p>
-  </div>
-<div className="button-google">
-  <GoogleLogin
-  onSuccess={async(response)=>{
+      const result = await PostUserEmail({token:googleToken})
 
- const googleToken=response.credential;
+      console.log(result);
 
+      // JWT dari backend
+      const token = result.token;
 
- const result=await api.post(
- "http://localhost:3000/login/google",
- {
-   token:googleToken
- }
- );
+      localStorage.setItem("token", token);
 
+      Navigate('/')
+    } catch (error) {
+      console.error(
+        error.response?.data?.message || error.message
+      );
+    }
+  };
 
- console.log(result.data);
-
-}}
-
-
-/>
-  
-  </div>
-  
-</div>
-)
+  return (
+       <div className="box-button">
+    <div className="button-masuk">
+       <button onClick={Handleclick} className="button-masuk">Masuk</button>
+     </div>
+   <div className="atau">
+       <p className="atau">Atau</p>
+     </div>
+   <div className="button-google">
+     
+     </div>
+      <GoogleLogin
+      onSuccess={handleGoogleLogin}
+      onError={() => {
+        console.log("Google Login gagal");
+      }}
+    />
+   </div>
+   )
 }

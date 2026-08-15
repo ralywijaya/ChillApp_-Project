@@ -40,6 +40,12 @@ export async function GetSerialSimiliar(id) {
 
   return response.data.results; ;
 }
+export async function GetIDGenreSerial(idgenre) {
+  const response = await api.get(`/serialTMDB/genre/serial/?with_genres=${idgenre}`);
+
+  return response.data.results; ;
+}
+
 
 
 

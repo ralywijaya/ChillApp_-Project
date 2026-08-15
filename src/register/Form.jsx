@@ -1,7 +1,7 @@
  import eye from"../assets/masuk/eye-off.png"
  import "./css/form.css"
 import { Link } from "react-router-dom"
- export default function Form({Nama,setNama,Password,setPassword,ConfirmPassword,setConfirmPassword,Error}){
+ export default function Form({Nama,setNama,Password,setPassword,ConfirmPassword,setConfirmPassword,Error,ErrorBE}){
 return(  <>
   <div className="box-username">
     <label className="label-daftar" htmlFor="username">Masukan Nama</label>
@@ -14,6 +14,9 @@ return(  <>
       name="username"
       placeholder="Masukan Username"
     />
+     {Error.nama && (
+          <span>Nama wajib diisi</span>
+        )}
   </div>
 
   <div className="box-konfirmasi-password">
@@ -27,7 +30,10 @@ return(  <>
         type="password"
         name="password"
         placeholder="Masukan Kata Sandi"
-      />
+      /> {Error.password && (
+          <span>Password wajib diisi</span>
+        )}
+         
     </div>
     <div className="img-mata-sandi">
  <img
@@ -50,7 +56,9 @@ return(  <>
         type="password"
         name="confirm-password"
         placeholder="Masukan Kata Sandi"
-      />
+      /> {Error.confirmPassword&& (
+          <span> konfirmasi Password wajib diisi</span>
+        )}
     </div>
     <div className="img-mata">
       <img
@@ -67,7 +75,16 @@ return(  <>
       </p>
     </div>
   </div>
+   {Error.password && (
+          <span>Password wajib diisi</span>
+        )}
+          {ErrorBE&& (
+          <p style={{ color: "red" }}>
+            {ErrorBE}
+          </p>
+        )}
 </>)
+ 
 
  }
 

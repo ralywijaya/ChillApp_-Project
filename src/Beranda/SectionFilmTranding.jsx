@@ -11,9 +11,9 @@ import HoverFilm from "../HoverFilm/HoverFilm"
 import { errorFilm,AmbilPopulerMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
 
 export default function SectionFilmTranding({subJudul,GenreFilm}){
-     const dataRedux = useSelector((state)=>state);
+   
 
-  console.log(dataRedux);
+
 
       const {FilmPopuler,loading,eror}=useSelector((state)=>state.DaftarFilm)
   const dispatch=useDispatch()
@@ -28,7 +28,7 @@ useEffect(()=>{
 
           }catch(err){
               dispatch(errorFilm(err.message));
-
+console.log(err.message)
           }finally{
               dispatch(LoadingFilm(false));
           }
