@@ -23,12 +23,12 @@ export async function DeleteDaftarFilm(id) {
   await api.delete(`/DaftarFilm/${id}`);
 }
 
-  export async function PostDaftarGenre(data) {
+export async function PostDaftarGenre(data) {
   const response = await api.post("/DaftarGenre", data);
 
   return response.data;
 }
-  export async function GetDaftarGenre() {
+export async function GetDaftarGenre() {
   const response = await api.get("/DaftarGenre");
 
   return response.data;
@@ -44,60 +44,51 @@ export async function DeleteDaftarGenre(id) {
   await api.delete(`/DaftarGenre/${id}`);
 }
 
-
-
 // hook data user
 
 export async function AunthLogin(data) {
- const response= await api.post('/aunth/login',data);
- return response.data ;
+  const response = await api.post("/aunth/login", data);
+  return response.data;
 }
 export async function PostUser(data) {
-  const response =await api.post('/user',data);
+  const response = await api.post("/user", data);
 
-  return response.data ;
+  return response.data;
 }
 export async function DeleteUser() {
-   const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   // Urutan Axios Patch: (URL, Body Data, Config/Headers)
   const response = await api.delete(
-    '/user', 
-    
+    "/user",
+
     {
       headers: {
-        Authorization: `Bearer ${token}` // Kirim token di header
-      }
-    }
-  );
-
-  return response.data ;
-}
-export const UbahUser = async (bodyData) => {
-  const token = localStorage.getItem('token');
-
-  // Urutan Axios Patch: (URL, Body Data, Config/Headers)
-  const response = await api.patch(
-    '/user', 
-    bodyData, 
-    {
-      headers: {
-        Authorization: `Bearer ${token}` // Kirim token di header
-      }
+        Authorization: `Bearer ${token}`, // Kirim token di header
+      },
     }
   );
 
   return response.data;
+}
+export const UbahUser = async (bodyData) => {
+  const token = localStorage.getItem("token");
+
+  // Urutan Axios Patch: (URL, Body Data, Config/Headers)
+  const response = await api.patch("/user", bodyData, {
+    headers: {
+      Authorization: `Bearer ${token}`, // Kirim token di header
+    },
+  });
+
+  return response.data;
 };
 
-
-
 export async function PostUserEmail(data) {
-  const response =await api.post('/login/google',data);
- 
-  return response.data ;
-}
+  const response = await api.post("/login/google", data);
 
+  return response.data;
+}
 
 export async function FotoProfil(data) {
   const token = localStorage.getItem("token");
@@ -108,25 +99,28 @@ export async function FotoProfil(data) {
 
   const id = jwtDecode(token);
 
-  const response = await api.patch(
-    `/user/upload/${id.user_id}`,
-    data,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const response = await api.patch(`/user/upload/${id.user_id}`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   return response.data;
 }
 
-
 export async function TambahEmail(data) {
-  const response = await api.patch(
-    '/user/upload_email',
-    data
-  );
+  const response = await api.patch("/user/upload_email", data);
+
+  return response.data;
+}
+
+export async function UbahPaket(data) {
+  const response = await api.patch("/user/upload_paket", data);
+
+  return response.data;
+}
+export async function UbahSandi(data) {
+  const response = await api.patch("/user/ubah_sandi", data);
 
   return response.data;
 }

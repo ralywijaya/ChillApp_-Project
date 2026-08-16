@@ -1,57 +1,52 @@
-.section-page-film{
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    justify-content: center;
-    align-items: center;
+.section-page-film {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.film-play{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: #22282A;
-    padding: 2rem;
-    border-radius: 2rem;
-    -webkit-border-radius: 2rem;
-    -moz-border-radius: 2rem;
-    -ms-border-radius: 2rem;
-    -o-border-radius: 2rem;
+.film-play {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #22282a;
+  padding: 2rem;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
 }
 
-.movie-page-video iframe{
-    border-radius: 0.5rem;
-    height: 30rem;
-    width: 100%;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+.movie-page-video iframe {
+  border-radius: 0.5rem;
+  height: 30rem;
+  width: 100%;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
-.deskripsi-film-page p{
-font-size: 1.4rem;
-}
-
-.rating-film-page{
-    display: flex;
-   padding: 0.5rem;
-    gap: 1rem;
-   
-   
-  
-}
-.genre-film-page{
-    display: flex;
-    gap: 2rem;
+.deskripsi-film-page p {
+  font-size: 1.4rem;
 }
 
-.detail-film-page{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: center;
-    border-top: 3px solid #fff;
-    padding-top: 1rem;
- 
+.rating-film-page {
+  display: flex;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+.genre-film-page {
+  display: flex;
+  gap: 2rem;
 }
 
+.detail-film-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  border-top: 3px solid #fff;
+  padding-top: 1rem;
+}

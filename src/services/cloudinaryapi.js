@@ -7,5 +7,3 @@ const cloudinaryApi = axios.create({
 });
 
 export default cloudinaryApi;
-
-

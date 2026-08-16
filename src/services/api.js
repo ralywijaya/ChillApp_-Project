@@ -8,9 +8,9 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
- console.log("REQUEST URL:", config.url);
-  console.log("REQUEST METHOD:", config.method);
-  console.log("REQUEST DATA:", config.data);
+    console.log("REQUEST URL:", config.url);
+    console.log("REQUEST METHOD:", config.method);
+    console.log("REQUEST DATA:", config.data);
     if (!token) {
       return config;
     }
@@ -28,9 +28,7 @@ api.interceptors.request.use(
 
         localStorage.removeItem("token");
 
-        return Promise.reject(
-          new axios.Cancel("Token sudah expired")
-        );
+        return Promise.reject(new axios.Cancel("Token sudah expired"));
       }
 
       config.headers.Authorization = `Bearer ${token}`;

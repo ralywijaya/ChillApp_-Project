@@ -1,233 +1,229 @@
 /* section hero */
-.tranding-day{
-    width:100%;
-height: auto;
-padding: 1rem 1rem;
-margin-top: 3rem;
+.tranding-day {
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem;
+  margin-top: 3rem;
 }
- .sub-tranding-day{
+.sub-tranding-day {
   border-top: 0.4rem solid blue;
- }
-.tranding-day h2{
-   border-bottom: 0.4rem solid red;
 }
-.box-hero{
- 
+.tranding-day h2 {
+  border-bottom: 0.4rem solid red;
+}
+.box-hero {
   gap: 3rem;
   display: flex;
   padding: 2rem 2rem;
   width: 100%;
   display: flex;
 
-overflow: auto;
+  overflow: auto;
 }
 /* image hero */
-.hero-film iframe{
-  width:36rem;
-  height:20rem;
-  object-position:top;
-  object-fit:contain;
+.hero-film iframe {
+  width: 36rem;
+  height: 20rem;
+  object-position: top;
+  object-fit: contain;
   transition: filter 0.3s ease;
-
 }
 
-.hero-film img:hover{
+.hero-film img:hover {
   filter: brightness(1.05);
   -webkit-filter: brightness(1.05);
 }
 
 /* description hero */
-.hero-descripti{
-
-  width:25rem;
+.hero-descripti {
+  width: 25rem;
   height: auto;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   margin-left: 4rem;
   margin-top: 1rem;
-  
-  box-sizing:border-box;
-  
+
+  box-sizing: border-box;
 }
 
 /* hero title */
-.hero-title h1{
-  font-size:1.7rem;
-  font-weight:700;
-  font-style:bold;
+.hero-title h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  font-style: bold;
 }
 
 /* hero paraf */
-.hero-paraf p{
-    width:25rem;
-    height:7rem;
- overflow: auto;
-   
-    /* Firefox */
-    scrollbar-width:none;
+.hero-paraf p {
+  width: 25rem;
+  height: 7rem;
+  overflow: auto;
 
-    /* IE dan Edge lama */
-    -ms-overflow-style:none;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE dan Edge lama */
+  -ms-overflow-style: none;
 }
 
 /* Chrome, Edge, Safari */
-.hero-paraf p::-webkit-scrollbar{
-    display:none;
+.hero-paraf p::-webkit-scrollbar {
+  display: none;
 }
 /* hero-button */
-.hero-button{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.hero-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* box button */
-.box-button-hero{
-  display:flex;
-  gap:0.8rem;
-  align-items:center;
+.box-button-hero {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
 }
 
-.box-button button,img{
+.box-button button,
+img {
   cursor: pointer;
   transition: all 0.25s ease-in-out;
-  
 }
 
-.image-category-age:hover{
+.image-category-age:hover {
   transform: scale(1.08);
 }
-#button-mulai:hover{
-  background-color: #C1C2C4;
-  
+#button-mulai:hover {
+  background-color: #c1c2c4;
 }
-#button-selengkapnya:hover{
-  background-color: #C1C2C4;
-  
+#button-selengkapnya:hover {
+  background-color: #c1c2c4;
 }
 
 /* buton muulai */
-#button-mulai{
-  width:5.5rem;
-  height:2.5rem;
-  border-radius:4.8rem;
-  font-size:1.2rem;
-  font-style:bold;
-  font-weight:700;
-  color:#ffffff;
-  background-color:#0F1E93;
-  letter-spacing:0.02rem;
-  border:none;
-  box-sizing:border-box;
+#button-mulai {
+  width: 5.5rem;
+  height: 2.5rem;
+  border-radius: 4.8rem;
+  font-size: 1.2rem;
+  font-style: bold;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #0f1e93;
+  letter-spacing: 0.02rem;
+  border: none;
+  box-sizing: border-box;
 }
 
 /* button selengkapnya */
-#button-selengkapnya{
-  align-items:center;
-  justify-content:center;
-  display:flex;
-  width:12.5rem;
-  height:2.5rem;
-  border-radius:4.8rem;
-  font-size:1.2rem;
-  font-style:bold;
-  font-weight:700;
-  color:#ffffff;
-  background-color:#181A1C;
-  letter-spacing:0.02rem;
-  gap:0.8rem;
-  padding:0.2rem 1.2rem 0.2rem 1.2rem;
-  box-sizing:border-box;
-  border:1px solid #C1C2C4;
+#button-selengkapnya {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 12.5rem;
+  height: 2.5rem;
+  border-radius: 4.8rem;
+  font-size: 1.2rem;
+  font-style: bold;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #181a1c;
+  letter-spacing: 0.02rem;
+  gap: 0.8rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+  box-sizing: border-box;
+  border: 1px solid #c1c2c4;
 }
 
-#button-selengkapnya img{
-  width:1.2rem;
-  height:1.2rem;
+#button-selengkapnya img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
-#button-selengkapnya span{
-  display:block;
-  font-size:1rem;
+#button-selengkapnya span {
+  display: block;
+  font-size: 1rem;
 }
 
-.image-category-age{
-  width:2.5rem;
-  height:auto;
+.image-category-age {
+  width: 2.5rem;
+  height: auto;
 }
 
 /* image volume setting */
-.volume-setting img{
-  width:1.7rem;
-  height:auto;
-  border:1px solid #C1C2C4;
-  border-radius:1.9rem;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+.volume-setting img {
+  width: 1.7rem;
+  height: auto;
+  border: 1px solid #c1c2c4;
+  border-radius: 1.9rem;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.volume-setting img:hover{
+.volume-setting img:hover {
   transform: scale(1.1);
-  background-color: rgba(255,255,255,0.12);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* footer */
-footer{
-  width:100vw;
-  height:auto;
-  border-top:1px solid #E7E3FC3B;
-  color:#ffffff;
-  padding:2rem 2rem;
-  display:flex;
-  flex-direction:column;
+footer {
+  width: 100vw;
+  height: auto;
+  border-top: 1px solid #e7e3fc3b;
+  color: #ffffff;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.genre-list,.bantuan-list{
-  display:none;
+.genre-list,
+.bantuan-list {
+  display: none;
 }
 /* hak cipta */
-.hak-cipta{
-  flex-direction:column;
-  width:100vw;
-  height:auto;
-  display:flex;
-  gap:0.8rem;
+.hak-cipta {
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  gap: 0.8rem;
 }
 
-.hak-cipta img{
-  width:8.4rem;
-  height:auto;
+.hak-cipta img {
+  width: 8.4rem;
+  height: auto;
 }
 
-.hak-cipta p{
-  font-size:1rem;
-  line-height:120%;
-  color:#C1C2C4;
+.hak-cipta p {
+  font-size: 1rem;
+  line-height: 120%;
+  color: #c1c2c4;
 }
 
 /* option genre */
-.genre{
-  display:flex;
-  font-size:1.2rem;
-  width:90vw;
-  height:auto;
-  justify-content:space-between;
+.genre {
+  display: flex;
+  font-size: 1.2rem;
+  width: 90vw;
+  height: auto;
+  justify-content: space-between;
 }
 
-.genre img{
-  width:auto;
-  height:1.4rem;
- 
+.genre img {
+  width: auto;
+  height: 1.4rem;
 }
- /* option bantuan */
-.bantuan{
-  display:flex;
-  font-size:1.2rem;
-  width:90vw;
-  height:auto;
-  justify-content:space-between;
+/* option bantuan */
+.bantuan {
+  display: flex;
+  font-size: 1.2rem;
+  width: 90vw;
+  height: auto;
+  justify-content: space-between;
 }
 
-.bantuan img{
-  width:auto;
-  height:1.4rem;
+.bantuan img {
+  width: auto;
+  height: 1.4rem;
 }

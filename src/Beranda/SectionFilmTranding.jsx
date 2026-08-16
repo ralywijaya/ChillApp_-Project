@@ -1,94 +1,85 @@
-
-import"./css/SectionTopRating.css"
-import AnakPanah from "./AnakPanah"
-import { useRef, useState } from "react"
-import { useDispatch,useSelector } from "react-redux"
+import "./css/SectionTopRating.css";
+import AnakPanah from "./AnakPanah";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // import HoverFilm from "./HoverFilm"
 // import { Film} from "./FilmContax"
-import { useEffect } from "react"
-import { GetFilmPopuler } from "../CostomHook/CostomHook.user"
-import HoverFilm from "../HoverFilm/HoverFilm"
-import { errorFilm,AmbilPopulerMovie,LoadingFilm } from "../SliceRedux/SliceFilm"
+import { useEffect } from "react";
+import { GetFilmPopuler } from "../CostomHook/CostomHook.user";
+import HoverFilm from "../HoverFilm/HoverFilm";
+import {
+  errorFilm,
+  AmbilPopulerMovie,
+  LoadingFilm,
+} from "../SliceRedux/SliceFilm";
 
-export default function SectionFilmTranding({subJudul,GenreFilm}){
-   
+export default function SectionFilmTranding({ subJudul, GenreFilm }) {
+  const { FilmPopuler, loading, eror } = useSelector(
+    (state) => state.DaftarFilm
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const MoviePopuler = async () => {
+      dispatch(LoadingFilm(true));
 
+      try {
+        const data = await GetFilmPopuler();
+        dispatch(AmbilPopulerMovie(data));
+      } catch (err) {
+        dispatch(errorFilm(err.message));
+        console.log(err.message);
+      } finally {
+        dispatch(LoadingFilm(false));
+      }
+    };
 
+    MoviePopuler();
+  }, []);
 
-      const {FilmPopuler,loading,eror}=useSelector((state)=>state.DaftarFilm)
-  const dispatch=useDispatch()
-useEffect(()=>{
-      const MoviePopuler = async()=>{
+  //   const [isEdit,setisEdit]=useState(false)
+  // const [filmAktif, setFilmAktif] = useState(null);
 
-          dispatch(LoadingFilm(true));
+  const [isEdit, setisEdit] = useState(false);
+  const [filmAktif, setFilmAktif] = useState(null);
+  const scrollref = useRef(null);
 
-          try{
-              const data = await GetFilmPopuler();
-              dispatch(AmbilPopulerMovie(data));
+  if (loading) {
+    return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
+  }
 
-          }catch(err){
-              dispatch(errorFilm(err.message));
-console.log(err.message)
-          }finally{
-              dispatch(LoadingFilm(false));
-          }
+  if (eror) {
+    return <h1 style={{ textAlign: "center" }}>{eror}</h1>;
+  }
 
-      };
-
-      MoviePopuler();
-
-  },[]);
-
-    //   const [isEdit,setisEdit]=useState(false)
-    // const [filmAktif, setFilmAktif] = useState(null);
-
-   const [isEdit,setisEdit]=useState(false)
-    const [filmAktif, setFilmAktif] = useState(null);
- const scrollref=useRef(null)
-
-
-if(loading){
-    return(
-        <h1 style={{textAlign:"center"}}>Loading...</h1>
-    )
-}
-
-if(eror){
-    return(
-        <h1 style={{textAlign:"center"}}>{eror}</h1>
-    )
-}
-
-
-
-return(
-
-
-
+  return (
     <section className="section-film">
-      <h2>{subJudul
-        }</h2>
-<div ref={scrollref} className="card-film" >
-        {FilmPopuler.map((i)=>(
- <div className="box-film" key={i.id}>
-   
-        <img  src={`https://image.tmdb.org/t/p/w500${i.poster_path}`} 
-  alt={i.title} onClick={()=>{setisEdit(true )
-        setFilmAktif(i.id)
-    }}/>
-        {filmAktif==i.id&&isEdit&& <HoverFilm setisEdit={setisEdit} Judul={i.title} i={i} GenreFilm={GenreFilm}/>}
-<div className="judul_movie">
-<p>{i.title}</p>
-</div>
-             </div>
+      <h2>{subJudul}</h2>
+      <div ref={scrollref} className="card-film">
+        {FilmPopuler.map((i) => (
+          <div className="box-film" key={i.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${i.poster_path}`}
+              alt={i.title}
+              onClick={() => {
+                setisEdit(true);
+                setFilmAktif(i.id);
+              }}
+            />
+            {filmAktif == i.id && isEdit && (
+              <HoverFilm
+                setisEdit={setisEdit}
+                Judul={i.title}
+                i={i}
+                GenreFilm={GenreFilm}
+              />
+            )}
+            <div className="judul_movie">
+              <p>{i.title}</p>
+            </div>
+          </div>
         ))}
-        {!isEdit&&<AnakPanah setref={scrollref}/>}
-          
-</div>
-        
+        {!isEdit && <AnakPanah setref={scrollref} />}
+      </div>
     </section>
-)
-
+  );
 }
-
-  

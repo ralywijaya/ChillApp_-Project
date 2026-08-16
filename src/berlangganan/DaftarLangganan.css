@@ -1,181 +1,176 @@
-.ringkasan-pembayaran{
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
+.ringkasan-pembayaran {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
   margin-top: 4rem;
   margin-bottom: 2rem;
   gap: 2rem;
 }
 
-.box-pembayaran{
-    display: flex
-    ;
-    flex-direction: column;
-    gap: 2rem;
+.box-pembayaran {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.metode-pembayaran{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.metode-pembayaran {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.kartu-kredit{
-    width: 32rem;
-    height: 4.8rem;
-    border: 1px solid #E0E0E0;
-    display: flex;
-    gap:0.8rem ;
-    align-items: center;
-    border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -moz-border-radius: 0.6rem;
-    -ms-border-radius: 0.6rem;
-    -o-border-radius: 0.6rem;
+.kartu-kredit {
+  width: 32rem;
+  height: 4.8rem;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
 }
 
-.nama-kredit p{
-font-size: 1.2rem;
+.nama-kredit p {
+  font-size: 1.2rem;
 }
-.kartu-virtual{
-    width: 32rem;
-    height: 4.8rem;
-    border: 1px solid #E0E0E0;
-    display: flex;
-    gap:0.8rem ;
-    align-items: center;
-    border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -moz-border-radius: 0.6rem;
-    -ms-border-radius: 0.6rem;
-    -o-border-radius: 0.6rem;
-}
-
-.nama-virtual p{
-    font-size: 1.3rem;
+.kartu-virtual {
+  width: 32rem;
+  height: 4.8rem;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
 }
 
-
-.kode-voucher{
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
+.nama-virtual p {
+  font-size: 1.3rem;
 }
 
-.label-voucher label{
-    font-size: 1.6rem;
+.kode-voucher {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
 }
 
-.input-voucher{
-    display: flex;
-    gap: 1rem;
-   
+.label-voucher label {
+  font-size: 1.6rem;
 }
 
-.voucher input{
-    width: 22.3rem;
-    height: 4.1rem;
-    border: 1px solid #C8CCD0;
-    background-color: #181A1C;
-    border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -moz-border-radius: 0.6rem;
-    -ms-border-radius: 0.6rem;
-    -o-border-radius: 0.6rem;
-    color: #C8CCD0;
-    font-size: 1.3rem;
-    padding: 1rem;
+.input-voucher {
+  display: flex;
+  gap: 1rem;
 }
 
-.button-voucher button{
-    height:3.6rem ;
-    width: 8.1rem;
-    border-radius: 1.6rem;
-    -webkit-border-radius: 1.6rem;
-    -moz-border-radius: 1.6rem;
-    -ms-border-radius: 1.6rem;
-    -o-border-radius: 1.6rem;
-    border: none;
-    background-color: #2F3334;
-    color: #E0E0E0;
-    cursor: pointer;
+.voucher input {
+  width: 22.3rem;
+  height: 4.1rem;
+  border: 1px solid #c8ccd0;
+  background-color: #181a1c;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+  color: #c8ccd0;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+.button-voucher button {
+  height: 3.6rem;
+  width: 8.1rem;
+  border-radius: 1.6rem;
+  -webkit-border-radius: 1.6rem;
+  -moz-border-radius: 1.6rem;
+  -ms-border-radius: 1.6rem;
+  -o-border-radius: 1.6rem;
+  border: none;
+  background-color: #2f3334;
+  color: #e0e0e0;
+  cursor: pointer;
 }
 
 .button-voucher button:hover,
 .button-membayar button:hover {
-    background-color: #3a3f41;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  background-color: #3a3f41;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
 }
 
-.ringkasan-transaksi{
+.ringkasan-transaksi {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30rem;
+  height: auto;
+}
+
+.subjudul-ringkasan p {
+  font-size: 1.6rem;
+}
+
+.daftar-ringkasan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.jenis-paket-ringkasan {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jenis-paket-ringkasan p {
+  font-size: 1.2rem;
+}
+
+.biaya-admin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.biaya-admin p {
+  font-size: 1.2rem;
+}
+
+.biaya-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.biaya-total {
+  font-size: 1.2rem;
+}
+
+.button-membayar button {
+  width: 6.9rem;
+  height: 3.6rem;
+  border-radius: 4.8rem;
+  -webkit-border-radius: 4.8rem;
+  -moz-border-radius: 4.8rem;
+  -ms-border-radius: 4.8rem;
+  -ms-border-radius: 4.8rem;
+  -o-border-radius: 4.8rem;
+  border: none;
+  background-color: #09147a;
+  color: #c8ccd0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 786px) {
+  .ringkasan-pembayaran {
     display: flex;
-    flex-direction: column;
-    gap:1rem ;
-    width: 30rem;
-    height: auto;
+    flex-direction: row;
+    gap: 4rem;
+  }
 }
-
-.subjudul-ringkasan p{
-font-size: 1.6rem;
-}
-
-.daftar-ringkasan{
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.jenis-paket-ringkasan{
-    display: flex;
-    justify-content: space-between;
-}
-
-.jenis-paket-ringkasan p{
-    font-size:1.2rem;
-}
-
-.biaya-admin{
-      display: flex;
-    justify-content: space-between;
-}
-
-.biaya-admin p{
-     font-size:1.2rem;
-}
-
-.biaya-total{
-     display: flex;
-    justify-content: space-between;
-}
-
-.biaya-total{
-font-size:1.2rem;
-}
-
-.button-membayar button{
-    width: 6.9rem;
-    height: 3.6rem;
-    border-radius: 4.8rem;
-    -webkit-border-radius: 4.8rem;
-    -moz-border-radius: 4.8rem;
-    -ms-border-radius: 4.8rem;
-    -ms-border-radius: 4.8rem;
-    -o-border-radius: 4.8rem;
-    border: none;
-    background-color: #09147A;
-    color: #C8CCD0;
-    cursor: pointer;
-}
-
-
-@media screen and (min-width:786px){
-    .ringkasan-pembayaran{
-        display: flex;
-        flex-direction: row;
-        gap: 4rem;
-    }
-}
-

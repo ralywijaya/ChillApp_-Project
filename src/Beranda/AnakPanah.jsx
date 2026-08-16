@@ -3,7 +3,6 @@ import ArrowRight from "../assets/beranda/anak_panah_kanan.png";
 import "./css/anakpanah.css";
 
 export default function AnakPanah({ setref }) {
-
   function scrollByOffset(offset) {
     if (!setref?.current) return;
     setref.current.scrollBy({

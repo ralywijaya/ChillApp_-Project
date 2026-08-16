@@ -1,72 +1,72 @@
-import eye from"../assets/masuk/eye-off.png"
- import { Link } from "react-router-dom"
+import eye from "../assets/masuk/eye-off.png";
+import { Link } from "react-router-dom";
 
- export default function Form({Nama,setMasukNama,Password,setMasukPassword,ErrorBE,Error}){
- return(  <>
-  <div className="box-username">
-     <label className="label-daftar" htmlFor="username">Masukan Nama</label>
-     <input className="input-username"
-       style={Error.nama?{border:"1px solid red"}:{}}
-       value={Nama}
-       onChange={(e)=>{setMasukNama(e.target.value)}}
-       id="username"
-       type="text"
-       name="username"
-       placeholder="Masukan Username"
-     />
-      {Error.nama && (
-          <span>nama wajib diisi</span>
-        )}
-   </div>
- 
-   <div className="box-konfirmasi-password">
-     <div>
-       <label  className="label-daftar" htmlFor="confirm-password">Konfirmasi kata sandi</label>
-       <input className="input-userpassword"
-         style={Error.confirmPassword?{border:"1px solid red"}:{}}
-         value={Password}
-         onChange={(e)=>{setMasukPassword(e.target.value)}}
-         id="confirm-password"
-         type="password"
-         name="confirm-password"
-         placeholder="Masukan Kata Sandi"
-       />
-          {Error.password && (
-          <span>paswword wajib diisi</span>
-        )}
-     </div>
-     <div className="img-mata">
-       <img
-       className="eye-off"
-       src={eye}
-       alt=""
-     />
-     </div>
-     
-     <div className="list-masuk">
-      <div>
-         <p>
-         Belum Punya Akun?
-           <Link to={"/Register"}>Daftar</Link>
-       
-       </p>
+export default function Form({
+  Nama,
+  setMasukNama,
+  Password,
+  setMasukPassword,
+  ErrorBE,
+  Error,
+}) {
+  return (
+    <>
+      <div className="box-username">
+        <label className="label-daftar" htmlFor="username">
+          Masukan Nama
+        </label>
+        <input
+          className="input-username"
+          style={Error.nama ? { border: "1px solid red" } : {}}
+          value={Nama}
+          onChange={(e) => {
+            setMasukNama(e.target.value);
+          }}
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Masukan Username"
+        />
+        {Error.nama && <span>nama wajib diisi</span>}
       </div>
 
-      <div>
-        Lupa Sandi
-      </div>
-      
-     </div>
-   </div>
-   <div>
-     {ErrorBE&& (
-          <p style={{ color: "red" }}>
-            {ErrorBE}
-          </p>
-        )}
-   </div>
-   
-</>)
+      <div className="box-konfirmasi-password">
+        <div>
+          <label className="label-daftar" htmlFor="confirm-password">
+            Konfirmasi kata sandi
+          </label>
+          <input
+            className="input-userpassword"
+            style={Error.confirmPassword ? { border: "1px solid red" } : {}}
+            value={Password}
+            onChange={(e) => {
+              setMasukPassword(e.target.value);
+            }}
+            id="confirm-password"
+            type="password"
+            name="confirm-password"
+            placeholder="Masukan Kata Sandi"
+          />
+          {Error.password && <span>paswword wajib diisi</span>}
+        </div>
+        <div className="img-mata">
+          <img className="eye-off" src={eye} alt="" />
+        </div>
 
- }
- 
+        <div className="list-masuk">
+          <div>
+            <p>
+              Belum Punya Akun?
+              <Link to={"/Register"}>Daftar</Link>
+            </p>
+          </div>
+
+          <div>
+            <Link to={"/LupaPassword"}>Lupa Sandi</Link>
+          </div>
+        </div>
+      </div>
+      <div>{ErrorBE && <p style={{ color: "red" }}>{ErrorBE}</p>}</div>
+    </>
+  );
+}

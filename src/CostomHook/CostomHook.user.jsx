@@ -28,36 +28,33 @@ export async function GetDetailMovie(id) {
 export async function GetVideoMovie(id) {
   const response = await api.get(`/movieTMDB/video/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetMovieID(id) {
   const response = await api.get(`/movieTMDB/id/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetMovieSimiliar(id) {
   const response = await api.get(`/movieTMDB/similar/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetSearch(query) {
   const response = await api.get(`/movieTMDB/search?query=${query}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 
-
 export async function GetIDGenre(idgenre) {
-  const response = await api.get(`/movieTMDB/genre/movie/?with_genres=${idgenre}`);
+  const response = await api.get(
+    `/movieTMDB/genre/movie/?with_genres=${idgenre}`
+  );
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetTrandingDay() {
   const response = await api.get(`/movieTMDB/tranding/day`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
-
-
-
-

@@ -28,25 +28,22 @@ export async function GetDetailSerial(id) {
 export async function GetVideoSerial(id) {
   const response = await api.get(`/serialTMDB/video/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetSerialID(id) {
   const response = await api.get(`/serialTMDB/id/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetSerialSimiliar(id) {
   const response = await api.get(`/serialTMDB/similar/${id}`);
 
-  return response.data.results; ;
+  return response.data.results;
 }
 export async function GetIDGenreSerial(idgenre) {
-  const response = await api.get(`/serialTMDB/genre/serial/?with_genres=${idgenre}`);
+  const response = await api.get(
+    `/serialTMDB/genre/serial/?with_genres=${idgenre}`
+  );
 
-  return response.data.results; ;
+  return response.data.results;
 }
-
-
-
-
-

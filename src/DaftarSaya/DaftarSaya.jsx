@@ -1,17 +1,8 @@
-
 // import"../Beranda/css/global.css"
 // import"../Beranda/css/Responsiv.css"
 
-import MainContainer from './MainContainer'
+import MainContainer from "./MainContainer";
 
-export default function DaftarSaya(){
-  return(
-  
-    
-         
-
-  <MainContainer/>
-
-  
-  )
+export default function DaftarSaya() {
+  return <MainContainer />;
 }

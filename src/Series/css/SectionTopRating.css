@@ -1,48 +1,43 @@
-
-.section-serial{
-    width:100%;
-height: auto;
-padding: 2rem 1rem;
-margin-top: 2rem;
+.section-serial {
+  width: 100%;
+  height: auto;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
 }
 
-.section-serial h2{
-   font-size: 1.4rem;
-    line-height: 120%;
-    font-style: bold;   
-
-
+.section-serial h2 {
+  font-size: 1.4rem;
+  line-height: 120%;
+  font-style: bold;
 }
 
-.card-serial{
-       overflow: auto;
-    display: flex;
-    gap: 1rem;
-    justify-content:space-evenly;
+.card-serial {
+  overflow: auto;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
 }
 
 .card-serial img {
-    width:14rem;
-    height: auto;
-    margin-top:2rem;
-    border-radius: 0.8rem;
-
+  width: 14rem;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 0.8rem;
 }
 
-.box-serial img{
-    box-shadow: 0 0.6rem 1.6rem rgba(0,0,0,0.28);
-    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
-  
+.box-serial img {
+  box-shadow: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    box-shadow 0.25s ease;
 }
-.box-serial img:hover{
-    transform:scale(1.08) translateY(-0.4rem);
-    filter: brightness(1.08);
-    box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,0.42);
-   
-    
+.box-serial img:hover {
+  transform: scale(1.08) translateY(-0.4rem);
+  filter: brightness(1.08);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.42);
 }
-.box-serial{  height:auto;
-    position: relative;
-  
-
+.box-serial {
+  height: auto;
+  position: relative;
 }

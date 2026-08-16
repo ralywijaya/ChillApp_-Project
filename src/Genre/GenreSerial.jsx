@@ -1,13 +1,5 @@
-import GenremenuSerial from "./GenremenuSerial"
+import GenremenuSerial from "./GenremenuSerial";
 
-export default function GenreSerial(){
-  return(
-  
-    
-         
-
-  <GenremenuSerial/>
-
-  
-  )
+export default function GenreSerial() {
+  return <GenremenuSerial />;
 }

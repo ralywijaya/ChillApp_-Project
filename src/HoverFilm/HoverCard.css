@@ -1,98 +1,115 @@
-.hover-film{
-    gap: 0.5rem;
-   width:20rem ;
-   height:auto;
-   background-color:black;
-   display: flex;
-   flex-direction: column;
-   border: 1px solid white;
-   position: absolute;
-   top: 1rem;
-   z-index: 8;
-   border-radius: 1rem;
-   -webkit-border-radius: 1rem;
-   -moz-border-radius: 1rem;
-   -ms-border-radius: 1rem;
-   -o-border-radius: 1rem;
-justify-content: center;
-border: 1px solid #fff;
+.hover-film {
+  gap: 0.5rem;
+  width: 20rem;
+  height: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  position: absolute;
+  top: 1rem;
+  z-index: 8;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  justify-content: center;
+  border: 1px solid #fff;
 }
 
-.imghover{
-    width:100%;
+.imghover {
+  width: 100%;
 }
-.imghover img{
-    
- margin-top: 0;
- width:100%;
- height:10rem ;
- object-fit:scale-down;
- object-position: top;
- 
- padding: 0.5rem;
- transition: filter 0.1s ease, transform 0.1s ease;
- -webkit-transition: filter 0.1s ease, transform 0.1s ease;
- -moz-transition: filter 0.1s ease, transform 0.1s ease;
- -ms-transition: filter 0.1s ease, transform 0.1s ease;
- -o-transition: filter 0.1s ease, transform 0.1s ease;
-}
+.imghover img {
+  margin-top: 0;
+  width: 100%;
+  height: 10rem;
+  object-fit: scale-down;
+  object-position: top;
 
-.imghover img:hover{
-    filter: brightness(1.08);
-    transform: scale(1.02);
-}
-
-.nama-film-hover{
-    width: 100%;
-}
-.nama-film-hover p{
-    font-size: 1rem;
-    text-align: center;
+  padding: 0.5rem;
+  transition:
+    filter 0.1s ease,
+    transform 0.1s ease;
+  -webkit-transition:
+    filter 0.1s ease,
+    transform 0.1s ease;
+  -moz-transition:
+    filter 0.1s ease,
+    transform 0.1s ease;
+  -ms-transition:
+    filter 0.1s ease,
+    transform 0.1s ease;
+  -o-transition:
+    filter 0.1s ease,
+    transform 0.1s ease;
 }
 
-.button-box{
-    width: 100%;
-
+.imghover img:hover {
+  filter: brightness(1.08);
+  transform: scale(1.02);
 }
 
-.list-button{
-    width: 10rem;
-    height: auto;
-    display: flex;
-    padding:1rem;
-    gap: 1rem;
-
+.nama-film-hover {
+  width: 100%;
+}
+.nama-film-hover p {
+  font-size: 1rem;
+  text-align: center;
 }
 
-.list-button img{
-    width: 2rem;
-    height: auto;
-    border-radius: 50%;
-    transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
-    -webkit-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
-    -moz-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
-    -ms-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
-    -o-transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+.button-box {
+  width: 100%;
 }
 
-.list-button img:hover{
-    background-color: rgba(255,255,255,0.12);
-    box-shadow: 0 0 0 0.6rem rgba(255,255,255,0.08);
-    transform: scale(1.12);
+.list-button {
+  width: 10rem;
+  height: auto;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.deskripsi{
-    padding: 1rem;
+.list-button img {
+  width: 2rem;
+  height: auto;
+  border-radius: 50%;
+  transition:
+    transform 0.1s ease,
+    background-color 0.1s ease,
+    box-shadow 0.1s ease;
+  -webkit-transition:
+    transform 0.1s ease,
+    background-color 0.1s ease,
+    box-shadow 0.1s ease;
+  -moz-transition:
+    transform 0.1s ease,
+    background-color 0.1s ease,
+    box-shadow 0.1s ease;
+  -ms-transition:
+    transform 0.1s ease,
+    background-color 0.1s ease,
+    box-shadow 0.1s ease;
+  -o-transition:
+    transform 0.1s ease,
+    background-color 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
-
-.keterangan{
-    color: #fff;
-   gap: 1rem;
-    display: flex;
-    padding: 1.3rem;
+.list-button img:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 0.6rem rgba(255, 255, 255, 0.08);
+  transform: scale(1.12);
 }
 
+.deskripsi {
+  padding: 1rem;
+}
 
-
-
+.keterangan {
+  color: #fff;
+  gap: 1rem;
+  display: flex;
+  padding: 1.3rem;
+}

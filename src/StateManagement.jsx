@@ -1,48 +1,40 @@
 import { create } from "zustand";
 
 const useFilmStore = create((set) => ({
-Film: [],
+  Film: [],
 
   setFilm: (data) => set({ Film: data }),
- 
+
   Genre: [],
 
   setGenre: (data) => set({ Genre: data }),
 
   DaftarFilm: [],
 
-  setDaftarFilm: (data) => set({ DaftarFilm: data })
-,
-  DataAkun:[
-    
-    
+  setDaftarFilm: (data) => set({ DaftarFilm: data }),
+  DataAkun: [],
+  setAkun: (data) => set({ DataAkun: data }),
 
-  ],
-setAkun: (data) => set({ DataAkun: data }),
- 
+  DataMasuk: [],
+  setMasuk: (data) => set({ DataMasuk: data }),
 
-DataMasuk:[
-    
-  ],
-setMasuk: (data) => set({ DataMasuk: data }),
+  genres: [],
 
-   genres:[],
+  setGenres: (data) => {
+    set({
+      genres: data,
+    });
+  },
 
-    setGenres:(data)=>{
-        set({
-            genres:data
-        })
-    }
+  //   addFilm: (film) =>
+  //     set((state) => ({
+  //       films: [...state.films, film],
+  //     })),
 
-//   addFilm: (film) =>
-//     set((state) => ({
-//       films: [...state.films, film],
-//     })),
-
-//   deleteFilm: (id) =>
-//     set((state) => ({
-//       films: state.films.filter((f) => f.id !== id),
-//     })),
+  //   deleteFilm: (id) =>
+  //     set((state) => ({
+  //       films: state.films.filter((f) => f.id !== id),
+  //     })),
 }));
 
 export default useFilmStore;

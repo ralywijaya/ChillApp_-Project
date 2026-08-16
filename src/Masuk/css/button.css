@@ -1,54 +1,50 @@
-
-
 /* box-button */
-.box-button{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 26rem;
-    height: auto;
+.box-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 26rem;
+  height: auto;
 }
 
-.button-masuk button{
-    width: 26rem;
-    height:3rem ;
-    background-color:#E7E3FC3B;
-    border: none;
-    border-radius: 1.3rem;
-   padding: 0.6rem;
-   color: #ffff;
-   cursor: pointer;
+.button-masuk button {
+  width: 26rem;
+  height: 3rem;
+  background-color: #e7e3fc3b;
+  border: none;
+  border-radius: 1.3rem;
+  padding: 0.6rem;
+  color: #ffff;
+  cursor: pointer;
 }
 
 .button-masuk button:hover,
 .button-google button:hover {
-    background-color: rgba(231, 227, 252, 0.28);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  background-color: rgba(231, 227, 252, 0.28);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
-.atau p{
-    font-size: 1rem;
-    color: #9D9EA1;
-}
-
-.button-google button{
-     width: 26rem;
-    height:3rem ;
-    background-color:#E7E3FC3B;
-    border: none;
-    border-radius: 1.3rem;
-   padding: 0.7rem;
-   display: flex;
-   gap:1rem ;
-   justify-content: center;
- 
-  
+.atau p {
+  font-size: 1rem;
+  color: #9d9ea1;
 }
 
-.img-google img{
-    width: 1.3rem;
-    height: auto;
+.button-google button {
+  width: 26rem;
+  height: 3rem;
+  background-color: #e7e3fc3b;
+  border: none;
+  border-radius: 1.3rem;
+  padding: 0.7rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
-.nama-google p{
-   color: #ffff;
+.img-google img {
+  width: 1.3rem;
+  height: auto;
+}
+
+.nama-google p {
+  color: #ffff;
 }

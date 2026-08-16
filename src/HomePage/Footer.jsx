@@ -1,10 +1,9 @@
-
-import useFilmStore from "../StateManagement.jsx";
 import OptionPanah from "../assets/beranda/option-panah.png";
 import Logo from "../assets/beranda/Logo.png";
-import api from "../services/api.js";
+
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 export default function Footer() {
   return (
     <footer>
@@ -19,102 +18,95 @@ function HakCipta() {
   return (
     <div className="hak-cipta">
       <img src={Logo} alt="" />
-      <p>@2023 chill All rights Reserved</p>
+      <p>@2026 chill All rights Reserved</p>
     </div>
   );
 }
 
 function Genre() {
-  const [Edit,setEdit]=useState(false)
-  const Film = useFilmStore((state) => state.Film)
- const setFilm = useFilmStore((state) => state.setFilm)
-  function getData(){
-     api.get("/DaftarFilm")
-    .then((Response)=>{
-       setFilm(Response.data)
-        
-    })
-    .catch((eror)=>{
+  const { GenreFilm } = useSelector((state) => state.DaftarFilm);
+  const { GenreSerial } = useSelector((state) => state.DaftarSerial);
+  const [Edit, setEdit] = useState(false);
 
-    })
-    .finally(()=>{
-
-    })
-  }
-
-useEffect(()=>{
-    getData()
-},[])
-
-  const baris1=Film.filter((i)=>i.Baris==1)
-  const baris2=Film.filter((i)=>i.Baris==2)
-  const baris3=Film.filter((i)=>i.Baris==3)
-
-  function HandleClikGenre(){
-    setEdit(!Edit)
-
+  console.log("ini footer genre ", GenreFilm);
+  function HandleClikGenre() {
+    setEdit(!Edit);
   }
 
   return (
     <>
-     <div className="genre">
-      <p onClick={HandleClikGenre} style={{cursor:"pointer"}}>Genre</p>
-      <img onClick={HandleClikGenre} src={OptionPanah} alt="" />
+      <div className="genre">
+        <p onClick={HandleClikGenre} style={{ cursor: "pointer" }}>
+          Genre
+        </p>
+        <img onClick={HandleClikGenre} src={OptionPanah} alt="" />
 
-      
+        {Edit ? (
+          <div className="genre-list">
+            <div>
+              <h3>Movie</h3>
+              {GenreFilm.map((i) => (
+                <ul>
+                  <li key={i.id}>
+                    <Link to={`/menu_genre/${i.id}/${i.name}`}>{i.name}</Link>
+                  </li>
+                </ul>
+              ))}
+            </div>
+            <div>
+              <h3>Serial</h3>
+              {GenreSerial.map((i) => (
+                <ul>
+                  <li key={i.id}>
+                    <Link to={`/menu_genre_serial/${i.id}/${i.name}`}>
+                      {i.name}
+                    </Link>
+                  </li>
+                </ul>
+              ))}
+            </div>
 
-      <div className="genre-list">
-     <div>{
-        baris1.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div>{
-        baris2.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div>{
-        baris3.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div></div>
-     <div></div>
+            <div></div>
+            <div></div>
           </div>
-    
-     
-    </div>
+        ) : (
+          <></>
+        )}
+      </div>
 
-    {Edit?  <div className="genre-respon">
-     <div>{
-        baris1.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div>{
-        baris2.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div>{
-        baris3.map((i)=>(
-            <ul>
-                <li key={i.id}><Link to={`menu/${i.GenreFilm}`}>{i.GenreFilm}</Link></li>
-            </ul>
-        ))}</div>
-     <div></div>
-     <div></div>
+      {Edit ? (
+        <div className="genre-respon">
+          <div>
+            <h3>Movie</h3>
+            {GenreFilm.map((i) => (
+              <ul>
+                <li key={i.id}>
+                  <Link to={`/menu_genre/${i.id}/${i.name}`}>{i.name}</Link>
+                </li>
+              </ul>
+            ))}
           </div>
-    :<></>}
+          <div>
+            <h3>Serial</h3>
+            {GenreSerial.map((i) => (
+              <ul>
+                <li key={i.id}>
+                  <Link to={`/menu_genre_serial/${i.id}/${i.name}`}>
+                    {i.name}
+                  </Link>
+                </li>
+              </ul>
+            ))}
+          </div>
+
+          <div></div>
+          <div></div>
+        </div>
+      ) : (
+        <></>
+      )}
     </>
-   
-  )
+  );
 }
 
 function Option() {
@@ -124,10 +116,18 @@ function Option() {
       <img src={OptionPanah} alt="" />
       <div className="bantuan-list">
         <ul>
-          <li>FAQ</li>
-          <li>Kontak Kami</li>
-          <li>Privasi</li>
-          <li>Syarat &amp; Ketentuan</li>
+          <li>
+            <Link to={"/Faq"}>FAQ</Link>
+          </li>
+          <li>
+            <Link to={"/KontakKami"}>Kontak Kami</Link>
+          </li>
+          <li>
+            <Link to={"/privasi"}>Privasi</Link>
+          </li>
+          <li>
+            <Link to={"/SyaratKetentuan"}>Syarat & Ketentuan</Link>
+          </li>
         </ul>
       </div>
     </div>

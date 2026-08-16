@@ -1,13 +1,5 @@
-import Genremenu from "./GenreMenu"
+import Genremenu from "./GenreMenu";
 
-export default function Genre(){
-  return(
-  
-    
-         
-
-  <Genremenu/>
-
-  
-  )
+export default function Genre() {
+  return <Genremenu />;
 }

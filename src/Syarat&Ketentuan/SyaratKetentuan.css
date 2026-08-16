@@ -1,0 +1,172 @@
+.terms-page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #e5e5e5;
+  padding: 4.375rem 1.25rem 2.5rem;
+}
+
+.terms-container {
+  width: 100%;
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.terms-header {
+  margin-bottom: 2.8125rem;
+  padding-bottom: 1.5625rem;
+  border-bottom: 0.0625rem solid #2d2d2d;
+}
+
+.terms-label {
+  display: inline-block;
+  margin-bottom: 0.875rem;
+
+  color: #777;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+}
+
+.terms-header h1 {
+  margin: 0 0 0.75rem;
+
+  color: #ffffff;
+  font-size: 2.375rem;
+  font-weight: 700;
+}
+
+.terms-header p {
+  margin: 0;
+
+  color: #777;
+  font-size: 0.875rem;
+}
+
+/* CONTENT */
+
+.terms-content {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.terms-content section {
+  margin-bottom: 2.625rem;
+}
+
+.terms-content h2 {
+  margin: 0 0 1.125rem;
+
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.terms-content p {
+  margin: 0 0 1.125rem;
+
+  color: #c0c0c0;
+}
+
+.terms-content strong {
+  color: #ffffff;
+}
+
+.terms-content ul {
+  margin: 0.625rem 0 1.25rem;
+  padding-left: 1.5625rem;
+
+  color: #c0c0c0;
+}
+
+.terms-content li {
+  margin-bottom: 0.5625rem;
+  padding-left: 0.3125rem;
+}
+
+/* CONTACT */
+
+.terms-contact {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5625rem;
+
+  background: #181818;
+  border: 0.0625rem solid #292929;
+  border-radius: 0.5rem;
+}
+
+.terms-contact p {
+  margin-bottom: 0.5rem;
+}
+
+/* FOOTER */
+
+.terms-footer {
+  margin-top: 3.75rem;
+  padding-top: 1.5625rem;
+
+  border-top: 0.0625rem solid #2d2d2d;
+
+  text-align: center;
+}
+
+.terms-footer p {
+  margin: 0;
+
+  color: #666;
+  font-size: 0.8125rem;
+}
+
+/* TABLET */
+
+@media (max-width: 48rem) {
+  .terms-page {
+    padding: 2.8125rem 1.125rem 1.875rem;
+  }
+
+  .terms-header h1 {
+    font-size: 2rem;
+  }
+
+  .terms-content {
+    font-size: 0.9375rem;
+  }
+
+  .terms-content h2 {
+    font-size: 1.3125rem;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 30rem) {
+  .terms-page {
+    padding: 1.875rem 0.9375rem 1.5625rem;
+  }
+
+  .terms-header {
+    margin-bottom: 2.1875rem;
+  }
+
+  .terms-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .terms-content {
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .terms-content h2 {
+    font-size: 1.1875rem;
+  }
+
+  .terms-content ul {
+    padding-left: 1.25rem;
+  }
+
+  .terms-contact {
+    padding: 0.9375rem;
+  }
+}
