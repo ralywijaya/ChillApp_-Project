@@ -1,67 +1,398 @@
+/* =========================================================
+   PAGE SERIAL
+   ========================================================= */
+
 .section-page-serial {
   display: flex;
+
   flex-direction: column;
+
   gap: 5rem;
+
   justify-content: center;
+
   align-items: center;
+
   padding: 2rem 2rem;
 }
+
+
+/* =========================================================
+   SERIAL PLAY
+   ========================================================= */
 
 .serial-play {
   justify-content: center;
 
   display: flex;
+
   flex-direction: column;
+
   gap: 2rem;
-  background-color: #22282a;
-  padding: 2rem;
+
+  background: linear-gradient(
+    145deg,
+    #252b2d 0%,
+    #22282a 100%
+  );
+
+  padding: 2.4rem;
+
   border-radius: 2rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 1rem 3rem rgba(0, 0, 0, 0.22);
+
+  box-sizing: border-box;
+
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
 }
-.serial-page-video {
-  display: flex;
-  justify-content: center;
+
+
+/* =========================================================
+   JUDUL SERIAL
+   ========================================================= */
+
+.serial-play > h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 2rem !important;
+
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
 }
 
-.serial-page-video iframe {
-  border-radius: 0.5rem;
-  height: 30rem;
+
+/* =========================================================
+   STATUS SERIAL
+   ========================================================= */
+
+.serial-play > p {
+  margin: -1rem 0 0;
+
+  color: #9da4a6;
+
+  font-size: 1.2rem !important;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   VIDEO SERIAL
+   ========================================================= */
+
+.serial-page-video {
+  display: flex;
+
+  justify-content: center;
+
   width: 100%;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
+
+  overflow: hidden;
+
+  border-radius: 1rem;
+
+  background-color: #171b1d;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+
+  box-sizing: border-box;
 }
-.deskripsi-serial-page p {
-  font-size: 1.4rem;
-  border-top: 3px solid #fff;
+
+
+.serial-page-video iframe {
+  display: block;
+
+  width: 100%;
+
+  height: 30rem;
+
+  border: none;
+
+  border-radius: 1rem;
+
+  background-color: #171b1d;
+
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
+
+
+/* =========================================================
+   RATING
+   ========================================================= */
 
 .rating-serial-page {
   display: flex;
-  padding: 0.5rem;
-  gap: 1rem;
+
+  align-items: center;
+
+  gap: 1.2rem;
+
+  padding: 0.5rem 0;
+
+  min-height: 3rem;
 }
+
+
+.rating-serial-page span {
+  font-size: 1.5rem;
+
+  line-height: 1;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+.rating-serial-page span:hover {
+  transform: scale(1.1);
+
+  filter: brightness(1.15);
+}
+
+
+/* =========================================================
+   ANGKA RATING
+   ========================================================= */
+
+.rating-serial-page p {
+  margin: 0;
+
+  color: #d7dbdc;
+
+  font-size: 1.2rem;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESKRIPSI SERIAL
+   ========================================================= */
+
+.deskripsi-serial-page {
+  max-width: 90rem;
+}
+
+
+.deskripsi-serial-page p {
+  margin: 0;
+
+  padding-top: 1.8rem;
+
+  color: #c3c8c9;
+
+  font-size: 1.4rem;
+
+  line-height: 1.75;
+
+  font-weight: 400;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   GENRE SERIAL
+   ========================================================= */
+
 .genre-serial-page {
   display: flex;
+
   flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 30rem;
+
+  gap: 0.8rem;
+
+  width: 100%;
+
   overflow-wrap: break-word;
+
+  align-items: center;
 }
+
+
 .genre-serial-page p {
   width: auto;
-  border: 1px solid purple;
+
+  margin: 0;
+
+  padding: 0.5rem 1rem;
+
+  min-height: 3rem;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(50, 84, 255, 0.35);
+
+  border-radius: 2rem;
+
+  background-color: rgba(50, 84, 255, 0.1);
+
+  color: #7189ff;
+
+  font-size: 1.2rem;
+
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
+
+
+.genre-serial-page p:hover {
+  background-color: rgba(50, 84, 255, 0.2);
+
+  border-color: rgba(50, 84, 255, 0.65);
+
+  color: #9aacff;
+
+  transform: translateY(-0.1rem);
+}
+
+
+/* =========================================================
+   DETAIL SERIAL
+   ========================================================= */
 
 .detail-serial-page {
   display: flex;
+
   flex-direction: column;
+
   gap: 2rem;
+
   justify-content: center;
-  border-top: 3px solid #fff;
-  padding-top: 1rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding-top: 1.8rem;
+}
+
+
+/* =========================================================
+   DETAIL TEXT
+   ========================================================= */
+
+.detail-serial-page p {
+  margin: 0;
+
+  color: #c3c8c9;
+
+  font-size: 1.2rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   INFORMASI TAMBAHAN
+   ========================================================= */
+
+.detail-serial-page > div {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LINK / ELEMENT INTERAKTIF
+   ========================================================= */
+
+.genre-serial-page a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.5rem 1rem;
+
+  min-height: 3rem;
+
+  border-radius: 2rem;
+
+  background-color: rgba(50, 84, 255, 0.1);
+
+  border: 1px solid rgba(50, 84, 255, 0.35);
+
+  color: #7189ff;
+
+  font-size: 1.2rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.genre-serial-page a:hover {
+  background-color: rgba(50, 84, 255, 0.2);
+
+  border-color: rgba(50, 84, 255, 0.65);
+
+  color: #9aacff;
+
+  transform: translateY(-0.1rem);
+}
+
+
+/* =========================================================
+   TRAILER TIDAK TERSEDIA
+   ========================================================= */
+
+.serial-page-video > p {
+  margin: 0;
+
+  padding: 3rem;
+
+  color: #8f9799;
+
+  font-size: 1.2rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.genre-serial-page a:focus-visible {
+  outline: 2px solid #6f88ff;
+
+  outline-offset: 3px;
 }

@@ -1,13 +1,14 @@
 import imgProfil from "../assets//beranda/Vector.png";
 import imgLangganan from "../assets/beranda/star.png";
 import imgKeluar from "../assets/beranda/keluar.png";
-
+import imgListbar from "../assets/beranda/listbar.png"
 import { useEffect } from "react";
 import logo from "../assets/beranda/Logo.png";
 import LogoProfil from "../assets/beranda/Avatar (1).png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GetSearch } from "../CostomHook/CostomHook.user";
+// import { from } from "node:stream/iter";
 export default function Header() {
   const [query, setquery] = useState("");
 
@@ -113,11 +114,11 @@ function Profil() {
 
   return (
     <div className="box-profil">
-      <img
+      <img style={{width:"2rem",height:"2rem"}}
         onClick={() => {
           setklik(!klik);
         }}
-        src={LogoProfil}
+        src={imgListbar}
         alt=""
       />
 

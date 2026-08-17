@@ -1,133 +1,112 @@
-footer {
-  width: 100vw;
-  height: auto;
-  border-top: 1px solid #e7e3fc3b;
+/* ==========================================
+   FOOTER UTAMA
+   ========================================== */
+.footer-container {
+  width: 100%;
+  background-color: #121417; /* Adjust dengan tema gelap web kamu */
+  border-top: 1px solid rgba(231, 227, 252, 0.15);
   color: #ffffff;
-  padding: 2rem 2rem;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
 }
 
-.genre-list,
-.bantuan-list {
-  display: none;
+/* Responsif Desktop Layout: Pembagian Kolom Horizontal */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
-.genre-respon::after {
-  display: flex;
-
-  content: "";
-  width: 0;
-  height: 0.2rem;
-  position: absolute;
-  left: 0.2rem;
-  right: 0.2rem;
-  bottom: 0;
-  border-radius: 10rem;
-  background-color: #fff;
-  transition: width 0.2s ease;
-}
-
-/* hover */
-.genre-respon {
-  display: flex;
-  width: fit-content;
-  gap: 5rem;
-  color: #c1c2c4;
-  font-size: 1rem;
-}
-.genre-respon:hover {
-  transform: translateY(-0.2rem);
-}
-
-.genre-respon a {
-  opacity: 1;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.genre-respon a:hover::after {
-  width: calc(100% - 0.4rem);
-}
-.genre-respon::after {
-  display: flex;
-
-  content: "";
-  width: 0;
-  height: 0.2rem;
-  position: absolute;
-  left: 0.2rem;
-  right: 0.2rem;
-  bottom: 0;
-  border-radius: 10rem;
-  background-color: #fff;
-  transition: width 0.2s ease;
-}
-
-.genre-list {
-  display: flex;
-  width: fit-content;
-  gap: 5rem;
-  color: #c1c2c4;
-  font-size: 1rem;
-}
-.genre-list:hover {
-  transform: translateY(-0.2rem);
-}
-
-.genre-list a {
-  opacity: 1;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.genre-list a:hover::after {
-  width: calc(100% - 0.4rem);
-}
-
-/* hak cipta */
+/* ==========================================
+   1. BRANDING & HAK CIPTA
+   ========================================== */
 .hak-cipta {
-  flex-direction: column;
-  width: 100vw;
-  height: auto;
   display: flex;
-  gap: 0.8rem;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 250px;
 }
 
 .hak-cipta img {
-  width: 8.4rem;
+  width: 9rem;
   height: auto;
 }
 
 .hak-cipta p {
-  font-size: 1rem;
-  line-height: 120%;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #9d9ea0;
+  margin: 0;
+}
+
+/* ==========================================
+   2. SECTION GENERAL (GENRE & BANTUAN)
+   ========================================== */
+.footer-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-section a {
   color: #c1c2c4;
+  text-decoration: none;
+  font-size: 0.925rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-/* option genre */
-.genre {
+.footer-section a:hover {
+  color: #e50914; /* Akses warna aksen (Merah Chill) */
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   3. GENRE GRID SPECIFIC
+   ========================================== */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 2rem;
+}
+
+.genre-column {
   display: flex;
-  font-size: 1.2rem;
-  width: 90vw;
-  height: auto;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.genre img {
-  width: auto;
-  height: 1.4rem;
-}
-/* option bantuan */
-.bantuan {
-  display: flex;
-  font-size: 1.2rem;
-  width: 90vw;
-  height: auto;
-  justify-content: space-between;
+.genre-column .subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e50914;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
-.bantuan img {
-  width: auto;
-  height: 1.4rem;
+/* Limit daftar genre di footer jika terlalu panjang */
+.genre-column ul {
+  max-height: 240px;
+  flex-wrap: wrap;
 }

@@ -128,15 +128,21 @@ function HoverFilm({ setisEdit, i, GenreFilm, Judul }) {
   function Handledes() {
     setdeskrip(!deskrip);
   }
+function Handleplay() {
+  const type = i.media_type || i.type_media;
 
-  function Handleplay() {
-    if (i.media_type || i.type_media === "movie") {
-      Navigate(`/page/${i.id}`);
-    }
-    if (i.media_type || i.type_media === "tv") {
-      Navigate(`/PageSerial/${i.id}`);
-    }
+  if (type === "movie") {
+    Navigate(`/page/${i.id}`);
+    return;
   }
+
+  if (type === "tv") {
+    Navigate(`/PageSerial/${i.id}`);
+    return;
+  }
+
+  console.error("Tipe media tidak diketahui:", i);
+}
 
   let getGenre = [];
 

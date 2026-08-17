@@ -48,7 +48,7 @@ export default function CardRegister() {
       console.log(data);
       Navigate("/masuk");
     } catch (error) {
-      setErrorBE(error.response?.data?.massage);
+      setErrorBE(error.response?.data?.message);
     }
   };
 

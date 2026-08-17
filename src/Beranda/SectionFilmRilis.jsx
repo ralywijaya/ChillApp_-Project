@@ -53,8 +53,8 @@ export default function SectionFilmRilis({ subJudul, GenreFilm }) {
   return (
     <section className="section-film">
       <h2
-        style={{ borderBottom: "0.5rem solid blue" }}
-        className="sub-tranding-day"
+      
+       
       >
         {subJudul}
       </h2>

@@ -39,7 +39,7 @@ export default function ProfilBerlangganan() {
 
   const [Ubah, setUbah] = useState(false);
   const [ErrorBE, setErrorBE] = useState("");
-
+const [ErrorNama, setErrorNama] = useState("");
   // 1. Ambil token dan periksa keamanannya
 
   if (!token || typeof token !== "string") {
@@ -78,25 +78,37 @@ export default function ProfilBerlangganan() {
   }
 
   // Fungsi Simpan (Update User)
-  async function Handlesimpan() {
-    const setuju = window.confirm("Apakah kamu mau mengganti Nama?");
+ async function Handlesimpan() {
+  if (!Nama.trim()) {
+    setErrorNama("Nama pengguna tidak boleh kosong.");
+    return;
+  }
 
-    if (setuju) {
-      try {
-        // Kirim string 'Nama' ke API
-        const data = await UbahUser({ user_nama: Nama });
-        console.log(data);
+  const setuju = window.confirm("Apakah kamu mau mengganti Nama?");
 
-        alert("Nama berhasil diubah. Silakan login kembali dengan nama baru.");
+  if (setuju) {
+    try {
+      setErrorNama("");
+      setErrorBE("");
 
-        // Hapus token lama & arahkan login
-        localStorage.removeItem("token");
-        Navigate("/Masuk");
-      } catch (error) {
-        setErrorBE(error.response?.data?.message || "Gagal mengubah data");
-      }
+      const data = await UbahUser({
+        user_nama: Nama,
+      });
+
+      console.log(data);
+
+      alert("Nama berhasil diubah. Silakan login kembali dengan nama baru.");
+
+      localStorage.removeItem("token");
+      Navigate("/Masuk");
+    } catch (error) {
+      setErrorBE(
+        error.response?.data?.message ||
+        "Nama pengguna gagal diubah."
+      );
     }
   }
+}
 
   // Fungsi Hapus Akun (Belum ada isinya, tapi saya rapikan)
   async function HandleHapus() {
@@ -141,7 +153,7 @@ export default function ProfilBerlangganan() {
   return (
     <main className="main-profil">
       <section className="profil">
-        {UserPaket || decoded.paket.toLowerCase() === "FREE" ? (
+        { decoded.paket === "FREE" ? (
           <div className="box-langganan">
             <div>
               <img src={Warning} alt="Warning" />
@@ -171,7 +183,7 @@ export default function ProfilBerlangganan() {
 
         <div className="box-profildata">
           <div>
-            <p>{UserPaket}</p>
+            <p>{decoded.paket}</p>
           </div>
           <div>
             <h2>Profil Saya</h2>
@@ -203,24 +215,34 @@ export default function ProfilBerlangganan() {
             </div>
           </div>
 
-          <div className="pengguna">
-            <div>
-              <p>Nama pengguna</p>
-              <input
-                style={Error ? { border: "1px solid red" } : {}}
-                value={Nama} // PERBAIKAN: Langsung panggil variabel Nama
-                onChange={(e) => {
-                  setNama(e.target.value);
-                }}
-                type="text"
-                placeholder="Nama pengguna"
-                readOnly={!Ubah}
-              />
-            </div>
-            <div>
-              <img src={edit} alt="Edit" onClick={Handleclik} />
-            </div>
-          </div>
+       <div className="pengguna">
+  <div className="input-pengguna">
+    <p>Nama pengguna</p>
+
+    <input
+      className={ErrorNama || ErrorBE ? "input-error" : ""}
+      value={Nama}
+      onChange={(e) => {
+        setNama(e.target.value);
+        setErrorNama("");
+        setErrorBE("");
+      }}
+      type="text"
+      placeholder="Nama pengguna"
+      readOnly={!Ubah}
+    />
+
+    {(ErrorNama || ErrorBE) && (
+      <p className="error-message">
+        {ErrorNama || ErrorBE}
+      </p>
+    )}
+  </div>
+
+  <div>
+    <img src={edit} alt="Edit" onClick={Handleclik} />
+  </div>
+</div>
 
           {decoded.user_email ? (
             <div className="email">
@@ -255,11 +277,7 @@ export default function ProfilBerlangganan() {
             </button>
           </div>
         </div>
-        <div>
-          {ErrorBE && (
-            <p style={{ color: "red", marginTop: "10px" }}>{ErrorBE}</p>
-          )}
-        </div>
+       
       </section>
 
       <div>

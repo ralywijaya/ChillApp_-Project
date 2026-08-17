@@ -1,138 +1,121 @@
-/* section hero */
+/* ==========================================
+   1. SECTION HERO CONTAINER
+   ========================================== */
 .tranding-day {
   width: 100%;
   height: auto;
-  padding: 1rem 1rem;
-  margin-top: 3rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  box-sizing: border-box;
 }
-.sub-tranding-day {
-  border-top: 0.4rem solid blue;
-}
-.tranding-day h2 {
-  border-bottom: 0.4rem solid red;
-}
-.box-hero {
-  gap: 3rem;
-  display: flex;
-  padding: 2rem 2rem;
-  width: 100%;
-  display: flex;
 
-  overflow: auto;
+.sub-tranding-day {
+  border-top: 0.4rem solid #0f1e93;
 }
-/* image hero */
+
+.tranding-day h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 0.3rem solid #e50914;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+/* Container pembungkus utama (Flexbox Responsif) */
+.box-hero {
+  width: 100%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+/* Container untuk iframe & deskripsi */
+.hero-film {
+  display: flex;
+  flex-direction: column; /* Default Mobile: Menumpuk ke bawah */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* ==========================================
+   2. IFRAME VIDEO (RESPONSIF 16:9)
+   ========================================== */
 .hero-film iframe {
-  width: 36rem;
-  height: 20rem;
-  object-position: top;
-  object-fit: contain;
+  width: 100%;            /* Mobile: Full layar (100% lebar container) */
+  aspect-ratio: 16 / 9;   /* Menjaga proporsi video tetap sempurna */
+  height: auto;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: filter 0.3s ease;
 }
 
-.hero-film img:hover {
+.hero-film iframe:hover {
   filter: brightness(1.05);
-  -webkit-filter: brightness(1.05);
 }
 
-/* description hero */
+/* ==========================================
+   3. HERO DESCRIPTION & BUTTONS
+   ========================================== */
 .hero-descripti {
-  width: 25rem;
-  height: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 4rem;
-  margin-top: 1rem;
-
+  gap: 1rem;
+  margin-left: 0;
   box-sizing: border-box;
 }
 
-/* hero title */
-.hero-title h1 {
-  font-size: 1.7rem;
+.hero-descripti h2 {
+  font-size: 1.6rem;
   font-weight: 700;
-  font-style: bold;
+  margin: 0;
+  border-bottom: none; /* Reset border judul film */
 }
 
-/* hero paraf */
 .hero-paraf p {
-  width: 25rem;
-  height: 7rem;
-  overflow: auto;
+  width: 100%;
+  max-height: 7rem;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #c1c2c4;
+  margin: 0;
 
-  /* Firefox */
+  /* Sembunyikan scrollbar */
   scrollbar-width: none;
-
-  /* IE dan Edge lama */
   -ms-overflow-style: none;
 }
 
-/* Chrome, Edge, Safari */
 .hero-paraf p::-webkit-scrollbar {
   display: none;
 }
-/* hero-button */
-.hero-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-/* box button */
-.box-button-hero {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-}
-
-.box-button button,
-img {
-  cursor: pointer;
-  transition: all 0.25s ease-in-out;
-}
-
-.image-category-age:hover {
-  transform: scale(1.08);
-}
-#button-mulai:hover {
-  background-color: #c1c2c4;
-}
-#button-selengkapnya:hover {
-  background-color: #c1c2c4;
-}
-
-/* buton muulai */
-#button-mulai {
-  width: 5.5rem;
-  height: 2.5rem;
-  border-radius: 4.8rem;
-  font-size: 1.2rem;
-  font-style: bold;
-  font-weight: 700;
-  color: #ffffff;
-  background-color: #0f1e93;
-  letter-spacing: 0.02rem;
-  border: none;
-  box-sizing: border-box;
-}
-
-/* button selengkapnya */
+/* Button Selengkapnya */
 #button-selengkapnya {
   align-items: center;
   justify-content: center;
-  display: flex;
-  width: 12.5rem;
-  height: 2.5rem;
+  display: inline-flex;
+  width: auto;
+  min-width: 11rem;
+  height: 2.6rem;
   border-radius: 4.8rem;
-  font-size: 1.2rem;
-  font-style: bold;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
   background-color: #181a1c;
   letter-spacing: 0.02rem;
-  gap: 0.8rem;
-  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+  gap: 0.6rem;
+  padding: 0.4rem 1.4rem;
   box-sizing: border-box;
   border: 1px solid #c1c2c4;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#button-selengkapnya:hover {
+  background-color: #ffffff;
+  color: #181a1c;
+  border-color: #ffffff;
 }
 
 #button-selengkapnya img {
@@ -142,88 +125,33 @@ img {
 
 #button-selengkapnya span {
   display: block;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
-.image-category-age {
-  width: 2.5rem;
-  height: auto;
-}
+/* ==========================================
+   4. MEDIA QUERIES (DESKTOP LAYOUT)
+   ========================================== */
+@media (min-width: 768px) {
+  .tranding-day {
+    padding: 2rem 3rem;
+  }
 
-/* image volume setting */
-.volume-setting img {
-  width: 1.7rem;
-  height: auto;
-  border: 1px solid #c1c2c4;
-  border-radius: 1.9rem;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
-}
+  .hero-film {
+    flex-direction: row;     /* Desktop: Berdampingan (Kiri - Kanan) */
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
 
-.volume-setting img:hover {
-  transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.12);
-}
+  /* Video mengambil ~55% lebar container (Sekitar setengah layar) */
+  .hero-film iframe {
+    width: 55%;
+    max-width: 650px;
+  }
 
-/* footer */
-footer {
-  width: 100vw;
-  height: auto;
-  border-top: 1px solid #e7e3fc3b;
-  color: #ffffff;
-  padding: 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.genre-list,
-.bantuan-list {
-  display: none;
-}
-/* hak cipta */
-.hak-cipta {
-  flex-direction: column;
-  width: 100vw;
-  height: auto;
-  display: flex;
-  gap: 0.8rem;
-}
-
-.hak-cipta img {
-  width: 8.4rem;
-  height: auto;
-}
-
-.hak-cipta p {
-  font-size: 1rem;
-  line-height: 120%;
-  color: #c1c2c4;
-}
-
-/* option genre */
-.genre {
-  display: flex;
-  font-size: 1.2rem;
-  width: 90vw;
-  height: auto;
-  justify-content: space-between;
-}
-
-.genre img {
-  width: auto;
-  height: 1.4rem;
-}
-/* option bantuan */
-.bantuan {
-  display: flex;
-  font-size: 1.2rem;
-  width: 90vw;
-  height: auto;
-  justify-content: space-between;
-}
-
-.bantuan img {
-  width: auto;
-  height: 1.4rem;
+  /* Deskripsi mengambil sisanya di sebelah kanan */
+  .hero-descripti {
+    width: 40%;
+    margin-left: 0;
+  }
 }

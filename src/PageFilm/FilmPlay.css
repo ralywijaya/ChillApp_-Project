@@ -5,48 +5,403 @@
   justify-content: center;
   align-items: center;
 }
+/* =========================================================
+   FILM DETAIL
+   Bagian atas halaman detail film
+   ========================================================= */
 
 .film-play {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: #22282a;
-  padding: 2rem;
+
+  background: linear-gradient(
+    145deg,
+    #252b2d 0%,
+    #22282a 100%
+  );
+
+  padding: 2.4rem;
+
   border-radius: 2rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 1rem 3rem rgba(0, 0, 0, 0.22);
+
+  box-sizing: border-box;
+
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
   -ms-border-radius: 2rem;
   -o-border-radius: 2rem;
 }
 
-.movie-page-video iframe {
-  border-radius: 0.5rem;
-  height: 30rem;
+
+/* =========================================================
+   JUDUL FILM
+   h2 pertama di dalam film-play
+   ========================================================= */
+
+.film-play > h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 2rem !important;
+
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   STATUS FILM
+   ========================================================= */
+
+.film-play > p {
+  margin: -1rem 0 0;
+
+  color: #9da4a6;
+
+  font-size: 1.2rem !important;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+.movie-page-video {
   width: 100%;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
+
+  overflow: hidden;
+
+  border-radius: 1rem;
+
+  background-color: #171b1d;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+
+  box-sizing: border-box;
 }
-.deskripsi-film-page p {
-  font-size: 1.4rem;
+
+
+.movie-page-video iframe {
+  display: block;
+
+  width: 100%;
+
+  height: 30rem;
+
+  border: none;
+
+  border-radius: 1rem;
+
+  background-color: #171b1d;
+
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
+
+
+/* =========================================================
+   RATING
+   ========================================================= */
 
 .rating-film-page {
   display: flex;
-  padding: 0.5rem;
-  gap: 1rem;
+
+  align-items: center;
+
+  gap: 1.2rem;
+
+  padding: 0.5rem 0;
+
+  min-height: 3rem;
 }
-.genre-film-page {
+
+
+.rating-star {
   display: flex;
-  gap: 2rem;
+
+  align-items: center;
+
+  gap: 0.15rem;
 }
+
+
+.rating-star span {
+  font-size: 1.5rem;
+
+  line-height: 1;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+.rating-star span:hover {
+  transform: scale(1.1);
+
+  filter: brightness(1.15);
+}
+
+
+.rating-number {
+  display: flex;
+
+  align-items: center;
+}
+
+
+.rating-number p {
+  margin: 0;
+
+  color: #d7dbdc;
+
+  font-size: 1.2rem !important;
+
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   DURASI
+   ========================================================= */
+
+/*
+  Elemen durasi adalah div setelah rating-film-page.
+  Tidak mengubah struktur HTML.
+*/
+
+.rating-film-page + div {
+  display: flex;
+
+  align-items: center;
+
+  min-height: 2rem;
+}
+
+
+.rating-film-page + div p {
+  margin: 0;
+
+  color: #a6adaf;
+
+  font-size: 1.2rem !important;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   DETAIL FILM
+   ========================================================= */
 
 .detail-film-page {
   display: flex;
+
   flex-direction: column;
-  gap: 2rem;
+
+  gap: 1.8rem;
+
   justify-content: center;
-  border-top: 3px solid #fff;
-  padding-top: 1rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding-top: 1.8rem;
+}
+
+
+/* =========================================================
+   DESKRIPSI
+   ========================================================= */
+
+.deskripsi-film-page {
+  max-width: 90rem;
+}
+
+
+.deskripsi-film-page p {
+  margin: 0;
+
+  color: #c3c8c9;
+
+  font-size: 1.4rem;
+
+  line-height: 1.75;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   GENRE
+   ========================================================= */
+
+.genre-film-page {
+  display: flex;
+
+  gap: 0.8rem;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+
+
+.genre-film-page a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 3rem;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 2rem;
+
+  background-color: rgba(50, 84, 255, 0.1);
+
+  border: 1px solid rgba(50, 84, 255, 0.35);
+
+  color: #7189ff;
+
+  font-size: 1.2rem !important;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.genre-film-page a:hover {
+  background-color: rgba(50, 84, 255, 0.2);
+
+  border-color: rgba(50, 84, 255, 0.65);
+
+  color: #9aacff;
+
+  transform: translateY(-0.1rem);
+}
+
+
+/* =========================================================
+   KATEGORI / UMUR
+   ========================================================= */
+
+.umur-film-page {
+  display: flex;
+
+  align-items: center;
+}
+
+
+.umur-film-page p {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 3.2rem;
+
+  min-height: 2.6rem;
+
+  margin: 0;
+
+  padding: 0.3rem 0.8rem;
+
+  border-radius: 0.5rem;
+
+  background-color: #343a3c;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #e3e6e7;
+
+  font-size: 1rem !important;
+
+  font-weight: 600;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PRODUCTION
+   ========================================================= */
+
+/*
+  div terakhir di dalam detail-film-page
+*/
+
+.detail-film-page > div:last-child {
+  padding-top: 0.2rem;
+}
+
+
+.detail-film-page > div:last-child p {
+  margin: 0;
+
+  color: #8f9799;
+
+  font-size: 1.2rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TEKS TRAILER TIDAK TERSEDIA
+   ========================================================= */
+
+.movie-page-video > p {
+  margin: 0;
+
+  padding: 3rem;
+
+  color: #8f9799;
+
+  font-size: 1.2rem !important;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   FOCUS / ACCESSIBILITY
+   ========================================================= */
+
+.genre-film-page a:focus-visible {
+  outline: 2px solid #6f88ff;
+
+  outline-offset: 3px;
 }

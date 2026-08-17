@@ -12,7 +12,7 @@ import {
 import { GetDaftarSayaTMDB } from "../CostomHook/CostomHook.daftarsaya";
 import { useEffect } from "react";
 
-export default function SectionTopRating({ subJudul }) {
+export default function SectionTopRating() {
   const { GenreFilm } = useSelector((state) => state.DaftarFilm);
   const { GenreSerial } = useSelector((state) => state.DaftarSerial);
   const { DaftarSayaTMDB, loading, eror, DaftarVersion } = useSelector(
@@ -62,7 +62,7 @@ export default function SectionTopRating({ subJudul }) {
 
   return (
     <section className="section-film">
-      <h2>{subJudul}</h2>
+      <h2>Daftar Saya</h2>
       <div ref={scrollref} className="card-film">
         {DaftarSayaTMDB?.map((i) => (
           <div className="box-film" key={i.id}>

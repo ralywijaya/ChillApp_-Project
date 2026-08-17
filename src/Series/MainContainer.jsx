@@ -47,10 +47,10 @@ export default function MainContainer() {
       {/* <SectionMelanjutkan subJudul={"Melanjutkan Tonton Film"} /> */}
       <SectionSerialTopRating
         GenreFilm={GenreSerial}
-        subJudul="Top Rating Film dan Series Hari ini"
+        subJudul="Top Rating  Series "
       />
       <SectionSerialRilis GenreFilm={GenreSerial} subJudul="Rilis Baru" />
-      <SectionSerialTranding GenreFilm={GenreSerial} subJudul="Film Trending" />
+      <SectionSerialTranding GenreFilm={GenreSerial} subJudul="Series Trending" />
     </main>
   );
 }

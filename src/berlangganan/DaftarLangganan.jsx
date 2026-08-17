@@ -10,7 +10,7 @@ import "./Berlangganan.css";
 import { useState } from "react";
 import { UbahPaket } from "../CostomHook/CostomHook";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 export default function DaftarLangganan() {
   const dispatch = useDispatch();
   const { paket } = useParams();
@@ -18,7 +18,7 @@ export default function DaftarLangganan() {
 
   const [Loading, setLoading] = useState(false);
   const [Eror, setEror] = useState("");
-
+const Navigate=useNavigate()
   if (!token || typeof token !== "string") {
     return <ProfilBelumLogin />;
   }
@@ -31,8 +31,9 @@ export default function DaftarLangganan() {
         const data = await UbahPaket({ user_paket: paket });
         console.log("data paket", data);
         dispatch(UbahPaketUser(data.data));
-        alert("selamat paket anda berhasil diaktifkan ");
-
+        alert("selamat paket anda berhasil diaktifkan,tolong lakukan login ulang ");
+           localStorage.removeItem("token");
+Navigate('/Masuk')
         console.log("daftar saya tmdb:", data);
       } catch (err) {
         console.log("ERROR:", err);
