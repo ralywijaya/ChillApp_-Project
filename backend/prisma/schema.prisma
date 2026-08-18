@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model akun {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  email     String   @unique(map: "email") @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @default(now()) @db.DateTime(0)
+}
+
+model daftar_saya {
+  id_daftar     Int       @id @default(autoincrement())
+  id_user       Int
+  tmdb_movie_id Int?
+  tmdb_tv_id    Int?
+  type_media    String?   @db.VarChar(10)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  users         users     @relation(fields: [id_user], references: [id_user], onDelete: Cascade, map: "fk_daftar_user")
+
+  @@index([id_user], map: "fk_daftar_user")
+}
+
+model genre {
+  id_genre                Int                       @id @default(autoincrement())
+  kategori_genre          String                    @db.VarChar(100)
+  penghubung_genre_movie  penghubung_genre_movie[]
+  penghubung_genre_series penghubung_genre_series[]
+}
+
+model movie {
+  id_movie               Int                      @id @default(autoincrement())
+  nama_movie             String                   @db.VarChar(150)
+  kategori_umur          String                   @db.VarChar(10)
+  deskripsi_movie        String                   @db.Text
+  genre                  String?                  @db.VarChar(255)
+  penghubung_genre_movie penghubung_genre_movie[]
+}
+
+model orders {
+  id_order   Int          @id @default(autoincrement())
+  id_user    Int?
+  id_paket   Int?
+  tgl_order  DateTime?    @db.Date
+  paket      paket?       @relation(fields: [id_paket], references: [paket_id], onUpdate: NoAction, map: "fk_order_paket")
+  users      users?       @relation(fields: [id_user], references: [id_user], onUpdate: NoAction, map: "fk_order_user")
+  pembayaran pembayaran[]
+
+  @@index([id_paket], map: "fk_order_paket")
+  @@index([id_user], map: "fk_order_user")
+}
+
+model paket {
+  paket_id   Int      @id @default(autoincrement())
+  nama_paket String   @db.VarChar(40)
+  orders     orders[]
+}
+
+model pembayaran {
+  id_pembayaran    Int       @id @default(autoincrement())
+  jenis_pembayaran String?   @db.VarChar(50)
+  status           Boolean?
+  id_order         Int?
+  tgl_pembayaran   DateTime? @db.Date
+  orders           orders?   @relation(fields: [id_order], references: [id_order], onDelete: Cascade, onUpdate: NoAction, map: "fk_pembayaran_order")
+
+  @@index([id_order], map: "fk_pembayaran_order")
+}
+
+model penghubung_genre_movie {
+  id_genre Int
+  id_movie Int
+  genre    genre @relation(fields: [id_genre], references: [id_genre], onDelete: Cascade, onUpdate: NoAction, map: "fk_pgm_genre")
+  movie    movie @relation(fields: [id_movie], references: [id_movie], onDelete: Cascade, onUpdate: NoAction, map: "fk_pgm_movie")
+
+  @@id([id_genre, id_movie])
+  @@index([id_movie], map: "fk_pgm_movie")
+}
+
+model penghubung_genre_series {
+  id_genre  Int
+  id_series Int
+  genre     genre  @relation(fields: [id_genre], references: [id_genre], onDelete: Cascade, onUpdate: NoAction, map: "fk_pgs_genre")
+  series    series @relation(fields: [id_series], references: [id_series], onDelete: Cascade, onUpdate: NoAction, map: "fk_pgs_series")
+
+  @@id([id_genre, id_series])
+  @@index([id_series], map: "fk_pgs_series")
+}
+
+model sequelizemeta {
+  name String @id @unique(map: "name") @db.VarChar(255)
+}
+
+model series {
+  id_series               Int                       @id @default(autoincrement())
+  nama_series             String                    @db.VarChar(150)
+  kategori_umur           String                    @db.VarChar(10)
+  deskripsi_series        String                    @db.Text
+  jumlah_episode          Int                       @db.SmallInt
+  penghubung_genre_series penghubung_genre_series[]
+}
+
+model users {
+  id_user       Int           @id @default(autoincrement())
+  user_nama     String        @unique(map: "user_nama") @db.VarChar(150)
+  user_password String?       @db.VarChar(255)
+  user_email    String?       @unique(map: "user_email") @db.VarChar(100)
+  foto_profil   String?       @db.VarChar(255)
+  paket         String        @default("FREE") @db.VarChar(20)
+  daftar_saya   daftar_saya[]
+  orders        orders[]
+}
