@@ -9,7 +9,7 @@ export default function Button({ Handleclick }) {
 
       const result = await PostUserEmail({ token: googleToken });
 
-      console.log(result);
+      // console.log(result);
 
       // JWT dari backend
       const token = result.token;
@@ -35,7 +35,7 @@ export default function Button({ Handleclick }) {
       <GoogleLogin
         onSuccess={handleGoogleLogin}
         onError={() => {
-          console.log("Google Login gagal");
+          // console.log("Google Login gagal");
         }}
       />
     </div>

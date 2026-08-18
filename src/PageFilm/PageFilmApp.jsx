@@ -27,7 +27,7 @@ export default function PageFilmApp() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-  console.log("Genre film:", GenreFilm);
+  // console.log("Genre film:", GenreFilm);
   useEffect(() => {
     const IDMovie = async () => {
       dispatch(LoadingFilm(true));
@@ -66,7 +66,7 @@ export default function PageFilmApp() {
   //     return genre?.name
   //   })
 
-  console.log("Genre film:", MovieID);
+  // console.log("Genre film:", MovieID);
   if (loading) {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
   }

@@ -27,7 +27,7 @@ export default function SectionHero() {
         dispatch(AmbilTrandingDay(data));
       } catch (err) {
         dispatch(errorFilm(err.message));
-        console.log(err.message);
+        // console.log(err.message);
       } finally {
         dispatch(LoadingFilm(false));
       }

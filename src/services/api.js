@@ -8,9 +8,9 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-    console.log("REQUEST URL:", config.url);
-    console.log("REQUEST METHOD:", config.method);
-    console.log("REQUEST DATA:", config.data);
+    // console.log("REQUEST URL:", config.url);
+    // console.log("REQUEST METHOD:", config.method);
+    // console.log("REQUEST DATA:", config.data);
     if (!token) {
       return config;
     }
@@ -18,13 +18,13 @@ api.interceptors.request.use(
     try {
       const decoded = jwtDecode(token);
 
-      console.log("Token:", decoded);
+      // console.log("Token:", decoded);
 
       // exp menggunakan satuan detik
       const sekarang = Date.now() / 1000;
 
       if (decoded.exp && decoded.exp < sekarang) {
-        console.log("Token sudah expired");
+        // console.log("Token sudah expired");
 
         localStorage.removeItem("token");
 
@@ -35,7 +35,7 @@ api.interceptors.request.use(
 
       return config;
     } catch (error) {
-      console.log("Token tidak valid");
+      // console.log("Token tidak valid");
 
       localStorage.removeItem("token");
 
@@ -53,7 +53,7 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      console.log("Server menolak token");
+      // console.log("Server menolak token");
 
       localStorage.removeItem("token");
     }

@@ -4,7 +4,6 @@ import imgKeluar from "../assets/beranda/keluar.png";
 import imgListbar from "../assets/beranda/listbar.png"
 import { useEffect } from "react";
 import logo from "../assets/beranda/Logo.png";
-import LogoProfil from "../assets/beranda/Avatar (1).png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GetSearch } from "../CostomHook/CostomHook.user";
@@ -27,7 +26,7 @@ export default function Header() {
 
     return () => clearTimeout(timer);
   }, [query]);
-  console.log("ini adalah judul", judul);
+  // console.log("ini adalah judul", judul);
 
   if (eror) {
     return <h1 style={{ textAlign: "center" }}>{eror}</h1>;

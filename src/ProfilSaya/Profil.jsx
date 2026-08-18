@@ -58,9 +58,9 @@ const [ErrorNama, setErrorNama] = useState("");
     if (url) {
       try {
         // Kirim string 'Nama' ke API
-        const data = await FotoProfil({ foto_profil: url });
+        await FotoProfil({ foto_profil: url });
 
-        alert(data.message);
+        alert("Foto profil berhasil diubah.");
 
         // Hapus token lama & arahkan login
       } catch (error) {
@@ -91,11 +91,11 @@ const [ErrorNama, setErrorNama] = useState("");
       setErrorNama("");
       setErrorBE("");
 
-      const data = await UbahUser({
+      await UbahUser({
         user_nama: Nama,
       });
 
-      console.log(data);
+      // console.log(data);
 
       alert("Nama berhasil diubah. Silakan login kembali dengan nama baru.");
 
@@ -117,8 +117,8 @@ const [ErrorNama, setErrorNama] = useState("");
     if (setuju) {
       try {
         // Kirim string 'Nama' ke API
-        const data = await DeleteUser();
-        console.log(data);
+        await DeleteUser();
+        // console.log(data);
 
         alert("Nama berhasil diubah. Silakan login kembali dengan nama baru.");
 
@@ -134,9 +134,9 @@ const [ErrorNama, setErrorNama] = useState("");
     try {
       const googleToken = response.credential;
 
-      const result = await TambahEmail({ token: googleToken });
+      await TambahEmail({ token: googleToken });
 
-      console.log(result);
+      // console.log(result);
 
       // JWT dari backend
 
@@ -258,7 +258,7 @@ const [ErrorNama, setErrorNama] = useState("");
             <GoogleLogin
               onSuccess={handleGoogleLogin}
               onError={() => {
-                console.log("Google Login gagal");
+                // console.log("Google Login gagal");
               }}
             />
           )}

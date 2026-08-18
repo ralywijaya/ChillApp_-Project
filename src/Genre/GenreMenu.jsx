@@ -33,7 +33,7 @@ export default function Genremenu() {
 
     MoviePopuler();
   }, [id]);
-  console.log("ini genre movie", Movie);
+  // console.log("ini genre movie", Movie);
   if (loading) {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
   }

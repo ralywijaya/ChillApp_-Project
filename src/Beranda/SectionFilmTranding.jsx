@@ -27,7 +27,7 @@ export default function SectionFilmTranding({ subJudul, GenreFilm }) {
         dispatch(AmbilPopulerMovie(data));
       } catch (err) {
         dispatch(errorFilm(err.message));
-        console.log(err.message);
+        // console.log(err.message);
       } finally {
         dispatch(LoadingFilm(false));
       }

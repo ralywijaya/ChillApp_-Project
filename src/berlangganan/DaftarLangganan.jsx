@@ -29,15 +29,15 @@ const Navigate=useNavigate()
 
       try {
         const data = await UbahPaket({ user_paket: paket });
-        console.log("data paket", data);
+        // console.log("data paket", data);
         dispatch(UbahPaketUser(data.data));
         alert("selamat paket anda berhasil diaktifkan,tolong lakukan login ulang ");
            localStorage.removeItem("token");
 Navigate('/Masuk')
-        console.log("daftar saya tmdb:", data);
+        // console.log("daftar saya tmdb:", data);
       } catch (err) {
-        console.log("ERROR:", err);
-        console.log("RESPONSE:", err.response?.data);
+        // console.log("ERROR:", err);
+        // console.log("RESPONSE:", err.response?.data);
 
         setEror(err.message);
       } finally {

@@ -37,7 +37,7 @@ export default function CardMasuk() {
         user_nama: Nama,
         user_password: Password,
       });
-      console.log("ini adalah data:", data);
+      // console.log("ini adalah data:", data);
       Navigate("/");
       localStorage.setItem("token", data.token);
     } catch (error) {

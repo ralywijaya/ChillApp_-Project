@@ -15,14 +15,14 @@ export default function PageFilm({
 }) {
   const [isEdit, setisEdit] = useState(false);
   const [filmAktif, setFilmAktif] = useState(null);
-  console.log("Genre serial", Genre);
+  // console.log("Genre serial", Genre);
 
   //   const [isEdit,setisEdit]=useState(false)
   // const [filmAktif, setFilmAktif] = useState(null);
 
   //    const [isEdit,setisEdit]=useState(false)
   //     const [filmAktif, setFilmAktif] = useState(null);
-  console.log(`serial :${Serial}`);
+  // console.log(`serial :${Serial}`);
 
   if (!Serial) {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;

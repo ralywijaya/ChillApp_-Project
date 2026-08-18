@@ -16,14 +16,14 @@ export default function PageFilm({
 }) {
   const [isEdit, setisEdit] = useState(false);
   const [filmAktif, setFilmAktif] = useState(null);
-  console.log("Genre movie", GenreFilm);
+  // console.log("Genre movie", GenreFilm);
 
   //   const [isEdit,setisEdit]=useState(false)
   // const [filmAktif, setFilmAktif] = useState(null);
 
   //    const [isEdit,setisEdit]=useState(false)
   //     const [filmAktif, setFilmAktif] = useState(null);
-  console.log(`movie :${Movie}`);
+  // console.log(`movie :${Movie}`);
 
   if (!Movie) {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;

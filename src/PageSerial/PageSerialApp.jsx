@@ -27,7 +27,7 @@ export default function PageFilmApp() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-  console.log("Genre serial:", GenreSerial);
+  // console.log("Genre serial:", GenreSerial);
   useEffect(() => {
     const IDMovie = async () => {
       dispatch(LoadingSerial(true));
@@ -66,8 +66,8 @@ export default function PageFilmApp() {
   //     return genre?.name
   //   })
 
-  console.log("similar serial", SerialSimiliar);
-  console.log("Genre serial:", SerialID);
+  // console.log("similar serial", SerialSimiliar);
+  // console.log("Genre serial:", SerialID);
   if (loading) {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
   }

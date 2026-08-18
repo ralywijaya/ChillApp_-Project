@@ -32,9 +32,9 @@ export default function MainContainer() {
         dispatch(AmbilGenreSerial(dataserial));
         if (token) {
           const DataDaftarSaya = await GetDaftarSaya();
-          console.log("ini data daftar saya", DataDaftarSaya);
+          // console.log("ini data daftar saya", DataDaftarSaya);
           dispatch(AmbilDaftarSaya(DataDaftarSaya));
-          console.log(DataDaftarSaya);
+          // console.log(DataDaftarSaya);
         }
 
         console.table("data daftar saya", data);
@@ -48,7 +48,7 @@ export default function MainContainer() {
     MoviePopuler();
   }, [dispatch, DaftarVersion]);
 
-  console.log("ini daftar vesrion ", DaftarVersion);
+  // console.log("ini daftar vesrion ", DaftarVersion);
   if (eror) {
     return <h1 style={{ textAlign: "center" }}>{eror}</h1>;
   }

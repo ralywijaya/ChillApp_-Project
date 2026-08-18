@@ -23,9 +23,9 @@ export default function MainContainer() {
       try {
         if (token) {
           const DataDaftarSaya = await GetDaftarSaya();
-          console.log("ini data daftar saya", DataDaftarSaya);
+          // console.log("ini data daftar saya", DataDaftarSaya);
           dispatch(AmbilDaftarSaya(DataDaftarSaya));
-          console.log(DataDaftarSaya);
+          // console.log(DataDaftarSaya);
         }
       } catch (err) {
         dispatch(errorSerial(err.message));

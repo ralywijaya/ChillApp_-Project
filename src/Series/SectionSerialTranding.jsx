@@ -14,10 +14,6 @@ import {
 } from "../SliceRedux/sliceSerial";
 
 export default function SectionSerialTranding({ subJudul, GenreFilm }) {
-  const dataRedux = useSelector((state) => state);
-
-  console.log(dataRedux);
-
   const { SerialPopuler, loading, eror } = useSelector(
     (state) => state.DaftarSerial
   );

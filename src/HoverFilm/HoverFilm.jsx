@@ -50,7 +50,7 @@ function HoverFilm({ setisEdit, i, GenreFilm, Judul }) {
 
   //   },[dispatch]);
 
-  console.log("daftar saya hover", DaftarSaya);
+  // console.log("daftar saya hover", DaftarSaya);
   const type = i.media_type || i.type_media;
 
   const sudahAda = Array.isArray(DaftarSaya)
@@ -85,7 +85,7 @@ function HoverFilm({ setisEdit, i, GenreFilm, Judul }) {
             type: i.media_type || i.type_media,
           });
 
-          console.log("Berhasil menyimpan:", response);
+          // console.log("Berhasil menyimpan:", response);
           alert(response.message || "Film berhasil disimpan");
           dispatch(AmbilDaftarSaya(response));
           dispatch(AmbilDaftarVersion());
@@ -98,7 +98,7 @@ function HoverFilm({ setisEdit, i, GenreFilm, Judul }) {
           });
 
           dispatch(AmbilDaftarVersion());
-          console.log("Berhasil menghapus:", response);
+          // console.log("Berhasil menghapus:", response);
           alert(response.message || "Film berhasil dihapus");
         }
         const DataDaftarSaya = await GetDaftarSaya();
@@ -111,8 +111,8 @@ function HoverFilm({ setisEdit, i, GenreFilm, Judul }) {
         // const data = await GetDaftarSaya();
 
         // dispatch(AmbilDaftarSaya(data.results));
-      } catch (error) {
-        console.log("ERROR:", error.response?.data || error.message);
+      } catch {
+        // console.log("ERROR:", error.response?.data || error.message);
 
         setErrorDaftar("Gagal mengubah Daftar Saya");
       } finally {

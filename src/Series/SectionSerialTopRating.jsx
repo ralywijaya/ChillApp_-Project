@@ -14,10 +14,6 @@ import {
 } from "../SliceRedux/sliceSerial";
 
 export default function SectionSerialTopRating({ subJudul, GenreFilm }) {
-  const dataRedux = useSelector((state) => state);
-
-  console.log(dataRedux);
-
   const { SerialTopRating, loading, eror } = useSelector(
     (state) => state.DaftarSerial
   );
@@ -39,7 +35,7 @@ export default function SectionSerialTopRating({ subJudul, GenreFilm }) {
     SerialTopRating();
   }, []);
 
-  console.log("data section top rating", SerialTopRating);
+  // console.log("data section top rating", SerialTopRating);
   //   const [isEdit,setisEdit]=useState(false)
   // const [filmAktif, setFilmAktif] = useState(null);
 

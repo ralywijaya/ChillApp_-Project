@@ -44,8 +44,8 @@ export default function CardRegister() {
     };
 
     try {
-      const data = await PostUser(DataRegister);
-      console.log(data);
+      await PostUser(DataRegister);
+      // console.log(data);
       Navigate("/masuk");
     } catch (error) {
       setErrorBE(error.response?.data?.message);

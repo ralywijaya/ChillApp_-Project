@@ -34,7 +34,7 @@ export default function SectionTopRating() {
 
         dispatch(AmbilDaftarSayaTMDB(data));
 
-        console.log("daftar saya tmdb:", data);
+        // console.log("daftar saya tmdb:", data);
       } catch (err) {
         dispatch(ErrorDaftarSaya(err.message));
       } finally {
