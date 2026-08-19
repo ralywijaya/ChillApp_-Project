@@ -22,32 +22,37 @@ export default function MainContainer() {
   const { DaftarVersion } = useSelector((state) => state.Akun);
   const dispatch = useDispatch();
   useEffect(() => {
-    const MoviePopuler = async () => {
-      dispatch(LoadingFilm(true));
+  const MoviePopuler = async () => {
+    dispatch(LoadingFilm(true));
 
-      try {
-        const data = await GetGenre();
-        dispatch(AmbilGenreMovie(data));
-        const dataserial = await GetGenreSerial();
-        dispatch(AmbilGenreSerial(dataserial));
-        if (token) {
+    try {
+      const data = await GetGenre();
+      dispatch(AmbilGenreMovie(data));
+
+      const dataserial = await GetGenreSerial();
+      dispatch(AmbilGenreSerial(dataserial));
+
+      if (token) {
+        try {
           const DataDaftarSaya = await GetDaftarSaya();
-          // console.log("ini data daftar saya", DataDaftarSaya);
           dispatch(AmbilDaftarSaya(DataDaftarSaya));
-          // console.log(DataDaftarSaya);
+        } catch (err) {
+          console.log("Error Daftar Saya:", err);
+
+          if (err.response?.status === 401) {
+            localStorage.removeItem("token");
+          }
         }
-
-        console.table("data daftar saya", data);
-      } catch (err) {
-        dispatch(errorFilm(err.message));
-      } finally {
-        dispatch(LoadingFilm(false));
       }
-    };
+    } catch (err) {
+      dispatch(errorFilm(err.message));
+    } finally {
+      dispatch(LoadingFilm(false));
+    }
+  };
 
-    MoviePopuler();
-  }, [dispatch, DaftarVersion]);
-
+  MoviePopuler();
+}, [dispatch, DaftarVersion, token]);
   // console.log("ini daftar vesrion ", DaftarVersion);
   if (eror) {
     return <h1 style={{ textAlign: "center" }}>{eror}</h1>;

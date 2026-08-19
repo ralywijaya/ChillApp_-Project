@@ -11,8 +11,8 @@ const movieRoute = require('../routes/movie.route');
 const AunthLoginRoute = require('../routes/LoginAuth.route');
 const middlewareLogin = require('../middlewares/AunthLogin.middleware');
 const app = express();
-const port = 3000;
-
+// const port = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 app.use("/daftarsaya", DaftarSayaRoute);
@@ -24,8 +24,14 @@ app.use('/aunth/login', AunthLoginRoute);
 app.use('/lupa/password', LupaPasswordRoute);
 app.use('/ganti/password', GantiPasswordRoute);
 app.use('/login/google', LoginGoogleRoute);
-app.listen(port, () => {
-  // console.log(`Server berjalan di port ${port}`);
+// app.listen(port, () => {
+//   // console.log(`Server berjalan di port ${port}`);
+// });
+
+
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server berjalan di port ${PORT}`);
 });
 
 // untuk demo pastikan menggunakan url ini
