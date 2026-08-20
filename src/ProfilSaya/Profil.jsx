@@ -31,11 +31,13 @@ export default function ProfilBerlangganan() {
 
   const decoded = token ? jwtDecode(token) : null;
 
-  const [Foto, setFoto] = useState(
-    decoded.foto_profil ? decoded.foto_profil : foto
-  );
+ const [Foto, setFoto] = useState(
+  decoded?.foto_profil || foto
+);
 
-  const [Nama, setNama] = useState(decoded.user_nama);
+  const [Nama, setNama] = useState(
+  decoded?.user_nama || ""
+);
 
   const [Ubah, setUbah] = useState(false);
   const [ErrorBE, setErrorBE] = useState("");

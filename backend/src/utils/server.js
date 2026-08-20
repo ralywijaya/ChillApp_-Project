@@ -12,9 +12,10 @@ const AunthLoginRoute = require('../routes/LoginAuth.route');
 const middlewareLogin = require('../middlewares/AunthLogin.middleware');
 const app = express();
 // const port = 3000;
-const PORT = process.env.PORT || 3000;
-app.use(express.json());
 app.use(cors());
+const PORT = process.env.DB_POR || 3000;
+app.use(express.json());
+
 app.use("/daftarsaya", DaftarSayaRoute);
 app.use('/movieTMDB', movieTMDBRoute);
 app.use('/serialTMDB', serialTMDBRoute);
