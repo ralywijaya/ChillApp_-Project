@@ -11,7 +11,7 @@ import {
   errorSerial,
   AmbilTerbaruSerial,
   LoadingSerial,
-} from "../SliceRedux/SliceSerial";
+} from "../SliceRedux/sliceSerial";
 
 export default function SectionSerialRilis({ subJudul, GenreFilm }) {
   const { SerialTerbaru, loading, eror } = useSelector(

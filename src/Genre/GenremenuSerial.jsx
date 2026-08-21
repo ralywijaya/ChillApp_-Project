@@ -1,9 +1,8 @@
 import "./Genre.css";
 import HoverFilm from "../HoverFilm/HoverFilm";
-import { useDispatch } from "react-redux";
-import { GetIDGenreSerial } from "../CostomHook/CostomHook.Serial";
+import { GetIDGenreSerial } from "../CostomHook/CostomHook.serial";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { LoadingSerial, errorSerial } from "../SliceRedux/sliceSerial";
 

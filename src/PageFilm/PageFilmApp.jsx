@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import PageFilm from "./PageFilm";
-import("./FilmPlay.css");
+
 import { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
