@@ -52,17 +52,21 @@ const GoogleLogin = async (req, res) => {
       });
     }
 
-     await sendEmail(
-      email,
-      "Login berhasil",
-      `Halo ${name},
+ try {
+  await sendEmail(
+    email,
+    "Login berhasil",
+    `Halo ${name},
 
 Kamu berhasil login menggunakan akun Google.
 
 Email: ${email}
 
 Selamat datang di aplikasi kami.`
-    );
+  );
+} catch (emailError) {
+  console.error("Email notifikasi gagal dikirim:", emailError.message);
+}
 
     // Buat JWT milik aplikasi kamu
     const jwtToken = jwt.sign(
